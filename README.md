@@ -89,14 +89,38 @@ class ModalDialog extends Component {
   </thead>
   <tbody>
     <tr>
+      <td>size</td>
+      <td>String</td>
+      <td>'xs'</td>
+      <td>'xs', 'sm', 'md', or 'lg'</td>
+    </tr>
+    <tr>
+      <td>show</td>
+      <td>Boolean</td>
+      <td>true</td>
       <td></td>
+    </tr>
+    <tr>
+      <td>backdrop</td>
+      <td>String|Boolean</td>
+      <td>'static'</td>
+      <td>'static', true, or false</td>
+    </tr>
+    <tr>
+      <td>closeButton</td>
+      <td>Boolean</td>
+      <td>true</td>
       <td></td>
+    </tr>
+    <tr>
+      <td>onOpen</td>
+      <td>Function</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
+      <td>onClose</td>
+      <td>Function</td>
       <td></td>
       <td></td>
     </tr>
