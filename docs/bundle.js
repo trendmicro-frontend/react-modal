@@ -22973,9 +22973,7 @@
 	                    size: size,
 	                    backdrop: true,
 	                    closeButton: true,
-	                    onClose: function onClose() {
-	                        actions.closeModal();
-	                    }
+	                    onClose: actions.closeModal
 	                },
 	                title && _react2.default.createElement(
 	                    _src2.default.Header,
