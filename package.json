@@ -47,7 +47,6 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "react-addons-shallow-compare": "^0.14.0 || ^15.0.0",
     "react-modal": "^1.6.3"
   },
   "devDependencies": {
