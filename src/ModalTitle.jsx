@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styles from './index.styl';
 
-class ModalTitle extends Component {
-    render() {
-        return (
-            <div
-                {...this.props}
-                className={styles.modalTitle}
-            />
-        );
-    }
-}
+const ModalTitle = (props) => {
+    return (
+        <div
+            {...props}
+            className={styles.modalTitle}
+        />
+    );
+};
 
 export default ModalTitle;
