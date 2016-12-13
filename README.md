@@ -45,9 +45,7 @@ class ModalDialog extends Component {
                 size="sm"
                 backdrop
                 closeButton
-                onClose={() => {
-                    actions.closeModal();
-                }}
+                onClose={actions.closeModal}
             >
                 <Modal.Header>
                     <Modal.Title>
