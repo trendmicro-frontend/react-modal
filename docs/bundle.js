@@ -23302,6 +23302,8 @@
 	
 	    return _default;
 	}(_react.Component), _class.propTypes = _extends({}, _ModalOverlay2.default.propTypes, _ModalContent2.default.propTypes, {
+	    // Specify whether to show the modal.
+	    show: _react.PropTypes.bool,
 	    // Pass 'showOverlay' prop with 'true' value to add an overlay to the background, and 'false' otherwise.
 	    showOverlay: _react.PropTypes.bool,
 	    // Specify whether the modal should contain a close button (x).
@@ -23409,7 +23411,7 @@
 	
 	    return ModalOverlay;
 	}(_react.Component), _class.propTypes = {
-	    // True to show a modal.
+	    // Specify whether to show the modal.
 	    show: _react.PropTypes.bool,
 	
 	    // By default the modal is closed when clicking the overlay area. You can pass 'closeOnOverlayClick' prop with 'false' value if you want to prevent this behavior.
