@@ -1,20 +1,20 @@
 import React, { Component, PropTypes } from 'react';
 import ModalOverlay from './ModalOverlay';
-import ModalContainer from './ModalContainer';
+import ModalContent from './ModalContent';
 import styles from './index.styl';
 
 export default class extends Component {
     static propTypes = {
         ...ModalOverlay.propTypes,
-        ...ModalContainer.propTypes,
-        // Whether to show overlay.
+        ...ModalContent.propTypes,
+        // Pass 'showOverlay' prop with 'true' value to add an overlay to the background, and 'false' otherwise.
         showOverlay: PropTypes.bool,
-        // Specify whether the Component should contain a close button.
+        // Specify whether the modal should contain a close button (x).
         showCloseButton: PropTypes.bool
     };
     static defaultProps = {
         ...ModalOverlay.defaultProps,
-        ...ModalContainer.defaultProps,
+        ...ModalContent.defaultProps,
         showOverlay: true,
         showCloseButton: true
     };
@@ -41,10 +41,10 @@ export default class extends Component {
             children,
             // ModalOverlay
             show,
-            backdrop,
+            closeOnOverlayClick,
             onOpen,
             onClose,
-            // ModalContainer
+            // ModalContent
             size,
             // Modal
             showOverlay,
@@ -55,21 +55,25 @@ export default class extends Component {
 
         if (!showOverlay) {
             return (
-                <ModalContainer {...props} size={size}>
+                <ModalContent
+                    {...props}
+                    size={size}
+                    style={{ display: show ? 'block' : 'none' }}
+                >
                     {children}
                     {showCloseButton && this.renderCloseButton()}
-                </ModalContainer>
+                </ModalContent>
             );
         }
 
         return (
             <ModalOverlay
                 show={show}
-                backdrop={backdrop}
+                closeOnOverlayClick={closeOnOverlayClick}
                 onOpen={onOpen}
                 onClose={onClose}
             >
-                <ModalContainer
+                <ModalContent
                     {...props}
                     size={size}
                     style={{ // border and boxShadow properties are specified in ModalOverlay
@@ -79,7 +83,7 @@ export default class extends Component {
                 >
                     {children}
                     {showCloseButton && this.renderCloseButton()}
-                </ModalContainer>
+                </ModalContent>
             </ModalOverlay>
         );
     }

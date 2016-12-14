@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React, { PropTypes } from 'react';
 import styles from './index.styl';
 
-const ModalContainer = (props) => {
+const ModalContent = (props) => {
     const { className, size, ...others } = props;
 
     return (
@@ -10,18 +10,18 @@ const ModalContainer = (props) => {
             {...others}
             className={classNames(
                 className,
-                styles.modal,
+                styles.modalContent,
                 styles[size]
             )}
         />
     );
 };
 
-ModalContainer.propTypes = {
-    // Extra Small: w400 x h240 px (minimum height)
-    // Small:       w544 x h304 px (minimum height)
-    // Medium:      w688 x h304 px (minimum height)
-    // Large:       w928 x h304 px (minimum height)
+ModalContent.propTypes = {
+    // Extra Small: W400 x H240 px (minimum height)
+    // Small:       W544 x H304 px (minimum height)
+    // Medium:      W688 x H304 px (minimum height)
+    // Large:       W928 x H304 px (minimum height)
     size: PropTypes.oneOf([
         'xs',
         'sm',
@@ -34,8 +34,8 @@ ModalContainer.propTypes = {
     ])
 };
 
-ModalContainer.defaultProps = {
+ModalContent.defaultProps = {
     size: 'xs'
 };
 
-export default ModalContainer;
+export default ModalContent;

@@ -23142,9 +23142,9 @@
 	
 	var _ModalOverlay2 = _interopRequireDefault(_ModalOverlay);
 	
-	var _ModalContainer = __webpack_require__(207);
+	var _ModalContent = __webpack_require__(207);
 	
-	var _ModalContainer2 = _interopRequireDefault(_ModalContainer);
+	var _ModalContent2 = _interopRequireDefault(_ModalContent);
 	
 	var _ModalHeader = __webpack_require__(210);
 	
@@ -23165,7 +23165,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	_Modal2.default.Overlay = _ModalOverlay2.default;
-	_Modal2.default.Container = _ModalContainer2.default;
+	_Modal2.default.Content = _ModalContent2.default;
 	_Modal2.default.Header = _ModalHeader2.default;
 	_Modal2.default.Title = _ModalTitle2.default;
 	_Modal2.default.Body = _ModalBody2.default;
@@ -23198,9 +23198,9 @@
 	
 	var _ModalOverlay2 = _interopRequireDefault(_ModalOverlay);
 	
-	var _ModalContainer = __webpack_require__(207);
+	var _ModalContent = __webpack_require__(207);
 	
-	var _ModalContainer2 = _interopRequireDefault(_ModalContainer);
+	var _ModalContent2 = _interopRequireDefault(_ModalContent);
 	
 	var _index = __webpack_require__(208);
 	
@@ -23256,18 +23256,21 @@
 	            var _props = this.props,
 	                children = _props.children,
 	                show = _props.show,
-	                backdrop = _props.backdrop,
+	                closeOnOverlayClick = _props.closeOnOverlayClick,
 	                onOpen = _props.onOpen,
 	                onClose = _props.onClose,
 	                size = _props.size,
 	                showOverlay = _props.showOverlay,
 	                showCloseButton = _props.showCloseButton,
-	                props = _objectWithoutProperties(_props, ['children', 'show', 'backdrop', 'onOpen', 'onClose', 'size', 'showOverlay', 'showCloseButton']);
+	                props = _objectWithoutProperties(_props, ['children', 'show', 'closeOnOverlayClick', 'onOpen', 'onClose', 'size', 'showOverlay', 'showCloseButton']);
 	
 	            if (!showOverlay) {
 	                return _react2.default.createElement(
-	                    _ModalContainer2.default,
-	                    _extends({}, props, { size: size }),
+	                    _ModalContent2.default,
+	                    _extends({}, props, {
+	                        size: size,
+	                        style: { display: show ? 'block' : 'none' }
+	                    }),
 	                    children,
 	                    showCloseButton && this.renderCloseButton()
 	                );
@@ -23277,12 +23280,12 @@
 	                _ModalOverlay2.default,
 	                {
 	                    show: show,
-	                    backdrop: backdrop,
+	                    closeOnOverlayClick: closeOnOverlayClick,
 	                    onOpen: onOpen,
 	                    onClose: onClose
 	                },
 	                _react2.default.createElement(
-	                    _ModalContainer2.default,
+	                    _ModalContent2.default,
 	                    _extends({}, props, {
 	                        size: size,
 	                        style: { // border and boxShadow properties are specified in ModalOverlay
@@ -23298,12 +23301,12 @@
 	    }]);
 	
 	    return _default;
-	}(_react.Component), _class.propTypes = _extends({}, _ModalOverlay2.default.propTypes, _ModalContainer2.default.propTypes, {
-	    // Whether to show overlay.
+	}(_react.Component), _class.propTypes = _extends({}, _ModalOverlay2.default.propTypes, _ModalContent2.default.propTypes, {
+	    // Pass 'showOverlay' prop with 'true' value to add an overlay to the background, and 'false' otherwise.
 	    showOverlay: _react.PropTypes.bool,
-	    // Specify whether the Component should contain a close button.
+	    // Specify whether the modal should contain a close button (x).
 	    showCloseButton: _react.PropTypes.bool
-	}), _class.defaultProps = _extends({}, _ModalOverlay2.default.defaultProps, _ModalContainer2.default.defaultProps, {
+	}), _class.defaultProps = _extends({}, _ModalOverlay2.default.defaultProps, _ModalContent2.default.defaultProps, {
 	    showOverlay: true,
 	    showCloseButton: true
 	}), _temp2);
@@ -23320,8 +23323,6 @@
 	    value: true
 	});
 	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _class, _temp;
@@ -23335,8 +23336,6 @@
 	var _reactModal2 = _interopRequireDefault(_reactModal);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -23386,39 +23385,44 @@
 	        key: 'render',
 	        value: function render() {
 	            var _props = this.props,
+	                children = _props.children,
 	                show = _props.show,
-	                backdrop = _props.backdrop,
+	                closeOnOverlayClick = _props.closeOnOverlayClick,
 	                onOpen = _props.onOpen,
-	                onClose = _props.onClose,
-	                props = _objectWithoutProperties(_props, ['show', 'backdrop', 'onOpen', 'onClose']);
+	                onClose = _props.onClose;
 	
-	            return _react2.default.createElement(_reactModal2.default, _extends({}, props, {
-	                isOpen: show,
-	                onAfterOpen: onOpen,
-	                onRequestClose: onClose,
-	                shouldCloseOnOverlayClick: backdrop === true,
-	                style: customStyles,
-	                contentLabel: 'Modal'
-	            }));
+	
+	            return _react2.default.createElement(
+	                _reactModal2.default,
+	                {
+	                    isOpen: show,
+	                    onAfterOpen: onOpen,
+	                    onRequestClose: onClose,
+	                    shouldCloseOnOverlayClick: closeOnOverlayClick,
+	                    style: customStyles,
+	                    contentLabel: 'Modal'
+	                },
+	                children
+	            );
 	        }
 	    }]);
 	
 	    return ModalOverlay;
 	}(_react.Component), _class.propTypes = {
-	    // When 'true' the modal will show itself.
+	    // True to show a modal.
 	    show: _react.PropTypes.bool,
 	
-	    // Specify 'static' for a backdrop that doesn't trigger an "onClose" when clicked.
-	    backdrop: _react.PropTypes.oneOf(['static', true, false]),
+	    // By default the modal is closed when clicking the overlay area. You can pass 'closeOnOverlayClick' prop with 'false' value if you want to prevent this behavior.
+	    closeOnOverlayClick: _react.PropTypes.bool,
 	
 	    // A callback fired after opening a modal.
 	    onOpen: _react.PropTypes.func,
 	
-	    // A callback fired when the header closeButton or non-static backdrop is clicked.
+	    // A callback fired when clicking the close button (x) or the overlay area.
 	    onClose: _react.PropTypes.func
 	}, _class.defaultProps = {
 	    show: true,
-	    backdrop: 'static',
+	    closeOnOverlayClick: true,
 	    onOpen: noop,
 	    onClose: noop
 	}, _temp);
@@ -25438,29 +25442,29 @@
 	
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 	
-	var ModalContainer = function ModalContainer(props) {
+	var ModalContent = function ModalContent(props) {
 	    var className = props.className,
 	        size = props.size,
 	        others = _objectWithoutProperties(props, ['className', 'size']);
 	
 	    return _react2.default.createElement('div', _extends({}, others, {
-	        className: (0, _classnames2.default)(className, _index2.default.modal, _index2.default[size])
+	        className: (0, _classnames2.default)(className, _index2.default.modalContent, _index2.default[size])
 	    }));
 	};
 	
-	ModalContainer.propTypes = {
-	    // Extra Small: w400 x h240 px (minimum height)
-	    // Small:       w544 x h304 px (minimum height)
-	    // Medium:      w688 x h304 px (minimum height)
-	    // Large:       w928 x h304 px (minimum height)
+	ModalContent.propTypes = {
+	    // Extra Small: W400 x H240 px (minimum height)
+	    // Small:       W544 x H304 px (minimum height)
+	    // Medium:      W688 x H304 px (minimum height)
+	    // Large:       W928 x H304 px (minimum height)
 	    size: _react.PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'large', 'medium', 'small', 'extra-small'])
 	};
 	
-	ModalContainer.defaultProps = {
+	ModalContent.defaultProps = {
 	    size: 'xs'
 	};
 	
-	exports.default = ModalContainer;
+	exports.default = ModalContent;
 
 /***/ },
 /* 208 */
@@ -25497,12 +25501,12 @@
 	
 	
 	// module
-	exports.push([module.id, "._32v0T {\n  border: 1px solid #ccc;\n  -webkit-box-shadow: 0 4px 16px rgba(0,0,0,0.5);\n  box-shadow: 0 4px 16px rgba(0,0,0,0.5);\n  position: relative;\n  min-width: 400px;\n}\n._32v0T._8dzzc {\n  min-width: 400px;\n  max-width: 543px;\n}\n._32v0T._8dzzc ._22INy {\n  min-height: 184px;\n}\n._32v0T._8dzzc ._1FIQ_ + ._22INy {\n  min-height: 130px;\n}\n._32v0T._3ceuY {\n  min-width: 544px;\n  max-width: 687px;\n}\n._32v0T._3ceuY ._22INy {\n  min-height: 246px;\n}\n._32v0T._3ceuY ._1FIQ_ + ._22INy {\n  min-height: 192px;\n}\n._32v0T._3OKcy {\n  min-width: 688px;\n  max-width: 927px;\n}\n._32v0T._3OKcy ._22INy {\n  min-height: 246px;\n}\n._32v0T._3OKcy ._1FIQ_ + ._22INy {\n  min-height: 192px;\n}\n._32v0T._2kMz1 {\n  min-width: 928px;\n}\n._32v0T._2kMz1 ._22INy {\n  min-height: 246px;\n}\n._32v0T._2kMz1 ._1FIQ_ + ._22INy {\n  min-height: 192px;\n}\n._32v0T .fVKdP {\n  position: absolute;\n  top: 16px;\n  right: 24px;\n  padding: 0;\n  margin: 0;\n  line-height: 20px;\n  cursor: pointer;\n  background: transparent;\n  border: 0;\n  -webkit-appearance: none;\n  font-size: 30px;\n  font-weight: normal;\n  color: #999;\n  text-shadow: none;\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n}\n._32v0T ._1FIQ_ {\n  height: 54px;\n  background-color: #fff;\n  border-bottom: 1px solid #ccc;\n  padding: 0;\n}\n._32v0T ._1FIQ_._2pFRu {\n  padding: 16px 24px;\n}\n._32v0T ._2qyMh {\n  font-weight: 200;\n  color: #222;\n  letter-spacing: -0.02em;\n  font-size: 18px;\n}\n._32v0T ._22INy {\n  position: relative;\n  overflow-y: auto;\n  padding: 0;\n}\n._32v0T ._22INy._2pFRu {\n  padding: 54px 24px 16px 24px;\n}\n._32v0T ._1FIQ_ + ._22INy._2pFRu {\n  padding: 16px 24px;\n}\n._32v0T ._3bXnF {\n  height: 56px;\n  margin-top: 0;\n  text-align: right;\n  background-color: #eee;\n  padding: 0;\n}\n._32v0T ._3bXnF._2pFRu {\n  padding: 12px 24px;\n}\n._32v0T ._3bXnF button {\n  min-width: 80px;\n}\n._32v0T ._3bXnF button + button {\n  margin-left: 8px;\n}\n", ""]);
+	exports.push([module.id, "._3hUtG {\n  border: 1px solid #ccc;\n  -webkit-box-shadow: 0 4px 16px rgba(0,0,0,0.5);\n  box-shadow: 0 4px 16px rgba(0,0,0,0.5);\n  position: relative;\n  min-width: 400px;\n}\n._3hUtG._8dzzc {\n  min-width: 400px;\n  max-width: 543px;\n}\n._3hUtG._8dzzc ._22INy {\n  min-height: 184px;\n}\n._3hUtG._8dzzc ._1FIQ_ + ._22INy {\n  min-height: 130px;\n}\n._3hUtG._3ceuY {\n  min-width: 544px;\n  max-width: 687px;\n}\n._3hUtG._3ceuY ._22INy {\n  min-height: 246px;\n}\n._3hUtG._3ceuY ._1FIQ_ + ._22INy {\n  min-height: 192px;\n}\n._3hUtG._3OKcy {\n  min-width: 688px;\n  max-width: 927px;\n}\n._3hUtG._3OKcy ._22INy {\n  min-height: 246px;\n}\n._3hUtG._3OKcy ._1FIQ_ + ._22INy {\n  min-height: 192px;\n}\n._3hUtG._2kMz1 {\n  min-width: 928px;\n}\n._3hUtG._2kMz1 ._22INy {\n  min-height: 246px;\n}\n._3hUtG._2kMz1 ._1FIQ_ + ._22INy {\n  min-height: 192px;\n}\n._3hUtG .fVKdP {\n  position: absolute;\n  top: 16px;\n  right: 24px;\n  padding: 0;\n  margin: 0;\n  line-height: 20px;\n  cursor: pointer;\n  background: transparent;\n  border: 0;\n  -webkit-appearance: none;\n  font-size: 30px;\n  font-weight: normal;\n  color: #999;\n  text-shadow: none;\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n}\n._3hUtG ._1FIQ_ {\n  height: 54px;\n  background-color: #fff;\n  border-bottom: 1px solid #ccc;\n  padding: 0;\n}\n._3hUtG ._1FIQ_._2pFRu {\n  padding: 16px 24px;\n}\n._3hUtG ._2qyMh {\n  font-weight: 200;\n  color: #222;\n  letter-spacing: -0.02em;\n  font-size: 18px;\n}\n._3hUtG ._22INy {\n  position: relative;\n  overflow-y: auto;\n  padding: 0;\n}\n._3hUtG ._22INy._2pFRu {\n  padding: 54px 24px 16px 24px;\n}\n._3hUtG ._1FIQ_ + ._22INy._2pFRu {\n  padding: 16px 24px;\n}\n._3hUtG ._3bXnF {\n  height: 56px;\n  margin-top: 0;\n  text-align: right;\n  background-color: #eee;\n  padding: 0;\n}\n._3hUtG ._3bXnF._2pFRu {\n  padding: 12px 24px;\n}\n._3hUtG ._3bXnF button {\n  min-width: 80px;\n}\n._3hUtG ._3bXnF button + button {\n  margin-left: 8px;\n}\n", ""]);
 	
 	// exports
 	exports.locals = {
-		"modal": "_32v0T",
-		"modal": "_32v0T",
+		"modal-content": "_3hUtG",
+		"modalContent": "_3hUtG",
 		"xs": "_8dzzc",
 		"xs": "_8dzzc",
 		"modal-body": "_22INy",

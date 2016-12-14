@@ -1,13 +1,13 @@
 import Modal from './Modal';
 import Overlay from './ModalOverlay';
-import Container from './ModalContainer';
+import Content from './ModalContent';
 import Header from './ModalHeader';
 import Title from './ModalTitle';
 import Body from './ModalBody';
 import Footer from './ModalFooter';
 
 Modal.Overlay = Overlay;
-Modal.Container = Container;
+Modal.Content = Content;
 Modal.Header = Header;
 Modal.Title = Title;
 Modal.Body = Body;

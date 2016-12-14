@@ -32,44 +32,45 @@ const customStyles = {
 
 class ModalOverlay extends Component {
     static propTypes = {
-        // When 'true' the modal will show itself.
+        // True to show a modal.
         show: PropTypes.bool,
 
-        // Specify 'static' for a backdrop that doesn't trigger an "onClose" when clicked.
-        backdrop: PropTypes.oneOf(['static', true, false]),
+        // By default the modal is closed when clicking the overlay area. You can pass 'closeOnOverlayClick' prop with 'false' value if you want to prevent this behavior.
+        closeOnOverlayClick: PropTypes.bool,
 
         // A callback fired after opening a modal.
         onOpen: PropTypes.func,
 
-        // A callback fired when the header closeButton or non-static backdrop is clicked.
+        // A callback fired when clicking the close button (x) or the overlay area.
         onClose: PropTypes.func
     };
     static defaultProps = {
         show: true,
-        backdrop: 'static',
+        closeOnOverlayClick: true,
         onOpen: noop,
         onClose: noop
     };
 
     render() {
         const {
+            children,
             show,
-            backdrop,
+            closeOnOverlayClick,
             onOpen,
-            onClose,
-            ...props
+            onClose
         } = this.props;
 
         return (
             <Modal
-                {...props}
                 isOpen={show}
                 onAfterOpen={onOpen}
                 onRequestClose={onClose}
-                shouldCloseOnOverlayClick={backdrop === true}
+                shouldCloseOnOverlayClick={closeOnOverlayClick}
                 style={customStyles}
                 contentLabel="Modal"
-            />
+            >
+                {children}
+            </Modal>
         );
     }
 }
