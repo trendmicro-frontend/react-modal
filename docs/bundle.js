@@ -62,7 +62,11 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _ModalDialog = __webpack_require__(184);
+	var _src = __webpack_require__(184);
+	
+	var _src2 = _interopRequireDefault(_src);
+	
+	var _ModalDialog = __webpack_require__(214);
 	
 	var _ModalDialog2 = _interopRequireDefault(_ModalDialog);
 	
@@ -73,6 +77,59 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var formBody = _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	        'div',
+	        { className: 'form-group' },
+	        _react2.default.createElement(
+	            'label',
+	            null,
+	            'Email address'
+	        ),
+	        _react2.default.createElement('input', {
+	            type: 'email',
+	            className: 'form-control',
+	            placeholder: 'Email'
+	        })
+	    ),
+	    _react2.default.createElement(
+	        'div',
+	        { className: 'form-group' },
+	        _react2.default.createElement(
+	            'label',
+	            null,
+	            'Password'
+	        ),
+	        _react2.default.createElement('input', {
+	            type: 'password',
+	            className: 'form-control',
+	            placeholder: 'Password'
+	        })
+	    )
+	);
+	
+	var warningBody = _react2.default.createElement(
+	    'div',
+	    { style: { display: 'flex' } },
+	    _react2.default.createElement('i', { className: 'fa fa-exclamation-circle fa-4x', style: { color: '#faca2a' } }),
+	    _react2.default.createElement(
+	        'div',
+	        { style: { marginLeft: 25 } },
+	        _react2.default.createElement(
+	            'label',
+	            null,
+	            'Unable to export the settings'
+	        ),
+	        _react2.default.createElement(
+	            'p',
+	            null,
+	            'The storage space is running out. Select a folder with adequate storage space and try again.'
+	        )
+	    )
+	);
 	
 	var App = function (_Component) {
 	    _inherits(App, _Component);
@@ -133,113 +190,272 @@
 	
 	            return _react2.default.createElement(
 	                'div',
-	                null,
+	                { className: 'container-fluid text-left' },
 	                state.modal.name && _react2.default.createElement(_ModalDialog2.default, { state: state, actions: actions }),
 	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'container-fluid' },
+	                    'h2',
+	                    null,
+	                    'Modal'
+	                ),
+	                _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    'Modal dialogs are used to get a response from a user before other features can be assessed from the main page.'
+	                ),
+	                _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    'Use one of these 4 modal sizes depending on your needs and requirements:'
+	                ),
+	                _react2.default.createElement(
+	                    'table',
+	                    { className: 'table table-bordered', style: { marginBottom: 40 } },
 	                    _react2.default.createElement(
-	                        'div',
-	                        { className: 'row', style: { marginBottom: 20 } },
+	                        'tbody',
+	                        null,
 	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'col-sm-12 text-left' },
+	                            'tr',
+	                            null,
 	                            _react2.default.createElement(
-	                                'h4',
-	                                null,
-	                                'Header'
+	                                'td',
+	                                { className: 'text-nowrap' },
+	                                'Extra Small'
 	                            ),
 	                            _react2.default.createElement(
-	                                _reactButtons.ButtonGroup,
+	                                'td',
+	                                null,
+	                                'W400 x H240 px (minimum height)'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'tr',
+	                            null,
+	                            _react2.default.createElement(
+	                                'td',
+	                                { className: 'text-nowrap' },
+	                                'Small'
+	                            ),
+	                            _react2.default.createElement(
+	                                'td',
+	                                null,
+	                                'W544 x H304 px (minimum height)'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'tr',
+	                            null,
+	                            _react2.default.createElement(
+	                                'td',
+	                                { className: 'text-nowrap' },
+	                                'Medium'
+	                            ),
+	                            _react2.default.createElement(
+	                                'td',
+	                                null,
+	                                'W688 x H304 px (minimum height)'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'tr',
+	                            null,
+	                            _react2.default.createElement(
+	                                'td',
+	                                { className: 'text-nowrap' },
+	                                'Large'
+	                            ),
+	                            _react2.default.createElement(
+	                                'td',
+	                                null,
+	                                'W928 x H304 px (minimum height)'
+	                            )
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'h3',
+	                    null,
+	                    'Examples'
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'row' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-sm-6', style: { marginBottom: 20 } },
+	                        _react2.default.createElement(
+	                            'h4',
+	                            null,
+	                            'Modal dialog w/ title'
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { style: { marginBottom: 20 } },
+	                            _react2.default.createElement(
+	                                _reactButtons.Button,
+	                                {
+	                                    onClick: function onClick() {
+	                                        actions.openModal('modal', {
+	                                            size: 'xs',
+	                                            title: 'Modal Title',
+	                                            body: formBody
+	                                        });
+	                                    }
+	                                },
+	                                'Extra Small Modal'
+	                            ),
+	                            _react2.default.createElement(
+	                                _reactButtons.Button,
+	                                {
+	                                    onClick: function onClick() {
+	                                        actions.openModal('modal', {
+	                                            size: 'sm',
+	                                            title: 'Modal Title',
+	                                            body: formBody
+	                                        });
+	                                    }
+	                                },
+	                                'Small Modal'
+	                            ),
+	                            _react2.default.createElement(
+	                                _reactButtons.Button,
+	                                {
+	                                    onClick: function onClick() {
+	                                        actions.openModal('modal', {
+	                                            size: 'md',
+	                                            title: 'Modal Title',
+	                                            body: formBody
+	                                        });
+	                                    }
+	                                },
+	                                'Medium Modal'
+	                            ),
+	                            _react2.default.createElement(
+	                                _reactButtons.Button,
+	                                {
+	                                    onClick: function onClick() {
+	                                        actions.openModal('modal', {
+	                                            size: 'lg',
+	                                            title: 'Modal Title',
+	                                            body: formBody
+	                                        });
+	                                    }
+	                                },
+	                                'Large Modal'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            _src2.default,
+	                            { showOverlay: false },
+	                            _react2.default.createElement(
+	                                _src2.default.Header,
+	                                null,
+	                                _react2.default.createElement(
+	                                    _src2.default.Title,
+	                                    null,
+	                                    'Modal Title'
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                _src2.default.Body,
+	                                null,
+	                                formBody
+	                            ),
+	                            _react2.default.createElement(
+	                                _src2.default.Footer,
 	                                null,
 	                                _react2.default.createElement(
 	                                    _reactButtons.Button,
-	                                    {
-	                                        onClick: function onClick() {
-	                                            actions.openModal('modal', { size: 'lg', title: 'Title' });
-	                                        }
-	                                    },
-	                                    'Large'
+	                                    { btnStyle: 'primary' },
+	                                    'Save'
 	                                ),
 	                                _react2.default.createElement(
 	                                    _reactButtons.Button,
-	                                    {
-	                                        onClick: function onClick() {
-	                                            actions.openModal('modal', { size: 'md', title: 'Title' });
-	                                        }
-	                                    },
-	                                    'Medium'
-	                                ),
-	                                _react2.default.createElement(
-	                                    _reactButtons.Button,
-	                                    {
-	                                        onClick: function onClick() {
-	                                            actions.openModal('modal', { size: 'sm', title: 'Title' });
-	                                        }
-	                                    },
-	                                    'Small'
-	                                ),
-	                                _react2.default.createElement(
-	                                    _reactButtons.Button,
-	                                    {
-	                                        onClick: function onClick() {
-	                                            actions.openModal('modal', { size: 'xs', title: 'Title' });
-	                                        }
-	                                    },
-	                                    'Extra Small'
+	                                    null,
+	                                    'Close'
 	                                )
 	                            )
 	                        )
 	                    ),
 	                    _react2.default.createElement(
 	                        'div',
-	                        { className: 'row', style: { marginBottom: 20 } },
+	                        { className: 'col-sm-6', style: { marginBottom: 20 } },
+	                        _react2.default.createElement(
+	                            'h4',
+	                            null,
+	                            'Modal dialog w/o title'
+	                        ),
 	                        _react2.default.createElement(
 	                            'div',
-	                            { className: 'col-sm-12 text-left' },
+	                            { style: { marginBottom: 20 } },
 	                            _react2.default.createElement(
-	                                'h4',
-	                                null,
-	                                'Headerless'
+	                                _reactButtons.Button,
+	                                {
+	                                    onClick: function onClick() {
+	                                        actions.openModal('modal', {
+	                                            size: 'xs',
+	                                            body: warningBody
+	                                        });
+	                                    }
+	                                },
+	                                'Extra Small Modal'
 	                            ),
 	                            _react2.default.createElement(
-	                                _reactButtons.ButtonGroup,
+	                                _reactButtons.Button,
+	                                {
+	                                    onClick: function onClick() {
+	                                        actions.openModal('modal', {
+	                                            size: 'sm',
+	                                            body: warningBody
+	                                        });
+	                                    }
+	                                },
+	                                'Small Modal'
+	                            ),
+	                            _react2.default.createElement(
+	                                _reactButtons.Button,
+	                                {
+	                                    onClick: function onClick() {
+	                                        actions.openModal('modal', {
+	                                            size: 'md',
+	                                            body: warningBody
+	                                        });
+	                                    }
+	                                },
+	                                'Medium Modal'
+	                            ),
+	                            _react2.default.createElement(
+	                                _reactButtons.Button,
+	                                {
+	                                    onClick: function onClick() {
+	                                        actions.openModal('modal', {
+	                                            size: 'lg',
+	                                            body: warningBody
+	                                        });
+	                                    }
+	                                },
+	                                'Large Modal'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            _src2.default,
+	                            { showOverlay: false },
+	                            _react2.default.createElement(
+	                                _src2.default.Body,
+	                                null,
+	                                warningBody
+	                            ),
+	                            _react2.default.createElement(
+	                                _src2.default.Footer,
 	                                null,
 	                                _react2.default.createElement(
 	                                    _reactButtons.Button,
-	                                    {
-	                                        onClick: function onClick() {
-	                                            actions.openModal('modal', { size: 'lg' });
-	                                        }
-	                                    },
-	                                    'Large'
+	                                    { btnStyle: 'primary' },
+	                                    'Save'
 	                                ),
 	                                _react2.default.createElement(
 	                                    _reactButtons.Button,
-	                                    {
-	                                        onClick: function onClick() {
-	                                            actions.openModal('modal', { size: 'md' });
-	                                        }
-	                                    },
-	                                    'Medium'
-	                                ),
-	                                _react2.default.createElement(
-	                                    _reactButtons.Button,
-	                                    {
-	                                        onClick: function onClick() {
-	                                            actions.openModal('modal', { size: 'sm' });
-	                                        }
-	                                    },
-	                                    'Small'
-	                                ),
-	                                _react2.default.createElement(
-	                                    _reactButtons.Button,
-	                                    {
-	                                        onClick: function onClick() {
-	                                            actions.openModal('modal', { size: 'xs' });
-	                                        }
-	                                    },
-	                                    'Extra Small'
+	                                    null,
+	                                    'Close'
 	                                )
 	                            )
 	                        )
@@ -22918,139 +23134,47 @@
 
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _class, _temp;
-	
-	var _react = __webpack_require__(7);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactButtons = __webpack_require__(5);
-	
-	var _src = __webpack_require__(185);
-	
-	var _src2 = _interopRequireDefault(_src);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var ModalDialog = (_temp = _class = function (_Component) {
-	    _inherits(ModalDialog, _Component);
-	
-	    function ModalDialog() {
-	        _classCallCheck(this, ModalDialog);
-	
-	        return _possibleConstructorReturn(this, (ModalDialog.__proto__ || Object.getPrototypeOf(ModalDialog)).apply(this, arguments));
-	    }
-	
-	    _createClass(ModalDialog, [{
-	        key: 'render',
-	        value: function render() {
-	            var _props = this.props,
-	                state = _props.state,
-	                actions = _props.actions;
-	            var _state$modal$params = state.modal.params,
-	                _state$modal$params$s = _state$modal$params.size,
-	                size = _state$modal$params$s === undefined ? 'sm' : _state$modal$params$s,
-	                title = _state$modal$params.title,
-	                body = _state$modal$params.body;
-	
-	
-	            return _react2.default.createElement(
-	                _src2.default,
-	                {
-	                    show: true,
-	                    size: size,
-	                    backdrop: true,
-	                    closeButton: true,
-	                    onClose: actions.closeModal
-	                },
-	                title && _react2.default.createElement(
-	                    _src2.default.Header,
-	                    null,
-	                    _react2.default.createElement(
-	                        _src2.default.Title,
-	                        null,
-	                        title
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    _src2.default.Body,
-	                    { padding: true },
-	                    body
-	                ),
-	                _react2.default.createElement(
-	                    _src2.default.Footer,
-	                    null,
-	                    _react2.default.createElement(
-	                        _reactButtons.Button,
-	                        { btnStyle: 'primary', onClick: actions.closeModal },
-	                        'Save'
-	                    ),
-	                    _react2.default.createElement(
-	                        _reactButtons.Button,
-	                        { onClick: actions.closeModal },
-	                        'Close'
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-	
-	    return ModalDialog;
-	}(_react.Component), _class.propTypes = {
-	    state: _react.PropTypes.object,
-	    actions: _react.PropTypes.object
-	}, _temp);
-	exports.default = ModalDialog;
-
-/***/ },
-/* 185 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _Modal = __webpack_require__(186);
+	var _Modal = __webpack_require__(185);
 	
 	var _Modal2 = _interopRequireDefault(_Modal);
 	
-	var _ModalHeader = __webpack_require__(209);
+	var _ModalOverlay = __webpack_require__(186);
+	
+	var _ModalOverlay2 = _interopRequireDefault(_ModalOverlay);
+	
+	var _ModalContainer = __webpack_require__(207);
+	
+	var _ModalContainer2 = _interopRequireDefault(_ModalContainer);
+	
+	var _ModalHeader = __webpack_require__(210);
 	
 	var _ModalHeader2 = _interopRequireDefault(_ModalHeader);
 	
-	var _ModalTitle = __webpack_require__(210);
+	var _ModalTitle = __webpack_require__(211);
 	
 	var _ModalTitle2 = _interopRequireDefault(_ModalTitle);
 	
-	var _ModalBody = __webpack_require__(211);
+	var _ModalBody = __webpack_require__(212);
 	
 	var _ModalBody2 = _interopRequireDefault(_ModalBody);
 	
-	var _ModalFooter = __webpack_require__(212);
+	var _ModalFooter = __webpack_require__(213);
 	
 	var _ModalFooter2 = _interopRequireDefault(_ModalFooter);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_Modal2.default.Body = _ModalBody2.default;
+	_Modal2.default.Overlay = _ModalOverlay2.default;
+	_Modal2.default.Container = _ModalContainer2.default;
 	_Modal2.default.Header = _ModalHeader2.default;
 	_Modal2.default.Title = _ModalTitle2.default;
+	_Modal2.default.Body = _ModalBody2.default;
 	_Modal2.default.Footer = _ModalFooter2.default;
 	
 	module.exports = _Modal2.default;
 
 /***/ },
-/* 186 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23066,9 +23190,141 @@
 	
 	var _class, _temp2;
 	
-	var _classnames = __webpack_require__(6);
+	var _react = __webpack_require__(7);
 	
-	var _classnames2 = _interopRequireDefault(_classnames);
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _ModalOverlay = __webpack_require__(186);
+	
+	var _ModalOverlay2 = _interopRequireDefault(_ModalOverlay);
+	
+	var _ModalContainer = __webpack_require__(207);
+	
+	var _ModalContainer2 = _interopRequireDefault(_ModalContainer);
+	
+	var _index = __webpack_require__(208);
+	
+	var _index2 = _interopRequireDefault(_index);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _default = (_temp2 = _class = function (_Component) {
+	    _inherits(_default, _Component);
+	
+	    function _default() {
+	        var _ref;
+	
+	        var _temp, _this, _ret;
+	
+	        _classCallCheck(this, _default);
+	
+	        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	            args[_key] = arguments[_key];
+	        }
+	
+	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = _default.__proto__ || Object.getPrototypeOf(_default)).call.apply(_ref, [this].concat(args))), _this), _this.actions = {
+	            onClose: function onClose(event) {
+	                _this.props.onClose && _this.props.onClose(event);
+	            }
+	        }, _temp), _possibleConstructorReturn(_this, _ret);
+	    }
+	
+	    _createClass(_default, [{
+	        key: 'renderCloseButton',
+	        value: function renderCloseButton() {
+	            return _react2.default.createElement(
+	                'button',
+	                {
+	                    type: 'button',
+	                    className: _index2.default.close,
+	                    onClick: this.actions.onClose
+	                },
+	                '\xD7'
+	            );
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _props = this.props,
+	                children = _props.children,
+	                show = _props.show,
+	                backdrop = _props.backdrop,
+	                onOpen = _props.onOpen,
+	                onClose = _props.onClose,
+	                size = _props.size,
+	                showOverlay = _props.showOverlay,
+	                showCloseButton = _props.showCloseButton,
+	                props = _objectWithoutProperties(_props, ['children', 'show', 'backdrop', 'onOpen', 'onClose', 'size', 'showOverlay', 'showCloseButton']);
+	
+	            if (!showOverlay) {
+	                return _react2.default.createElement(
+	                    _ModalContainer2.default,
+	                    _extends({}, props, { size: size }),
+	                    children,
+	                    showCloseButton && this.renderCloseButton()
+	                );
+	            }
+	
+	            return _react2.default.createElement(
+	                _ModalOverlay2.default,
+	                {
+	                    show: show,
+	                    backdrop: backdrop,
+	                    onOpen: onOpen,
+	                    onClose: onClose
+	                },
+	                _react2.default.createElement(
+	                    _ModalContainer2.default,
+	                    _extends({}, props, {
+	                        size: size,
+	                        style: { // border and boxShadow properties are specified in ModalOverlay
+	                            border: 'none',
+	                            boxShadow: 'none'
+	                        }
+	                    }),
+	                    children,
+	                    showCloseButton && this.renderCloseButton()
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return _default;
+	}(_react.Component), _class.propTypes = _extends({}, _ModalOverlay2.default.propTypes, _ModalContainer2.default.propTypes, {
+	    // Whether to show overlay.
+	    showOverlay: _react.PropTypes.bool,
+	    // Specify whether the Component should contain a close button.
+	    showCloseButton: _react.PropTypes.bool
+	}), _class.defaultProps = _extends({}, _ModalOverlay2.default.defaultProps, _ModalContainer2.default.defaultProps, {
+	    showOverlay: true,
+	    showCloseButton: true
+	}), _temp2);
+
+	exports.default = _default;
+
+/***/ },
+/* 186 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _class, _temp;
 	
 	var _react = __webpack_require__(7);
 	
@@ -23077,10 +23333,6 @@
 	var _reactModal = __webpack_require__(187);
 	
 	var _reactModal2 = _interopRequireDefault(_reactModal);
-	
-	var _index = __webpack_require__(207);
-	
-	var _index2 = _interopRequireDefault(_index);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -23116,87 +23368,48 @@
 	        bottom: 'auto',
 	        marginRight: '-50%',
 	        padding: 0,
-	        msTransform: 'translate(-50%, -50%)', /* IE 9 */
+	        msTransform: 'translate(-50%, -50%)', // IE9
 	        transform: 'translate(-50%, -50%)'
 	    }
 	};
 	
-	var _default = (_temp2 = _class = function (_Component) {
-	    _inherits(_default, _Component);
+	var ModalOverlay = (_temp = _class = function (_Component) {
+	    _inherits(ModalOverlay, _Component);
 	
-	    function _default() {
-	        var _ref;
+	    function ModalOverlay() {
+	        _classCallCheck(this, ModalOverlay);
 	
-	        var _temp, _this, _ret;
-	
-	        _classCallCheck(this, _default);
-	
-	        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	            args[_key] = arguments[_key];
-	        }
-	
-	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = _default.__proto__ || Object.getPrototypeOf(_default)).call.apply(_ref, [this].concat(args))), _this), _this.actions = {
-	            onClose: function onClose(event) {
-	                _this.props.onClose && _this.props.onClose(event);
-	            }
-	        }, _temp), _possibleConstructorReturn(_this, _ret);
+	        return _possibleConstructorReturn(this, (ModalOverlay.__proto__ || Object.getPrototypeOf(ModalOverlay)).apply(this, arguments));
 	    }
 	
-	    _createClass(_default, [{
+	    _createClass(ModalOverlay, [{
 	        key: 'render',
 	        value: function render() {
 	            var _props = this.props,
-	                children = _props.children,
-	                size = _props.size,
 	                show = _props.show,
 	                backdrop = _props.backdrop,
-	                closeButton = _props.closeButton,
 	                onOpen = _props.onOpen,
 	                onClose = _props.onClose,
-	                props = _objectWithoutProperties(_props, ['children', 'size', 'show', 'backdrop', 'closeButton', 'onOpen', 'onClose']);
+	                props = _objectWithoutProperties(_props, ['show', 'backdrop', 'onOpen', 'onClose']);
 	
-	            return _react2.default.createElement(
-	                _reactModal2.default,
-	                _extends({}, props, {
-	                    isOpen: show,
-	                    onAfterOpen: onOpen,
-	                    onRequestClose: onClose,
-	                    shouldCloseOnOverlayClick: backdrop === true,
-	                    style: customStyles,
-	                    contentLabel: 'Modal'
-	                }),
-	                _react2.default.createElement(
-	                    'div',
-	                    {
-	                        className: (0, _classnames2.default)(_index2.default.modal, _index2.default[size])
-	                    },
-	                    children,
-	                    closeButton && _react2.default.createElement(
-	                        'button',
-	                        {
-	                            type: 'button',
-	                            className: _index2.default.close,
-	                            onClick: this.actions.onClose
-	                        },
-	                        '\xD7'
-	                    )
-	                )
-	            );
+	            return _react2.default.createElement(_reactModal2.default, _extends({}, props, {
+	                isOpen: show,
+	                onAfterOpen: onOpen,
+	                onRequestClose: onClose,
+	                shouldCloseOnOverlayClick: backdrop === true,
+	                style: customStyles,
+	                contentLabel: 'Modal'
+	            }));
 	        }
 	    }]);
 	
-	    return _default;
+	    return ModalOverlay;
 	}(_react.Component), _class.propTypes = {
-	    size: _react.PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
-	
 	    // When 'true' the modal will show itself.
 	    show: _react.PropTypes.bool,
 	
 	    // Specify 'static' for a backdrop that doesn't trigger an "onClose" when clicked.
 	    backdrop: _react.PropTypes.oneOf(['static', true, false]),
-	
-	    // Specify whether the Component should contain a close button.
-	    closeButton: _react.PropTypes.bool,
 	
 	    // A callback fired after opening a modal.
 	    onOpen: _react.PropTypes.func,
@@ -23204,15 +23417,12 @@
 	    // A callback fired when the header closeButton or non-static backdrop is clicked.
 	    onClose: _react.PropTypes.func
 	}, _class.defaultProps = {
-	    size: 'xs',
 	    show: true,
 	    backdrop: 'static',
-	    closeButton: true,
 	    onOpen: noop,
 	    onClose: noop
-	}, _temp2);
-	
-	exports.default = _default;
+	}, _temp);
+	exports.default = ModalOverlay;
 
 /***/ },
 /* 187 */
@@ -25204,10 +25414,62 @@
 /* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _classnames = __webpack_require__(6);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	var _react = __webpack_require__(7);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _index = __webpack_require__(208);
+	
+	var _index2 = _interopRequireDefault(_index);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+	
+	var ModalContainer = function ModalContainer(props) {
+	    var className = props.className,
+	        size = props.size,
+	        others = _objectWithoutProperties(props, ['className', 'size']);
+	
+	    return _react2.default.createElement('div', _extends({}, others, {
+	        className: (0, _classnames2.default)(className, _index2.default.modal, _index2.default[size])
+	    }));
+	};
+	
+	ModalContainer.propTypes = {
+	    // Extra Small: w400 x h240 px (minimum height)
+	    // Small:       w544 x h304 px (minimum height)
+	    // Medium:      w688 x h304 px (minimum height)
+	    // Large:       w928 x h304 px (minimum height)
+	    size: _react.PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'large', 'medium', 'small', 'extra-small'])
+	};
+	
+	ModalContainer.defaultProps = {
+	    size: 'xs'
+	};
+	
+	exports.default = ModalContainer;
+
+/***/ },
+/* 208 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(208);
+	var content = __webpack_require__(209);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(4)(content, {});
@@ -25227,7 +25489,7 @@
 	}
 
 /***/ },
-/* 208 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(3)();
@@ -25235,7 +25497,7 @@
 	
 	
 	// module
-	exports.push([module.id, "._32v0T {\n  min-width: 400px;\n}\n._32v0T._8dzzc {\n  min-width: 400px;\n  max-width: 543px;\n}\n._32v0T._8dzzc ._22INy {\n  min-height: 184px;\n}\n._32v0T._8dzzc ._1FIQ_ + ._22INy {\n  min-height: 130px;\n}\n._32v0T._3ceuY {\n  min-width: 544px;\n  max-width: 687px;\n}\n._32v0T._3ceuY ._22INy {\n  min-height: 246px;\n}\n._32v0T._3ceuY ._1FIQ_ + ._22INy {\n  min-height: 192px;\n}\n._32v0T._3OKcy {\n  min-width: 688px;\n  max-width: 927px;\n}\n._32v0T._3OKcy ._22INy {\n  min-height: 246px;\n}\n._32v0T._3OKcy ._1FIQ_ + ._22INy {\n  min-height: 192px;\n}\n._32v0T._2kMz1 {\n  min-width: 928px;\n}\n._32v0T._2kMz1 ._22INy {\n  min-height: 246px;\n}\n._32v0T._2kMz1 ._1FIQ_ + ._22INy {\n  min-height: 192px;\n}\n._32v0T .fVKdP {\n  position: absolute;\n  top: 16px;\n  right: 24px;\n  padding: 0;\n  margin: 0;\n  line-height: 20px;\n  cursor: pointer;\n  background: transparent;\n  border: 0;\n  -webkit-appearance: none;\n  font-size: 30px;\n  font-weight: normal;\n  color: #999;\n  text-shadow: none;\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n}\n._32v0T ._1FIQ_ {\n  height: 54px;\n  background-color: #fff;\n  border-bottom: 1px solid #ccc;\n  padding: 0;\n}\n._32v0T ._1FIQ_._2pFRu {\n  padding: 16px 24px;\n}\n._32v0T ._2qyMh {\n  font-weight: 200;\n  color: #222;\n  letter-spacing: -0.02em;\n  font-size: 18px;\n}\n._32v0T ._22INy {\n  position: relative;\n  overflow-y: auto;\n  padding: 0;\n}\n._32v0T ._22INy._2pFRu {\n  padding: 54px 24px 16px 24px;\n}\n._32v0T ._1FIQ_ + ._22INy._2pFRu {\n  padding: 16px 24px;\n}\n._32v0T ._3bXnF {\n  height: 56px;\n  margin-top: 0;\n  text-align: right;\n  background-color: #eee;\n  padding: 0;\n}\n._32v0T ._3bXnF._2pFRu {\n  padding: 12px 24px;\n}\n._32v0T ._3bXnF button {\n  min-width: 80px;\n}\n._32v0T ._3bXnF button + button {\n  margin-left: 8px;\n}\n", ""]);
+	exports.push([module.id, "._32v0T {\n  border: 1px solid #ccc;\n  -webkit-box-shadow: 0 4px 16px rgba(0,0,0,0.5);\n  box-shadow: 0 4px 16px rgba(0,0,0,0.5);\n  position: relative;\n  min-width: 400px;\n}\n._32v0T._8dzzc {\n  min-width: 400px;\n  max-width: 543px;\n}\n._32v0T._8dzzc ._22INy {\n  min-height: 184px;\n}\n._32v0T._8dzzc ._1FIQ_ + ._22INy {\n  min-height: 130px;\n}\n._32v0T._3ceuY {\n  min-width: 544px;\n  max-width: 687px;\n}\n._32v0T._3ceuY ._22INy {\n  min-height: 246px;\n}\n._32v0T._3ceuY ._1FIQ_ + ._22INy {\n  min-height: 192px;\n}\n._32v0T._3OKcy {\n  min-width: 688px;\n  max-width: 927px;\n}\n._32v0T._3OKcy ._22INy {\n  min-height: 246px;\n}\n._32v0T._3OKcy ._1FIQ_ + ._22INy {\n  min-height: 192px;\n}\n._32v0T._2kMz1 {\n  min-width: 928px;\n}\n._32v0T._2kMz1 ._22INy {\n  min-height: 246px;\n}\n._32v0T._2kMz1 ._1FIQ_ + ._22INy {\n  min-height: 192px;\n}\n._32v0T .fVKdP {\n  position: absolute;\n  top: 16px;\n  right: 24px;\n  padding: 0;\n  margin: 0;\n  line-height: 20px;\n  cursor: pointer;\n  background: transparent;\n  border: 0;\n  -webkit-appearance: none;\n  font-size: 30px;\n  font-weight: normal;\n  color: #999;\n  text-shadow: none;\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n}\n._32v0T ._1FIQ_ {\n  height: 54px;\n  background-color: #fff;\n  border-bottom: 1px solid #ccc;\n  padding: 0;\n}\n._32v0T ._1FIQ_._2pFRu {\n  padding: 16px 24px;\n}\n._32v0T ._2qyMh {\n  font-weight: 200;\n  color: #222;\n  letter-spacing: -0.02em;\n  font-size: 18px;\n}\n._32v0T ._22INy {\n  position: relative;\n  overflow-y: auto;\n  padding: 0;\n}\n._32v0T ._22INy._2pFRu {\n  padding: 54px 24px 16px 24px;\n}\n._32v0T ._1FIQ_ + ._22INy._2pFRu {\n  padding: 16px 24px;\n}\n._32v0T ._3bXnF {\n  height: 56px;\n  margin-top: 0;\n  text-align: right;\n  background-color: #eee;\n  padding: 0;\n}\n._32v0T ._3bXnF._2pFRu {\n  padding: 12px 24px;\n}\n._32v0T ._3bXnF button {\n  min-width: 80px;\n}\n._32v0T ._3bXnF button + button {\n  margin-left: 8px;\n}\n", ""]);
 	
 	// exports
 	exports.locals = {
@@ -25264,7 +25526,7 @@
 	};
 
 /***/ },
-/* 209 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25287,7 +25549,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _index = __webpack_require__(207);
+	var _index = __webpack_require__(208);
 	
 	var _index2 = _interopRequireDefault(_index);
 	
@@ -25341,7 +25603,7 @@
 	exports.default = ModalHeader;
 
 /***/ },
-/* 210 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25356,7 +25618,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _index = __webpack_require__(207);
+	var _index = __webpack_require__(208);
 	
 	var _index2 = _interopRequireDefault(_index);
 	
@@ -25371,7 +25633,7 @@
 	exports.default = ModalTitle;
 
 /***/ },
-/* 211 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25394,7 +25656,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _index = __webpack_require__(207);
+	var _index = __webpack_require__(208);
 	
 	var _index2 = _interopRequireDefault(_index);
 	
@@ -25448,7 +25710,7 @@
 	exports.default = ModalBody;
 
 /***/ },
-/* 212 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25471,7 +25733,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _index = __webpack_require__(207);
+	var _index = __webpack_require__(208);
 	
 	var _index2 = _interopRequireDefault(_index);
 	
@@ -25523,6 +25785,107 @@
 	    padding: true
 	}, _temp);
 	exports.default = ModalFooter;
+
+/***/ },
+/* 214 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _class, _temp;
+	
+	var _react = __webpack_require__(7);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactButtons = __webpack_require__(5);
+	
+	var _src = __webpack_require__(184);
+	
+	var _src2 = _interopRequireDefault(_src);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ModalDialog = (_temp = _class = function (_Component) {
+	    _inherits(ModalDialog, _Component);
+	
+	    function ModalDialog() {
+	        _classCallCheck(this, ModalDialog);
+	
+	        return _possibleConstructorReturn(this, (ModalDialog.__proto__ || Object.getPrototypeOf(ModalDialog)).apply(this, arguments));
+	    }
+	
+	    _createClass(ModalDialog, [{
+	        key: 'render',
+	        value: function render() {
+	            var _props = this.props,
+	                state = _props.state,
+	                actions = _props.actions;
+	            var _state$modal$params = state.modal.params,
+	                _state$modal$params$s = _state$modal$params.size,
+	                size = _state$modal$params$s === undefined ? 'sm' : _state$modal$params$s,
+	                title = _state$modal$params.title,
+	                body = _state$modal$params.body;
+	
+	
+	            return _react2.default.createElement(
+	                _src2.default,
+	                {
+	                    show: true,
+	                    size: size,
+	                    backdrop: true,
+	                    onClose: actions.closeModal
+	                },
+	                title && _react2.default.createElement(
+	                    _src2.default.Header,
+	                    null,
+	                    _react2.default.createElement(
+	                        _src2.default.Title,
+	                        null,
+	                        title
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    _src2.default.Body,
+	                    null,
+	                    body
+	                ),
+	                _react2.default.createElement(
+	                    _src2.default.Footer,
+	                    null,
+	                    _react2.default.createElement(
+	                        _reactButtons.Button,
+	                        { btnStyle: 'primary', onClick: actions.closeModal },
+	                        'Save'
+	                    ),
+	                    _react2.default.createElement(
+	                        _reactButtons.Button,
+	                        { onClick: actions.closeModal },
+	                        'Close'
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return ModalDialog;
+	}(_react.Component), _class.propTypes = {
+	    state: _react.PropTypes.object,
+	    actions: _react.PropTypes.object
+	}, _temp);
+	exports.default = ModalDialog;
 
 /***/ }
 /******/ ]);

@@ -1,6 +1,6 @@
 {
   "name": "@trendmicro/react-modal",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "Trend Micro Components: React Modal",
   "main": "lib/index.js",
   "files": [
@@ -19,7 +19,7 @@
     "lint:fix": "eslint --fix ./src",
     "test": "./babel-tap --coverage test/*.js",
     "coveralls": "./babel-tap --coverage --coverage-report=text-lcov test/*.js | node_modules/.bin/coveralls",
-    "webpack-dev-server": "cd examples; webpack-dev-server --hot --inline --host 0.0.0.0 --port 8000"
+    "dev": "cd examples; webpack-dev-server --hot --inline --host 0.0.0.0 --port 8000"
   },
   "repository": {
     "type": "git",
