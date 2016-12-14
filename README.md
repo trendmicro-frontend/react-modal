@@ -88,6 +88,12 @@ class ModalDialog extends Component {
   </thead>
   <tbody>
     <tr>
+      <td>show</td>
+      <td>Boolean</td>
+      <td>true</td>
+      <td>Specify whether to show the modal.</td>
+    </tr>
+    <tr>
       <td>showOverlay</td>
       <td>Boolean</td>
       <td>true</td>
@@ -98,12 +104,6 @@ class ModalDialog extends Component {
       <td>Boolean</td>
       <td>true</td>
       <td>Specify whether the modal should contain a close button (x).</td>
-    </tr>
-    <tr>
-      <td>show</td>
-      <td>Boolean</td>
-      <td>true</td>
-      <td></td>
     </tr>
     <tr>
       <td>closeOnOverlayClick</td>
