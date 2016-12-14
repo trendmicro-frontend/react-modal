@@ -42,8 +42,6 @@ class ModalDialog extends Component {
         return (
             <Modal
                 show={state.showModal}
-                size="sm"
-                backdrop
                 onClose={actions.closeModal}
             >
                 <Modal.Header>
@@ -51,7 +49,7 @@ class ModalDialog extends Component {
                         Modal Title
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body padding>
+                <Modal.Body padding={true}>
                     Modal Body
                 </Modal.Body>
                 <Modal.Footer>
@@ -86,30 +84,18 @@ class ModalDialog extends Component {
       <th>Description</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <td>show</td>
-      <td>Boolean</td>
-      <td>true</td>
-      <td>Specify whether to show the modal.</td>
-    </tr>
-    <tr>
-      <td>showOverlay</td>
-      <td>Boolean</td>
-      <td>true</td>
-      <td>Pass 'showOverlay' prop with 'true' value to add an overlay to the background, and 'false' otherwise.</td>
-    </tr>
-    <tr>
-      <td>showCloseButton</td>
-      <td>Boolean</td>
-      <td>true</td>
-      <td>Specify whether the modal should contain a close button (x).</td>
-    </tr>
+  <tbody>    
     <tr>
       <td>closeOnOverlayClick</td>
       <td>Boolean</td>
       <td>true</td>
       <td>By default the modal is closed when clicking the overlay area. You can pass 'closeOnOverlayClick' prop with 'false' value if you want to prevent this behavior.</td>
+    </tr>
+    <tr>
+      <td>onClose</td>
+      <td>Function</td>
+      <td></td>
+      <td>A callback fired when clicking the close button (x&times;) or the overlay area.</td>
     </tr>
     <tr>
       <td>onOpen</td>
@@ -118,10 +104,22 @@ class ModalDialog extends Component {
       <td>A callback fired after opening a modal.</td>
     </tr>
     <tr>
-      <td>onClose</td>
-      <td>Function</td>
-      <td></td>
-      <td>A callback fired when clicking the close button (x) or the overlay area.</td>
+      <td>show</td>
+      <td>Boolean</td>
+      <td>true</td>
+      <td>Specify whether to show the modal.</td>
+    </tr>
+    <tr>
+      <td>showCloseButton</td>
+      <td>Boolean</td>
+      <td>true</td>
+      <td>Specify whether the modal should contain a close button (x).</td>
+    </tr>    
+    <tr>
+      <td>showOverlay</td>
+      <td>Boolean</td>
+      <td>true</td>
+      <td>Pass 'showOverlay' prop with 'true' value to add an overlay to the background, and 'false' otherwise.</td>
     </tr>
     <tr>
       <td>size</td>
