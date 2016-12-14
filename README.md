@@ -44,7 +44,6 @@ class ModalDialog extends Component {
                 show={state.showModal}
                 size="sm"
                 backdrop
-                closeButton
                 onClose={actions.closeModal}
             >
                 <Modal.Header>
@@ -89,10 +88,16 @@ class ModalDialog extends Component {
   </thead>
   <tbody>
     <tr>
-      <td>size</td>
-      <td>String</td>
-      <td>'xs'</td>
-      <td>'xs', 'sm', 'md', or 'lg'</td>
+      <td>showOverlay</td>
+      <td>Boolean</td>
+      <td>true</td>
+      <td>Pass 'showOverlay' prop with 'true' value to add an overlay to the background, and 'false' otherwise.</td>
+    </tr>
+    <tr>
+      <td>showCloseButton</td>
+      <td>Boolean</td>
+      <td>true</td>
+      <td>Specify whether the modal should contain a close button (x).</td>
     </tr>
     <tr>
       <td>show</td>
@@ -101,28 +106,35 @@ class ModalDialog extends Component {
       <td></td>
     </tr>
     <tr>
-      <td>backdrop</td>
-      <td>String|Boolean</td>
-      <td>'static'</td>
-      <td>'static', true, or false</td>
-    </tr>
-    <tr>
-      <td>closeButton</td>
+      <td>closeOnOverlayClick</td>
       <td>Boolean</td>
       <td>true</td>
-      <td></td>
+      <td>By default the modal is closed when clicking the overlay area. You can pass 'closeOnOverlayClick' prop with 'false' value if you want to prevent this behavior.</td>
     </tr>
     <tr>
       <td>onOpen</td>
       <td>Function</td>
       <td></td>
-      <td></td>
+      <td>A callback fired after opening a modal.</td>
     </tr>
     <tr>
       <td>onClose</td>
       <td>Function</td>
       <td></td>
-      <td></td>
+      <td>A callback fired when clicking the close button (x) or the overlay area.</td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td>String</td>
+      <td>'xs'</td>
+      <td>
+          <ul>
+              <li>Extra Small (400px x 240px): 'xs' or 'extra-small'</li>
+              <li>Small (544px x 304px): 'sm' or 'small'</li>
+              <li>Medium (688px x 304px): 'md' or 'medium'</li>
+              <li>Large (928px x 304px): 'lg' or 'large'</li>
+          </ul>
+      </td>
     </tr>
   </tbody>
 </table>
