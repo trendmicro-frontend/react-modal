@@ -7,6 +7,8 @@ export default class extends Component {
     static propTypes = {
         ...ModalOverlay.propTypes,
         ...ModalContent.propTypes,
+        // Specify whether to show the modal.
+        show: PropTypes.bool,
         // Pass 'showOverlay' prop with 'true' value to add an overlay to the background, and 'false' otherwise.
         showOverlay: PropTypes.bool,
         // Specify whether the modal should contain a close button (x).

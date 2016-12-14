@@ -32,7 +32,7 @@ const customStyles = {
 
 class ModalOverlay extends Component {
     static propTypes = {
-        // True to show a modal.
+        // Specify whether to show the modal.
         show: PropTypes.bool,
 
         // By default the modal is closed when clicking the overlay area. You can pass 'closeOnOverlayClick' prop with 'false' value if you want to prevent this behavior.
