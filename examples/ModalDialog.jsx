@@ -17,7 +17,6 @@ class ModalDialog extends Component {
                 show
                 size={size}
                 backdrop
-                closeButton
                 onClose={actions.closeModal}
             >
                 {title &&
@@ -25,7 +24,7 @@ class ModalDialog extends Component {
                     <Modal.Title>{title}</Modal.Title>
                 </Modal.Header>
                 }
-                <Modal.Body padding>
+                <Modal.Body>
                     {body}
                 </Modal.Body>
                 <Modal.Footer>

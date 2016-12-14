@@ -1,8 +1,40 @@
 import '@trendmicro/react-buttons/dist/react-buttons.css';
-import { Button, ButtonGroup } from '@trendmicro/react-buttons';
+import { Button } from '@trendmicro/react-buttons';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Modal from '../src';
 import ModalDialog from './ModalDialog';
+
+const formBody = (
+    <div>
+        <div className="form-group">
+            <label>Email address</label>
+            <input
+                type="email"
+                className="form-control"
+                placeholder="Email"
+            />
+        </div>
+        <div className="form-group">
+            <label>Password</label>
+            <input
+                type="password"
+                className="form-control"
+                placeholder="Password"
+            />
+        </div>
+    </div>
+);
+
+const warningBody = (
+    <div style={{ display: 'flex' }}>
+        <i className="fa fa-exclamation-circle fa-4x" style={{ color: '#faca2a' }} />
+        <div style={{ marginLeft: 25 }}>
+            <label>Unable to export the settings</label>
+            <p>The storage space is running out. Select a folder with adequate storage space and try again.</p>
+        </div>
+    </div>
+);
 
 class App extends Component {
     state = {
@@ -47,80 +79,151 @@ class App extends Component {
         const actions = { ...this.actions };
 
         return (
-            <div>
+            <div className="container-fluid text-left">
                 {state.modal.name &&
                 <ModalDialog state={state} actions={actions} />
                 }
-                <div className="container-fluid">
-                    <div className="row" style={{ marginBottom: 20 }}>
-                        <div className="col-sm-12 text-left">
-                            <h4>Header</h4>
-                            <ButtonGroup>
-                                <Button
-                                    onClick={() => {
-                                        actions.openModal('modal', { size: 'lg', title: 'Title' });
-                                    }}
-                                >
-                                    Large
-                                </Button>
-                                <Button
-                                    onClick={() => {
-                                        actions.openModal('modal', { size: 'md', title: 'Title' });
-                                    }}
-                                >
-                                    Medium
-                                </Button>
-                                <Button
-                                    onClick={() => {
-                                        actions.openModal('modal', { size: 'sm', title: 'Title' });
-                                    }}
-                                >
-                                    Small
-                                </Button>
-                                <Button
-                                    onClick={() => {
-                                        actions.openModal('modal', { size: 'xs', title: 'Title' });
-                                    }}
-                                >
-                                    Extra Small
-                                </Button>
-                            </ButtonGroup>
+                <h2>Modal</h2>
+                <p>Modal dialogs are used to get a response from a user before other features can be assessed from the main page.</p>
+                <p>Use one of these 4 modal sizes depending on your needs and requirements:</p>
+                <table className="table table-bordered" style={{ marginBottom: 40 }}>
+                    <tbody>
+                        <tr>
+                            <td className="text-nowrap">Extra Small</td>
+                            <td>W400 x H240 px (minimum height)</td>
+                        </tr>
+                        <tr>
+                            <td className="text-nowrap">Small</td>
+                            <td>W544 x H304 px (minimum height)</td>
+                        </tr>
+                        <tr>
+                            <td className="text-nowrap">Medium</td>
+                            <td>W688 x H304 px (minimum height)</td>
+                        </tr>
+                        <tr>
+                            <td className="text-nowrap">Large</td>
+                            <td>W928 x H304 px (minimum height)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Examples</h3>
+                <div className="row">
+                    <div className="col-sm-6" style={{ marginBottom: 20 }}>
+                        <h4>Modal dialog w/ title</h4>
+                        <div style={{ marginBottom: 20 }}>
+                            <Button
+                                onClick={() => {
+                                    actions.openModal('modal', {
+                                        size: 'xs',
+                                        title: 'Modal Title',
+                                        body: formBody
+                                    });
+                                }}
+                            >
+                                Extra Small Modal
+                            </Button>
+                            <Button
+                                onClick={() => {
+                                    actions.openModal('modal', {
+                                        size: 'sm',
+                                        title: 'Modal Title',
+                                        body: formBody
+                                    });
+                                }}
+                            >
+                                Small Modal
+                            </Button>
+                            <Button
+                                onClick={() => {
+                                    actions.openModal('modal', {
+                                        size: 'md',
+                                        title: 'Modal Title',
+                                        body: formBody
+                                    });
+                                }}
+                            >
+                                Medium Modal
+                            </Button>
+                            <Button
+                                onClick={() => {
+                                    actions.openModal('modal', {
+                                        size: 'lg',
+                                        title: 'Modal Title',
+                                        body: formBody
+                                    });
+                                }}
+                            >
+                                Large Modal
+                            </Button>
                         </div>
+                        <Modal showOverlay={false}>
+                            <Modal.Header>
+                                <Modal.Title>
+                                    Modal Title
+                                </Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                {formBody}
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <Button btnStyle="primary">Save</Button>
+                                <Button>Close</Button>
+                            </Modal.Footer>
+                        </Modal>
                     </div>
-                    <div className="row" style={{ marginBottom: 20 }}>
-                        <div className="col-sm-12 text-left">
-                            <h4>Headerless</h4>
-                            <ButtonGroup>
-                                <Button
-                                    onClick={() => {
-                                        actions.openModal('modal', { size: 'lg' });
-                                    }}
-                                >
-                                    Large
-                                </Button>
-                                <Button
-                                    onClick={() => {
-                                        actions.openModal('modal', { size: 'md' });
-                                    }}
-                                >
-                                    Medium
-                                </Button>
-                                <Button
-                                    onClick={() => {
-                                        actions.openModal('modal', { size: 'sm' });
-                                    }}
-                                >
-                                    Small
-                                </Button>
-                                <Button
-                                    onClick={() => {
-                                        actions.openModal('modal', { size: 'xs' });
-                                    }}
-                                >
-                                    Extra Small
-                                </Button>
-                            </ButtonGroup>
+                    <div className="col-sm-6" style={{ marginBottom: 20 }}>
+                        <h4>Modal dialog w/o title</h4>
+                        <div style={{ marginBottom: 20 }}>
+                            <Button
+                                onClick={() => {
+                                    actions.openModal('modal', {
+                                        size: 'xs',
+                                        body: warningBody
+                                    });
+                                }}
+                            >
+                                Extra Small Modal
+                            </Button>
+                            <Button
+                                onClick={() => {
+                                    actions.openModal('modal', {
+                                        size: 'sm',
+                                        body: warningBody
+                                    });
+                                }}
+                            >
+                                Small Modal
+                            </Button>
+                            <Button
+                                onClick={() => {
+                                    actions.openModal('modal', {
+                                        size: 'md',
+                                        body: warningBody
+                                    });
+                                }}
+                            >
+                                Medium Modal
+                            </Button>
+                            <Button
+                                onClick={() => {
+                                    actions.openModal('modal', {
+                                        size: 'lg',
+                                        body: warningBody
+                                    });
+                                }}
+                            >
+                                Large Modal
+                            </Button>
                         </div>
+                        <Modal showOverlay={false}>
+                            <Modal.Body>
+                                {warningBody}
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <Button btnStyle="primary">Save</Button>
+                                <Button>Close</Button>
+                            </Modal.Footer>
+                        </Modal>
                     </div>
                 </div>
             </div>
