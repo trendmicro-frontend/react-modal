@@ -3,17 +3,15 @@
   "version": "0.6.0",
   "description": "Trend Micro Components: React Modal",
   "authors": [
-    {
-      "name": "Cheton Wu",
-      "email": "cheton_wu@trend.com.tw",
-      "homepage": "https://github.com/cheton"
-    }
+    "Cheton Wu <cheton_wu@trend.com.tw>"
   ],
   "homepage": "https://github.com/trendmicro-frontend/react-modal",
   "snapshots": [],
   "keywords": [
     "react",
-    "react-modal"
+    "react-modal",
+    "modal",
+    "dialogs"
   ],
   "license": "MIT"
 }
