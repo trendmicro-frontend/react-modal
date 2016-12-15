@@ -40,7 +40,9 @@
   "homepage": "https://github.com/trendmicro-frontend/react-modal",
   "keywords": [
     "react",
-    "react-modal"
+    "react-modal",
+    "modal",
+    "dialogs"
   ],
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0"
