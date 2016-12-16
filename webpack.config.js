@@ -1,5 +1,4 @@
 var pkg = require('./package.json');
-var bower = require('./bower.json');
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
