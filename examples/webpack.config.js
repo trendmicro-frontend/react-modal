@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var nib = require('nib');
 
 module.exports = {
@@ -8,7 +9,7 @@ module.exports = {
     entry: path.resolve(__dirname, 'index.jsx'),
     output: {
         path: path.join(__dirname, '../docs'),
-        filename: 'bundle.js'
+        filename: 'bundle.js?[hash]'
     },
     module: {
         preLoaders: [
@@ -54,6 +55,10 @@ module.exports = {
         import: ['~nib/lib/nib/index.styl']
     },
     plugins: [
+        new HtmlWebpackPlugin({
+            filename: '../docs/index.html',
+            template: 'index.html'
+        })
     ],
     resolve: {
         extensions: ['', '.js', '.jsx']
