@@ -89,7 +89,7 @@ class App extends Component {
                 <table className="table table-bordered" style={{ marginBottom: 40 }}>
                     <tbody>
                         <tr>
-                            <td className="text-nowrap">Extra Small</td>
+                            <td className="text-nowrap">Extra small</td>
                             <td>W400 x H240 px (minimum height)</td>
                         </tr>
                         <tr>
@@ -167,7 +167,7 @@ class App extends Component {
                             </Modal.Body>
                             <Modal.Footer>
                                 <Button btnStyle="primary">Save</Button>
-                                <Button>Close</Button>
+                                <Button>Cancel</Button>
                             </Modal.Footer>
                         </Modal>
                     </div>
@@ -221,7 +221,7 @@ class App extends Component {
                             </Modal.Body>
                             <Modal.Footer>
                                 <Button btnStyle="primary">Save</Button>
-                                <Button>Close</Button>
+                                <Button>Cancel</Button>
                             </Modal.Footer>
                         </Modal>
                     </div>

@@ -219,7 +219,7 @@
 	                            _react2.default.createElement(
 	                                'td',
 	                                { className: 'text-nowrap' },
-	                                'Extra Small'
+	                                'Extra small'
 	                            ),
 	                            _react2.default.createElement(
 	                                'td',
@@ -371,7 +371,7 @@
 	                                _react2.default.createElement(
 	                                    _reactButtons.Button,
 	                                    null,
-	                                    'Close'
+	                                    'Cancel'
 	                                )
 	                            )
 	                        )
@@ -455,7 +455,7 @@
 	                                _react2.default.createElement(
 	                                    _reactButtons.Button,
 	                                    null,
-	                                    'Close'
+	                                    'Cancel'
 	                                )
 	                            )
 	                        )
@@ -25895,4 +25895,4 @@
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=bundle.js.map?34696b35c9c694816098
+//# sourceMappingURL=bundle.js.map?67f6f25fe8fa5a53e184
