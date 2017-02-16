@@ -17,7 +17,7 @@ Demo: https://trendmicro-frontend.github.io/react-modal
 2. At this point you can import `@trendmicro/react-modal` and its styles in your application as follows:
 
   ```js
-  import Component from '@trendmicro/react-modal';
+  import Modal from '@trendmicro/react-modal';
 
   // Be sure to include styles at some point, probably during your bootstraping
   import '@trendmicro/react-modal/dist/react-modal.css';
