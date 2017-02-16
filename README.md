@@ -29,6 +29,8 @@ Demo: https://trendmicro-frontend.github.io/react-modal
 import React, { Component, PropTypes } from 'react';
 import { Button } from '@trendmicro/react-buttons';
 import Modal from '@trendmicro/react-modal';
+import '@trendmicro/react-buttons/dist/react-buttons.css';
+import '@trendmicro/react-modal/dist/react-modal.css';
 
 class ModalDialog extends Component {
     static propTypes = {
