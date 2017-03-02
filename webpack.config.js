@@ -2,6 +2,8 @@ var pkg = require('./package.json');
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var findImports = require('find-imports');
+var stylusLoader = require('stylus-loader');
 var nib = require('nib');
 var publicname = pkg.name.replace(/^@\w+\//, ''); // Strip out "@trendmicro/" from package name
 var banner = [
@@ -21,55 +23,61 @@ module.exports = {
         libraryTarget: 'commonjs2'
     },
     externals: []
+        .concat(findImports(['src/**/*.{js,jsx}'], { flatten: true }))
         .concat(Object.keys(pkg.peerDependencies))
         .concat(Object.keys(pkg.dependencies)),
     module: {
-        preLoaders: [
+        rules: [
             // http://survivejs.com/webpack_react/linting_in_webpack/
             {
                 test: /\.jsx?$/,
-                loaders: ['eslint'],
+                loader: 'eslint-loader',
+                enforce: 'pre',
                 exclude: /node_modules/
             },
             {
                 test: /\.styl$/,
-                loader: 'stylint'
-            }
-        ],
-        loaders: [
-            {
-                test: /\.json$/,
-                loader: 'json'
+                loader: 'stylint-loader',
+                enforce: 'pre'
             },
             {
                 test: /\.jsx?$/,
-                loader: 'babel',
+                loader: 'babel-loader',
                 exclude: /(node_modules|bower_components)/
             },
             {
                 test: /\.styl$/,
-                loader: ExtractTextPlugin.extract(
-                    'style',
-                    'css?-autoprefixer&camelCase&modules&importLoaders=1&localIdentName=' + localClassPrefix + '---[local]---[hash:base64:5]!stylus'
-                )
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader?camelCase&modules&importLoaders=1&localIdentName=' + localClassPrefix + '---[local]---[hash:base64:5]!stylus-loader'
+                })
             },
             {
                 test: /\.css$/,
-                loader: 'style!css?-autoprefixer'
+                loader: 'style-loader!css-loader'
             }
         ]
     },
-    stylus: {
-        // nib - CSS3 extensions for Stylus
-        use: [nib()],
-        // no need to have a '@import "nib"' in the stylesheet
-        import: ['~nib/lib/nib/index.styl']
-    },
     plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                // This has effect on the react lib size
+                NODE_ENV: JSON.stringify('production')
+            }
+        }),
+        new webpack.NoEmitOnErrorsPlugin(),
+        new stylusLoader.OptionsPlugin({
+            default: {
+                // nib - CSS3 extensions for Stylus
+                use: [nib()],
+                // no need to have a '@import "nib"' in the stylesheet
+                import: ['~nib/lib/nib/index.styl']
+            }
+        }),
         new ExtractTextPlugin('../dist/' + publicname + '.css'),
         new webpack.BannerPlugin(banner)
     ],
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        extensions: ['.js', '.json', '.jsx']
     }
 };
