@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import ModalOverlay from './ModalOverlay';
 import ModalContent from './ModalContent';
 import styles from './index.styl';
