@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styles from './index.styl';
 
-class ModalFooter extends Component {
+class ModalFooter extends PureComponent {
     static propTypes = {
         padding: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
     };

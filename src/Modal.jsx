@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import ModalOverlay from './ModalOverlay';
 import ModalContent from './ModalContent';
 import styles from './index.styl';
 
-export default class extends Component {
+class Modal extends PureComponent {
     static propTypes = {
         ...ModalOverlay.propTypes,
         ...ModalContent.propTypes,
@@ -91,3 +91,5 @@ export default class extends Component {
         );
     }
 }
+
+export default Modal;

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Modal from 'react-modal';
 
 const noop = () => {};
@@ -31,7 +31,7 @@ const customStyles = {
     }
 };
 
-class ModalOverlay extends Component {
+class ModalOverlay extends PureComponent {
     static propTypes = {
         // Specify whether to show the modal.
         show: PropTypes.bool,
