@@ -14,7 +14,7 @@ const customStyles = {
         left: 0,
         right: 0,
         backgroundColor: 'rgba(51, 51, 51, .55)',
-        zIndex: 100
+        zIndex: 1000
     },
     content: {
         boxShadow: '0 4px 16px rgba(0, 0, 0, .5)',
