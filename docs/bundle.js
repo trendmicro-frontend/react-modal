@@ -27917,7 +27917,7 @@ var customStyles = {
         left: 0,
         right: 0,
         backgroundColor: 'rgba(51, 51, 51, .55)',
-        zIndex: 100
+        zIndex: 1000
     },
     content: {
         boxShadow: '0 4px 16px rgba(0, 0, 0, .5)',
@@ -28637,4 +28637,4 @@ _reactDom2.default.render(_react2.default.createElement(App, null), document.get
 /***/ })
 
 /******/ });
-//# sourceMappingURL=bundle.js.map?a071e294be5e2bf58191
+//# sourceMappingURL=bundle.js.map?5c5fa499f76e71f39349
