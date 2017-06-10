@@ -22,15 +22,44 @@ Demo: https://trendmicro-frontend.github.io/react-modal
   // Be sure to include styles at some point, probably during your bootstraping
   import '@trendmicro/react-modal/dist/react-modal.css';
   ```
+  
+## Recommended Setup
+
+Create a common components directory including both `Buttons` and `Modal` components, as shown below:
+```
+components/
+  Buttons/
+    index.js
+  Modal/
+    index.js
+```
+
+**components/Buttons/index.js**
+```js
+import '@trendmicro/react-buttons/dist/react-buttons.css';
+
+export { Button, ButtonGroup, ButtonToolbar } from '@trendmicro/react-buttons';
+```
+
+**components/Modal/index.js**
+```js
+import '@trendmicro/react-modal/dist/react-modal.css';
+import Modal from '@trendmicro/react-modal';
+
+export default Modal;
+```
+
+Then, import `Modal` component in your code:
+```js
+import Modal from './components/Modal';
+```
 
 ## Usage
 
 ```js
 import React, { Component, PropTypes } from 'react';
-import { Button } from '@trendmicro/react-buttons';
-import Modal from '@trendmicro/react-modal';
-import '@trendmicro/react-buttons/dist/react-buttons.css';
-import '@trendmicro/react-modal/dist/react-modal.css';
+import { Button } from './components/Buttons';
+import Modal from './components/Modal';
 
 class ModalDialog extends Component {
     static propTypes = {
@@ -51,7 +80,7 @@ class ModalDialog extends Component {
                         Modal Title
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body padding={true}>
+                <Modal.Body padding>
                     Modal Body
                 </Modal.Body>
                 <Modal.Footer>
