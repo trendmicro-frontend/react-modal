@@ -16,9 +16,10 @@ $modal-footer-height = 56px;
 $modal-footer-button-margin = 8px;
 
 .modal-content {
+    // https://www.paulirish.com/2012/box-sizing-border-box-ftw/
     box-sizing: border-box;
     *, *:before, *:after {
-        box-sizing: border-box;
+        box-sizing: inherit;
     }
 
     border: 1px solid #ccc;
