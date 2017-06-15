@@ -1,12 +1,17 @@
-/*! react-modal v0.7.1 | (c) 2017 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-modal */
+/*! react-modal v0.7.2 | (c) 2017 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-modal */
 .modal---modal-content---3pwnC {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   border: 1px solid #ccc;
   -webkit-box-shadow: 0 4px 16px rgba(0,0,0,0.5);
   box-shadow: 0 4px 16px rgba(0,0,0,0.5);
   position: relative;
   min-width: 400px;
 }
-.modal---modal-content---3pwnC * {
+.modal---modal-content---3pwnC *,
+.modal---modal-content---3pwnC *:before,
+.modal---modal-content---3pwnC *:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
