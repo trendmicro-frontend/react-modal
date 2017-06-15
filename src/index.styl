@@ -16,14 +16,15 @@ $modal-footer-height = 56px;
 $modal-footer-button-margin = 8px;
 
 .modal-content {
+    box-sizing: border-box;
+    *, *:before, *:after {
+        box-sizing: border-box;
+    }
+
     border: 1px solid #ccc;
     box-shadow: 0 4px 16px rgba(0, 0, 0, .5);
     position: relative;
     min-width: $modal-xs-min-width;
-
-    * {
-        box-sizing: border-box;
-    }
 
     &.xs {
         min-width: $modal-xs-min-width;
