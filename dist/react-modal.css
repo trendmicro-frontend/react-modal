@@ -1,4 +1,4 @@
-/*! react-modal v0.7.3 | (c) 2017 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-modal */
+/*! react-modal v0.7.4 | (c) 2017 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-modal */
 .modal---modal-content---3pwnC {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -76,7 +76,7 @@
   filter: none;
 }
 .modal---modal-content---3pwnC .modal---modal-header---2YL1L {
-  height: 54px;
+  min-height: 54px;
   background-color: #fff;
   border-bottom: 1px solid #ccc;
   padding: 0;
@@ -102,7 +102,7 @@
   padding: 16px 24px;
 }
 .modal---modal-content---3pwnC .modal---modal-footer---20LPi {
-  height: 56px;
+  min-height: 56px;
   margin-top: 0;
   text-align: right;
   background-color: #eee;
