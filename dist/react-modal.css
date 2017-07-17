@@ -1,4 +1,4 @@
-/*! react-modal v0.7.4 | (c) 2017 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-modal */
+/*! react-modal v0.7.5 | (c) 2017 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-modal */
 .modal---modal-content---3pwnC {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -84,11 +84,20 @@
 .modal---modal-content---3pwnC .modal---modal-header---2YL1L.modal---padding---2ENnv {
   padding: 16px 24px;
 }
+.modal---modal-content---3pwnC.modal---hasCloseButton---RXf1Z .modal---modal-header---2YL1L.modal---padding---2ENnv {
+  padding: 16px 40px 16px 24px;
+}
 .modal---modal-content---3pwnC .modal---modal-title---2JFyt {
   font-weight: 200;
   color: #222;
   letter-spacing: -0.02em;
   font-size: 18px;
+}
+.modal---modal-content---3pwnC .modal---modal-title---2JFyt.modal---ellipsis---1BpLN {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .modal---modal-content---3pwnC .modal---modal-body---2HFnG {
   position: relative;
