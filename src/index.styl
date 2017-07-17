@@ -78,11 +78,25 @@
         }
     }
 
+    &.hasCloseButton {
+        .modal-header {
+            &.padding {
+                padding: $padding-tb $padding-r $padding-tb $padding-lr;
+            }
+        }
+    }
+
     .modal-title {
         font-weight: 200;
         color: #222;
         letter-spacing: -.02em;
         font-size: 18px;
+
+        &.ellipsis {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
     }
 
     .modal-body {

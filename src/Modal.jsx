@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
+import classNames from 'classnames';
 import ModalOverlay from './ModalOverlay';
 import ModalContent from './ModalContent';
 import styles from './index.styl';
@@ -50,6 +51,7 @@ class Modal extends PureComponent {
             // ModalContent
             size,
             // Modal
+            className,
             showOverlay,
             showCloseButton,
             // Others
@@ -60,6 +62,10 @@ class Modal extends PureComponent {
             return (
                 <ModalContent
                     {...props}
+                    className={classNames(
+                        className,
+                        { [styles.hasCloseButton]: showCloseButton }
+                    )}
                     size={size}
                     style={{ display: show ? 'block' : 'none' }}
                 >
@@ -78,6 +84,10 @@ class Modal extends PureComponent {
             >
                 <ModalContent
                     {...props}
+                    className={classNames(
+                        className,
+                        { [styles.hasCloseButton]: showCloseButton }
+                    )}
                     size={size}
                     style={{ // border and boxShadow properties are specified in ModalOverlay
                         border: 'none',
