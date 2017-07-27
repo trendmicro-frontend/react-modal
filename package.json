@@ -1,6 +1,6 @@
 {
   "name": "@trendmicro/react-modal",
-  "version": "0.7.5",
+  "version": "0.7.6",
   "description": "Trend Micro Components: React Modal",
   "main": "lib/index.js",
   "files": [
