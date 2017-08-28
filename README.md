@@ -206,7 +206,7 @@ export default ModalWrapper;
       <td>onClose</td>
       <td>Function</td>
       <td></td>
-      <td>A callback fired when clicking the close button (x&times;) or the overlay area.</td>
+      <td>A callback fired when clicking the close button (&times;) or the overlay area.</td>
     </tr>
     <tr>
       <td>onOpen</td>
