@@ -69,6 +69,7 @@ class ModalOverlay extends PureComponent {
                 shouldCloseOnOverlayClick={closeOnOverlayClick}
                 style={customStyles}
                 contentLabel="Modal"
+                ariaHideApp={false}
             >
                 {children}
             </Modal>
