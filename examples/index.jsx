@@ -114,7 +114,7 @@ class App extends Component {
                 <h3>Examples</h3>
                 <div className="row">
                     <div className="col-sm-6" style={{ marginBottom: 20 }}>
-                        <h4>Modal dialog w/ title</h4>
+                        <h4>Modal Dialog</h4>
                         <div style={{ marginBottom: 20 }}>
                             <Button
                                 onClick={() => {
@@ -187,12 +187,11 @@ class App extends Component {
                         </Modal>
                     </div>
                     <div className="col-sm-6" style={{ marginBottom: 20 }}>
-                        <h4>Modal dialog w/o title</h4>
+                        <h4>Modal Dialog (w/o title)</h4>
                         <div style={{ marginBottom: 20 }}>
                             <Button
                                 onClick={() => {
                                     this.openModal('modal', {
-                                        title: 'Lorem Ipsum',
                                         body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
                                     });
                                 }}
