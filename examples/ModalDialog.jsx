@@ -5,20 +5,17 @@ import Modal from '../src';
 
 class ModalDialog extends Component {
     static propTypes = {
-        state: PropTypes.object,
-        actions: PropTypes.object
+        title: PropTypes.any,
+        body: PropTypes.any,
+        onSave: PropTypes.func,
+        onCancel: PropTypes.func
     };
 
     render() {
-        const { state, actions } = this.props;
-        const { size = 'sm', title, body } = state.modal.params;
+        const { title, body, onSave, onCancel, ...props } = this.props;
 
         return (
-            <Modal
-                show
-                size={size}
-                onClose={actions.closeModal}
-            >
+            <Modal {...props} onClose={onCancel}>
                 {title &&
                 <Modal.Header>
                     <Modal.Title>{title}</Modal.Title>
@@ -28,8 +25,8 @@ class ModalDialog extends Component {
                     {body}
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button btnStyle="primary" onClick={actions.closeModal}>Save</Button>
-                    <Button onClick={actions.closeModal}>Close</Button>
+                    <Button btnStyle="primary" onClick={onSave}>Save</Button>
+                    <Button onClick={onCancel}>Cancel</Button>
                 </Modal.Footer>
             </Modal>
         );

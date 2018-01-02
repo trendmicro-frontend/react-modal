@@ -44,44 +44,45 @@ class App extends Component {
         }
     };
 
-    actions = {
-        openModal: (name = '', params = {}) => {
-            this.setState({
-                modal: {
-                    name: name,
-                    params: params
+    openModal = (name = '', params = {}) => {
+        this.setState({
+            modal: {
+                name: name,
+                params: params
+            }
+        });
+    };
+
+    updateModalParams = (params = {}) => {
+        this.setState(state => ({
+            modal: {
+                ...state.modal,
+                params: {
+                    ...state.modal.params,
+                    ...params
                 }
-            });
-        },
-        updateModalParams: (params = {}) => {
-            this.setState({
-                modal: {
-                    ...this.state.modal,
-                    params: {
-                        ...this.state.modal.params,
-                        ...params
-                    }
-                }
-            });
-        },
-        closeModal: () => {
-            this.setState({
-                modal: {
-                    name: '',
-                    params: {}
-                }
-            });
-        }
+            }
+        }));
+    };
+
+    closeModal = () => {
+        this.setState({
+            modal: {
+                name: '',
+                params: {}
+            }
+        });
     };
 
     render() {
-        const state = { ...this.state };
-        const actions = { ...this.actions };
-
         return (
             <div className="container-fluid text-left">
-                {state.modal.name &&
-                <ModalDialog state={state} actions={actions} />
+                {this.state.modal.name &&
+                <ModalDialog
+                    {...this.state.modal.params}
+                    onSave={this.closeModal}
+                    onCancel={this.closeModal}
+                />
                 }
                 <h2>Modal</h2>
                 <p>Modal dialogs are used to get a response from a user before other features can be assessed from the main page.</p>
@@ -89,20 +90,24 @@ class App extends Component {
                 <table className="table table-bordered" style={{ marginBottom: 40 }}>
                     <tbody>
                         <tr>
-                            <td className="text-nowrap">Extra small</td>
-                            <td>W400 x H240 px (minimum height)</td>
+                            <td className="text-nowrap">Auto</td>
+                            <td>400px (minimum width)</td>
+                        </tr>
+                        <tr>
+                            <td className="text-nowrap">Extra Small</td>
+                            <td>400px (fixed width) x 240 px (minimum height)</td>
                         </tr>
                         <tr>
                             <td className="text-nowrap">Small</td>
-                            <td>W544 x H304 px (minimum height)</td>
+                            <td>544px (fixed width) x 304 px (minimum height)</td>
                         </tr>
                         <tr>
                             <td className="text-nowrap">Medium</td>
-                            <td>W688 x H304 px (minimum height)</td>
+                            <td>688px (fixed width) x 304 px (minimum height)</td>
                         </tr>
                         <tr>
                             <td className="text-nowrap">Large</td>
-                            <td>W928 x H304 px (minimum height)</td>
+                            <td>928px (fixed width) x 304 px (minimum height)</td>
                         </tr>
                     </tbody>
                 </table>
@@ -113,47 +118,57 @@ class App extends Component {
                         <div style={{ marginBottom: 20 }}>
                             <Button
                                 onClick={() => {
-                                    actions.openModal('modal', {
+                                    this.openModal('modal', {
+                                        title: 'Lorem Ipsum',
+                                        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                                    });
+                                }}
+                            >
+                                Auto
+                            </Button>
+                            <Button
+                                onClick={() => {
+                                    this.openModal('modal', {
                                         size: 'xs',
                                         title: 'Modal Title',
                                         body: formBody
                                     });
                                 }}
                             >
-                                Extra Small Modal
+                                Extra Small
                             </Button>
                             <Button
                                 onClick={() => {
-                                    actions.openModal('modal', {
+                                    this.openModal('modal', {
                                         size: 'sm',
                                         title: 'Modal Title',
                                         body: formBody
                                     });
                                 }}
                             >
-                                Small Modal
+                                Small
                             </Button>
                             <Button
                                 onClick={() => {
-                                    actions.openModal('modal', {
+                                    this.openModal('modal', {
                                         size: 'md',
                                         title: 'Modal Title',
                                         body: formBody
                                     });
                                 }}
                             >
-                                Medium Modal
+                                Medium
                             </Button>
                             <Button
                                 onClick={() => {
-                                    actions.openModal('modal', {
+                                    this.openModal('modal', {
                                         size: 'lg',
                                         title: 'Modal Title',
                                         body: formBody
                                     });
                                 }}
                             >
-                                Large Modal
+                                Large
                             </Button>
                         </div>
                         <Modal showOverlay={false}>
@@ -176,43 +191,53 @@ class App extends Component {
                         <div style={{ marginBottom: 20 }}>
                             <Button
                                 onClick={() => {
-                                    actions.openModal('modal', {
+                                    this.openModal('modal', {
+                                        title: 'Lorem Ipsum',
+                                        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                                    });
+                                }}
+                            >
+                                Auto
+                            </Button>
+                            <Button
+                                onClick={() => {
+                                    this.openModal('modal', {
                                         size: 'xs',
                                         body: warningBody
                                     });
                                 }}
                             >
-                                Extra Small Modal
+                                Extra Small
                             </Button>
                             <Button
                                 onClick={() => {
-                                    actions.openModal('modal', {
+                                    this.openModal('modal', {
                                         size: 'sm',
                                         body: warningBody
                                     });
                                 }}
                             >
-                                Small Modal
+                                Small
                             </Button>
                             <Button
                                 onClick={() => {
-                                    actions.openModal('modal', {
+                                    this.openModal('modal', {
                                         size: 'md',
                                         body: warningBody
                                     });
                                 }}
                             >
-                                Medium Modal
+                                Medium
                             </Button>
                             <Button
                                 onClick={() => {
-                                    actions.openModal('modal', {
+                                    this.openModal('modal', {
                                         size: 'lg',
                                         body: warningBody
                                     });
                                 }}
                             >
-                                Large Modal
+                                Large
                             </Button>
                         </div>
                         <Modal showOverlay={false}>

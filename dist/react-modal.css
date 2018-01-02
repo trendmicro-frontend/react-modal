@@ -1,4 +1,4 @@
-/*! react-modal v0.9.1 | (c) 2017 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-modal */
+/*! react-modal v1.0.0 | (c) 2018 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-modal */
 .modal---modal-content---3pwnC {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -18,8 +18,7 @@
   box-sizing: inherit;
 }
 .modal---modal-content---3pwnC.modal---xs---1z3ff {
-  min-width: 400px;
-  max-width: 543px;
+  width: 400px;
 }
 .modal---modal-content---3pwnC.modal---xs---1z3ff .modal---modal-body---2HFnG {
   min-height: 184px;
@@ -28,8 +27,7 @@
   min-height: 130px;
 }
 .modal---modal-content---3pwnC.modal---sm---20_2_ {
-  min-width: 544px;
-  max-width: 687px;
+  width: 544px;
 }
 .modal---modal-content---3pwnC.modal---sm---20_2_ .modal---modal-body---2HFnG {
   min-height: 246px;
@@ -38,8 +36,7 @@
   min-height: 192px;
 }
 .modal---modal-content---3pwnC.modal---md---2-zYL {
-  min-width: 688px;
-  max-width: 927px;
+  width: 688px;
 }
 .modal---modal-content---3pwnC.modal---md---2-zYL .modal---modal-body---2HFnG {
   min-height: 246px;
@@ -48,7 +45,7 @@
   min-height: 192px;
 }
 .modal---modal-content---3pwnC.modal---lg---Hdvxb {
-  min-width: 928px;
+  width: 928px;
 }
 .modal---modal-content---3pwnC.modal---lg---Hdvxb .modal---modal-body---2HFnG {
   min-height: 246px;

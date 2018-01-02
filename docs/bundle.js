@@ -544,9 +544,9 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 		module.exports = classNames;
 	} else if (true) {
 		// register as 'classnames', consistent with npm package name
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
 			return classNames;
-		}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	} else {
 		window.classNames = classNames;
@@ -579,7 +579,7 @@ exports = module.exports = __webpack_require__("../node_modules/css-loader/lib/c
 
 
 // module
-exports.push([module.i, ".modal-content---3hUtG {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  line-height: 20px;\n  border: 1px solid #ccc;\n  -webkit-box-shadow: 0 4px 16px rgba(0,0,0,0.5);\n  box-shadow: 0 4px 16px rgba(0,0,0,0.5);\n  position: relative;\n  min-width: 400px;\n}\n.modal-content---3hUtG *,\n.modal-content---3hUtG *:before,\n.modal-content---3hUtG *:after {\n  -webkit-box-sizing: inherit;\n  -moz-box-sizing: inherit;\n  box-sizing: inherit;\n}\n.modal-content---3hUtG.xs---8dzzc {\n  min-width: 400px;\n  max-width: 543px;\n}\n.modal-content---3hUtG.xs---8dzzc .modal-body---22INy {\n  min-height: 184px;\n}\n.modal-content---3hUtG.xs---8dzzc .modal-header---1FIQ_ + .modal-body---22INy {\n  min-height: 130px;\n}\n.modal-content---3hUtG.sm---3ceuY {\n  min-width: 544px;\n  max-width: 687px;\n}\n.modal-content---3hUtG.sm---3ceuY .modal-body---22INy {\n  min-height: 246px;\n}\n.modal-content---3hUtG.sm---3ceuY .modal-header---1FIQ_ + .modal-body---22INy {\n  min-height: 192px;\n}\n.modal-content---3hUtG.md---3OKcy {\n  min-width: 688px;\n  max-width: 927px;\n}\n.modal-content---3hUtG.md---3OKcy .modal-body---22INy {\n  min-height: 246px;\n}\n.modal-content---3hUtG.md---3OKcy .modal-header---1FIQ_ + .modal-body---22INy {\n  min-height: 192px;\n}\n.modal-content---3hUtG.lg---2kMz1 {\n  min-width: 928px;\n}\n.modal-content---3hUtG.lg---2kMz1 .modal-body---22INy {\n  min-height: 246px;\n}\n.modal-content---3hUtG.lg---2kMz1 .modal-header---1FIQ_ + .modal-body---22INy {\n  min-height: 192px;\n}\n.modal-content---3hUtG .close---fVKdP {\n  position: absolute;\n  top: 16px;\n  right: 24px;\n  padding: 0;\n  margin: 0;\n  line-height: 20px;\n  cursor: pointer;\n  background: transparent;\n  border: 0;\n  -webkit-appearance: none;\n  font-size: 30px;\n  font-weight: normal;\n  color: #999;\n  text-shadow: none;\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n}\n.modal-content---3hUtG .modal-header---1FIQ_ {\n  min-height: 54px;\n  background-color: #fff;\n  border-bottom: 1px solid #ccc;\n  padding: 0;\n}\n.modal-content---3hUtG .modal-header---1FIQ_.padding---2pFRu {\n  padding: 16px 24px;\n}\n.modal-content---3hUtG.hasCloseButton---2jvGR .modal-header---1FIQ_.padding---2pFRu {\n  padding: 16px 56px 16px 24px;\n}\n.modal-content---3hUtG .modal-title---2qyMh {\n  font-weight: 200;\n  color: #222;\n  letter-spacing: -0.02em;\n  font-size: 18px;\n}\n.modal-content---3hUtG .modal-title---2qyMh.ellipsis---3BkJT {\n  overflow: hidden;\n  -o-text-overflow: ellipsis;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.modal-content---3hUtG .modal-body---22INy {\n  position: relative;\n  padding: 0;\n}\n.modal-content---3hUtG .modal-body---22INy.padding---2pFRu {\n  padding: 54px 24px 16px 24px;\n}\n.modal-content---3hUtG .modal-header---1FIQ_ + .modal-body---22INy.padding---2pFRu {\n  padding: 16px 24px;\n}\n.modal-content---3hUtG .modal-footer---3bXnF {\n  min-height: 56px;\n  margin-top: 0;\n  text-align: right;\n  background-color: #eee;\n  padding: 0;\n}\n.modal-content---3hUtG .modal-footer---3bXnF.padding---2pFRu {\n  padding: 12px 24px;\n}\n.modal-content---3hUtG .modal-footer---3bXnF button {\n  min-width: 80px;\n}\n.modal-content---3hUtG .modal-footer---3bXnF button + button {\n  margin-left: 8px;\n}\n", ""]);
+exports.push([module.i, ".modal-content---3hUtG {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  line-height: 20px;\n  border: 1px solid #ccc;\n  -webkit-box-shadow: 0 4px 16px rgba(0,0,0,0.5);\n  box-shadow: 0 4px 16px rgba(0,0,0,0.5);\n  position: relative;\n  min-width: 400px;\n}\n.modal-content---3hUtG *,\n.modal-content---3hUtG *:before,\n.modal-content---3hUtG *:after {\n  -webkit-box-sizing: inherit;\n  -moz-box-sizing: inherit;\n  box-sizing: inherit;\n}\n.modal-content---3hUtG.xs---8dzzc {\n  width: 400px;\n}\n.modal-content---3hUtG.xs---8dzzc .modal-body---22INy {\n  min-height: 184px;\n}\n.modal-content---3hUtG.xs---8dzzc .modal-header---1FIQ_ + .modal-body---22INy {\n  min-height: 130px;\n}\n.modal-content---3hUtG.sm---3ceuY {\n  width: 544px;\n}\n.modal-content---3hUtG.sm---3ceuY .modal-body---22INy {\n  min-height: 246px;\n}\n.modal-content---3hUtG.sm---3ceuY .modal-header---1FIQ_ + .modal-body---22INy {\n  min-height: 192px;\n}\n.modal-content---3hUtG.md---3OKcy {\n  width: 688px;\n}\n.modal-content---3hUtG.md---3OKcy .modal-body---22INy {\n  min-height: 246px;\n}\n.modal-content---3hUtG.md---3OKcy .modal-header---1FIQ_ + .modal-body---22INy {\n  min-height: 192px;\n}\n.modal-content---3hUtG.lg---2kMz1 {\n  width: 928px;\n}\n.modal-content---3hUtG.lg---2kMz1 .modal-body---22INy {\n  min-height: 246px;\n}\n.modal-content---3hUtG.lg---2kMz1 .modal-header---1FIQ_ + .modal-body---22INy {\n  min-height: 192px;\n}\n.modal-content---3hUtG .close---fVKdP {\n  position: absolute;\n  top: 16px;\n  right: 24px;\n  padding: 0;\n  margin: 0;\n  line-height: 20px;\n  cursor: pointer;\n  background: transparent;\n  border: 0;\n  -webkit-appearance: none;\n  font-size: 30px;\n  font-weight: normal;\n  color: #999;\n  text-shadow: none;\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n}\n.modal-content---3hUtG .modal-header---1FIQ_ {\n  min-height: 54px;\n  background-color: #fff;\n  border-bottom: 1px solid #ccc;\n  padding: 0;\n}\n.modal-content---3hUtG .modal-header---1FIQ_.padding---2pFRu {\n  padding: 16px 24px;\n}\n.modal-content---3hUtG.hasCloseButton---2jvGR .modal-header---1FIQ_.padding---2pFRu {\n  padding: 16px 56px 16px 24px;\n}\n.modal-content---3hUtG .modal-title---2qyMh {\n  font-weight: 200;\n  color: #222;\n  letter-spacing: -0.02em;\n  font-size: 18px;\n}\n.modal-content---3hUtG .modal-title---2qyMh.ellipsis---3BkJT {\n  overflow: hidden;\n  -o-text-overflow: ellipsis;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.modal-content---3hUtG .modal-body---22INy {\n  position: relative;\n  padding: 0;\n}\n.modal-content---3hUtG .modal-body---22INy.padding---2pFRu {\n  padding: 54px 24px 16px 24px;\n}\n.modal-content---3hUtG .modal-header---1FIQ_ + .modal-body---22INy.padding---2pFRu {\n  padding: 16px 24px;\n}\n.modal-content---3hUtG .modal-footer---3bXnF {\n  min-height: 56px;\n  margin-top: 0;\n  text-align: right;\n  background-color: #eee;\n  padding: 0;\n}\n.modal-content---3hUtG .modal-footer---3bXnF.padding---2pFRu {\n  padding: 12px 24px;\n}\n.modal-content---3hUtG .modal-footer---3bXnF button {\n  min-width: 80px;\n}\n.modal-content---3hUtG .modal-footer---3bXnF button + button {\n  margin-left: 8px;\n}\n", ""]);
 
 // exports
 exports.locals = {
@@ -721,9 +721,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*!
 	};
 
 	if (true) {
-		!(__WEBPACK_AMD_DEFINE_RESULT__ = function () {
+		!(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
 			return ExecutionEnvironment;
-		}.call(exports, __webpack_require__, exports, module),
+		}).call(exports, __webpack_require__, exports, module),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	} else if (typeof module !== 'undefined' && module.exports) {
 		module.exports = ExecutionEnvironment;
@@ -18599,7 +18599,7 @@ var ModalPortal = function (_Component) {
       }
 
       if (_this.props.shouldCloseOnEsc && event.keyCode === ESC_KEY) {
-        event.preventDefault();
+        event.stopPropagation();
         _this.requestClose(event);
       }
     };
@@ -19009,8 +19009,10 @@ function markForFocusLater() {
 function returnFocus() {
   var toFocus = null;
   try {
-    toFocus = focusLaterElements.pop();
-    toFocus.focus();
+    if (focusLaterElements.length !== 0) {
+      toFocus = focusLaterElements.pop();
+      toFocus.focus();
+    }
     return;
   } catch (e) {
     console.warn(["You tried to return focus to", toFocus, "but it is not in the DOM anymore"].join(" "));
@@ -20766,7 +20768,7 @@ module.exports = function(list, options) {
 
 	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
 	// tags it will allow on a page
-	if (!options.singleton) options.singleton = isOldIE();
+	if (!options.singleton && typeof options.singleton !== "boolean") options.singleton = isOldIE();
 
 	// By default, add <style> tags to the <head> element
 	if (!options.insertInto) options.insertInto = "head";
@@ -21247,6 +21249,10 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _class, _temp2;
 
+var _classnames = __webpack_require__("../node_modules/classnames/index.js");
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
 var _propTypes = __webpack_require__("../node_modules/prop-types/index.js");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -21254,10 +21260,6 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 var _react = __webpack_require__("../node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
-
-var _classnames = __webpack_require__("../node_modules/classnames/index.js");
-
-var _classnames2 = _interopRequireDefault(_classnames);
 
 var _ModalOverlay = __webpack_require__("../src/ModalOverlay.jsx");
 
@@ -21313,29 +21315,32 @@ var Modal = (_temp2 = _class = function (_PureComponent) {
     };
 
     Modal.prototype.render = function render() {
-        var _classNames2;
+        var _cx2;
 
         var _props = this.props,
-            children = _props.children,
             show = _props.show,
             closeOnOverlayClick = _props.closeOnOverlayClick,
             onOpen = _props.onOpen,
             onClose = _props.onClose,
-            size = _props.size,
-            className = _props.className,
             showOverlay = _props.showOverlay,
             showCloseButton = _props.showCloseButton,
-            props = _objectWithoutProperties(_props, ['children', 'show', 'closeOnOverlayClick', 'onOpen', 'onClose', 'size', 'className', 'showOverlay', 'showCloseButton']);
+            size = _props.size,
+            className = _props.className,
+            style = _props.style,
+            children = _props.children,
+            props = _objectWithoutProperties(_props, ['show', 'closeOnOverlayClick', 'onOpen', 'onClose', 'showOverlay', 'showCloseButton', 'size', 'className', 'style', 'children']);
 
         if (!showOverlay) {
-            var _classNames;
+            var _cx;
 
             return _react2.default.createElement(
                 _ModalContent2.default,
                 _extends({}, props, {
-                    className: (0, _classnames2.default)(className, (_classNames = {}, _classNames[_index2.default.hasCloseButton] = showCloseButton, _classNames)),
+                    className: (0, _classnames2.default)(className, (_cx = {}, _cx[_index2.default.hasCloseButton] = showCloseButton, _cx)),
                     size: size,
-                    style: { display: show ? 'block' : 'none' }
+                    style: _extends({
+                        display: show ? 'block' : 'none'
+                    }, style)
                 }),
                 children,
                 showCloseButton && this.renderCloseButton()
@@ -21353,12 +21358,12 @@ var Modal = (_temp2 = _class = function (_PureComponent) {
             _react2.default.createElement(
                 _ModalContent2.default,
                 _extends({}, props, {
-                    className: (0, _classnames2.default)(className, (_classNames2 = {}, _classNames2[_index2.default.hasCloseButton] = showCloseButton, _classNames2)),
+                    className: (0, _classnames2.default)(className, (_cx2 = {}, _cx2[_index2.default.hasCloseButton] = showCloseButton, _cx2)),
                     size: size,
-                    style: { // border and boxShadow properties are specified in ModalOverlay
+                    style: _extends({ // border and boxShadow properties are specified in ModalOverlay
                         border: 'none',
                         boxShadow: 'none'
-                    }
+                    }, style)
                 }),
                 children,
                 showCloseButton && this.renderCloseButton()
@@ -21503,11 +21508,11 @@ ModalContent.propTypes = {
     // Small:       W544 x H304 px (minimum height)
     // Medium:      W688 x H304 px (minimum height)
     // Large:       W928 x H304 px (minimum height)
-    size: _propTypes2.default.oneOf(['xs', 'sm', 'md', 'lg', 'large', 'medium', 'small', 'extra-small'])
+    size: _propTypes2.default.oneOf(['', 'xs', 'sm', 'md', 'lg', 'large', 'medium', 'small', 'extra-small'])
 };
 
 ModalContent.defaultProps = {
-    size: 'xs'
+    size: ''
 };
 
 exports.default = ModalContent;
@@ -21718,7 +21723,6 @@ var customStyles = {
         left: '50%',
         right: 'auto',
         bottom: 'auto',
-        marginRight: '-50%',
         padding: 0,
         msTransform: 'translate(-50%, -50%)', // IE9
         transform: 'translate(-50%, -50%)'
@@ -21907,6 +21911,8 @@ if(false) {
 
 exports.__esModule = true;
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _class, _temp;
 
 var _propTypes = __webpack_require__("../node_modules/prop-types/index.js");
@@ -21925,6 +21931,8 @@ var _src2 = _interopRequireDefault(_src);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -21942,22 +21950,15 @@ var ModalDialog = (_temp = _class = function (_Component) {
 
     ModalDialog.prototype.render = function render() {
         var _props = this.props,
-            state = _props.state,
-            actions = _props.actions;
-        var _state$modal$params = state.modal.params,
-            _state$modal$params$s = _state$modal$params.size,
-            size = _state$modal$params$s === undefined ? 'sm' : _state$modal$params$s,
-            title = _state$modal$params.title,
-            body = _state$modal$params.body;
-
+            title = _props.title,
+            body = _props.body,
+            onSave = _props.onSave,
+            onCancel = _props.onCancel,
+            props = _objectWithoutProperties(_props, ['title', 'body', 'onSave', 'onCancel']);
 
         return _react2.default.createElement(
             _src2.default,
-            {
-                show: true,
-                size: size,
-                onClose: actions.closeModal
-            },
+            _extends({}, props, { onClose: onCancel }),
             title && _react2.default.createElement(
                 _src2.default.Header,
                 null,
@@ -21977,13 +21978,13 @@ var ModalDialog = (_temp = _class = function (_Component) {
                 null,
                 _react2.default.createElement(
                     _reactButtons.Button,
-                    { btnStyle: 'primary', onClick: actions.closeModal },
+                    { btnStyle: 'primary', onClick: onSave },
                     'Save'
                 ),
                 _react2.default.createElement(
                     _reactButtons.Button,
-                    { onClick: actions.closeModal },
-                    'Close'
+                    { onClick: onCancel },
+                    'Cancel'
                 )
             )
         );
@@ -21991,8 +21992,10 @@ var ModalDialog = (_temp = _class = function (_Component) {
 
     return ModalDialog;
 }(_react.Component), _class.propTypes = {
-    state: _propTypes2.default.object,
-    actions: _propTypes2.default.object
+    title: _propTypes2.default.any,
+    body: _propTypes2.default.any,
+    onSave: _propTypes2.default.func,
+    onCancel: _propTypes2.default.func
 }, _temp);
 exports.default = ModalDialog;
 
@@ -22104,46 +22107,46 @@ var App = function (_Component) {
                 name: '',
                 params: {}
             }
-        }, _this.actions = {
-            openModal: function openModal() {
-                var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-                var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+        }, _this.openModal = function () {
+            var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+            var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-                _this.setState({
-                    modal: {
-                        name: name,
-                        params: params
-                    }
-                });
-            },
-            updateModalParams: function updateModalParams() {
-                var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+            _this.setState({
+                modal: {
+                    name: name,
+                    params: params
+                }
+            });
+        }, _this.updateModalParams = function () {
+            var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-                _this.setState({
-                    modal: _extends({}, _this.state.modal, {
-                        params: _extends({}, _this.state.modal.params, params)
+            _this.setState(function (state) {
+                return {
+                    modal: _extends({}, state.modal, {
+                        params: _extends({}, state.modal.params, params)
                     })
-                });
-            },
-            closeModal: function closeModal() {
-                _this.setState({
-                    modal: {
-                        name: '',
-                        params: {}
-                    }
-                });
-            }
+                };
+            });
+        }, _this.closeModal = function () {
+            _this.setState({
+                modal: {
+                    name: '',
+                    params: {}
+                }
+            });
         }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
     App.prototype.render = function render() {
-        var state = _extends({}, this.state);
-        var actions = _extends({}, this.actions);
+        var _this2 = this;
 
         return _react2.default.createElement(
             'div',
             { className: 'container-fluid text-left' },
-            state.modal.name && _react2.default.createElement(_ModalDialog2.default, { state: state, actions: actions }),
+            this.state.modal.name && _react2.default.createElement(_ModalDialog2.default, _extends({}, this.state.modal.params, {
+                onSave: this.closeModal,
+                onCancel: this.closeModal
+            })),
             _react2.default.createElement(
                 'h2',
                 null,
@@ -22171,12 +22174,26 @@ var App = function (_Component) {
                         _react2.default.createElement(
                             'td',
                             { className: 'text-nowrap' },
-                            'Extra small'
+                            'Auto'
                         ),
                         _react2.default.createElement(
                             'td',
                             null,
-                            'W400 x H240 px (minimum height)'
+                            '400px (minimum width)'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            { className: 'text-nowrap' },
+                            'Extra Small'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            '400px (fixed width) x 240 px (minimum height)'
                         )
                     ),
                     _react2.default.createElement(
@@ -22190,7 +22207,7 @@ var App = function (_Component) {
                         _react2.default.createElement(
                             'td',
                             null,
-                            'W544 x H304 px (minimum height)'
+                            '544px (fixed width) x 304 px (minimum height)'
                         )
                     ),
                     _react2.default.createElement(
@@ -22204,7 +22221,7 @@ var App = function (_Component) {
                         _react2.default.createElement(
                             'td',
                             null,
-                            'W688 x H304 px (minimum height)'
+                            '688px (fixed width) x 304 px (minimum height)'
                         )
                     ),
                     _react2.default.createElement(
@@ -22218,7 +22235,7 @@ var App = function (_Component) {
                         _react2.default.createElement(
                             'td',
                             null,
-                            'W928 x H304 px (minimum height)'
+                            '928px (fixed width) x 304 px (minimum height)'
                         )
                     )
                 )
@@ -22246,53 +22263,65 @@ var App = function (_Component) {
                             _reactButtons.Button,
                             {
                                 onClick: function onClick() {
-                                    actions.openModal('modal', {
+                                    _this2.openModal('modal', {
+                                        title: 'Lorem Ipsum',
+                                        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                                    });
+                                }
+                            },
+                            'Auto'
+                        ),
+                        _react2.default.createElement(
+                            _reactButtons.Button,
+                            {
+                                onClick: function onClick() {
+                                    _this2.openModal('modal', {
                                         size: 'xs',
                                         title: 'Modal Title',
                                         body: formBody
                                     });
                                 }
                             },
-                            'Extra Small Modal'
+                            'Extra Small'
                         ),
                         _react2.default.createElement(
                             _reactButtons.Button,
                             {
                                 onClick: function onClick() {
-                                    actions.openModal('modal', {
+                                    _this2.openModal('modal', {
                                         size: 'sm',
                                         title: 'Modal Title',
                                         body: formBody
                                     });
                                 }
                             },
-                            'Small Modal'
+                            'Small'
                         ),
                         _react2.default.createElement(
                             _reactButtons.Button,
                             {
                                 onClick: function onClick() {
-                                    actions.openModal('modal', {
+                                    _this2.openModal('modal', {
                                         size: 'md',
                                         title: 'Modal Title',
                                         body: formBody
                                     });
                                 }
                             },
-                            'Medium Modal'
+                            'Medium'
                         ),
                         _react2.default.createElement(
                             _reactButtons.Button,
                             {
                                 onClick: function onClick() {
-                                    actions.openModal('modal', {
+                                    _this2.openModal('modal', {
                                         size: 'lg',
                                         title: 'Modal Title',
                                         body: formBody
                                     });
                                 }
                             },
-                            'Large Modal'
+                            'Large'
                         )
                     ),
                     _react2.default.createElement(
@@ -22343,49 +22372,61 @@ var App = function (_Component) {
                             _reactButtons.Button,
                             {
                                 onClick: function onClick() {
-                                    actions.openModal('modal', {
+                                    _this2.openModal('modal', {
+                                        title: 'Lorem Ipsum',
+                                        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                                    });
+                                }
+                            },
+                            'Auto'
+                        ),
+                        _react2.default.createElement(
+                            _reactButtons.Button,
+                            {
+                                onClick: function onClick() {
+                                    _this2.openModal('modal', {
                                         size: 'xs',
                                         body: warningBody
                                     });
                                 }
                             },
-                            'Extra Small Modal'
+                            'Extra Small'
                         ),
                         _react2.default.createElement(
                             _reactButtons.Button,
                             {
                                 onClick: function onClick() {
-                                    actions.openModal('modal', {
+                                    _this2.openModal('modal', {
                                         size: 'sm',
                                         body: warningBody
                                     });
                                 }
                             },
-                            'Small Modal'
+                            'Small'
                         ),
                         _react2.default.createElement(
                             _reactButtons.Button,
                             {
                                 onClick: function onClick() {
-                                    actions.openModal('modal', {
+                                    _this2.openModal('modal', {
                                         size: 'md',
                                         body: warningBody
                                     });
                                 }
                             },
-                            'Medium Modal'
+                            'Medium'
                         ),
                         _react2.default.createElement(
                             _reactButtons.Button,
                             {
                                 onClick: function onClick() {
-                                    actions.openModal('modal', {
+                                    _this2.openModal('modal', {
                                         size: 'lg',
                                         body: warningBody
                                     });
                                 }
                             },
-                            'Large Modal'
+                            'Large'
                         )
                     ),
                     _react2.default.createElement(
@@ -22424,4 +22465,4 @@ _reactDom2.default.render(_react2.default.createElement(App, null), document.get
 /***/ })
 
 /******/ });
-//# sourceMappingURL=bundle.js.map?f1690308b7115d873d39
+//# sourceMappingURL=bundle.js.map?c7b5e314a5b15ba2c0ac

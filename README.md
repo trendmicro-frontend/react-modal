@@ -186,67 +186,15 @@ export default ModalWrapper;
 
 ### Properties
 
-<table>
-  <thead>
-    <tr>
-      <th align="left">Name</th>
-      <th align="left">Type</th>
-      <th align="left">Default</th>
-      <th align="left">Description</th>
-    </tr>
-  </thead>
-  <tbody>    
-    <tr>
-      <td>closeOnOverlayClick</td>
-      <td>Boolean</td>
-      <td>true</td>
-      <td>By default the modal is closed when clicking the overlay area. You can pass 'closeOnOverlayClick' prop with 'false' value if you want to prevent this behavior.</td>
-    </tr>
-    <tr>
-      <td>onClose</td>
-      <td>Function</td>
-      <td></td>
-      <td>A callback fired when clicking the close button (&times;) or the overlay area.</td>
-    </tr>
-    <tr>
-      <td>onOpen</td>
-      <td>Function</td>
-      <td></td>
-      <td>A callback fired after opening a modal.</td>
-    </tr>
-    <tr>
-      <td>show</td>
-      <td>Boolean</td>
-      <td>true</td>
-      <td>Specify whether to show the modal.</td>
-    </tr>
-    <tr>
-      <td>showCloseButton</td>
-      <td>Boolean</td>
-      <td>true</td>
-      <td>Specify whether the modal should contain a close button (x).</td>
-    </tr>    
-    <tr>
-      <td>showOverlay</td>
-      <td>Boolean</td>
-      <td>true</td>
-      <td>Pass 'showOverlay' prop with 'true' value to add an overlay to the background, and 'false' otherwise.</td>
-    </tr>
-    <tr>
-      <td>size</td>
-      <td>String</td>
-      <td>'xs'</td>
-      <td>
-          <ul>
-              <li>Extra Small (400px x 240px): 'xs' or 'extra-small'</li>
-              <li>Small (544px x 304px): 'sm' or 'small'</li>
-              <li>Medium (688px x 304px): 'md' or 'medium'</li>
-              <li>Large (928px x 304px): 'lg' or 'large'</li>
-          </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
+Name | Type | Default | Description
+:--- | :--- | :------ | :----------
+closeOnOverlayClick | Boolean | true | By default the modal is closed when clicking the overlay area. You can pass 'closeOnOverlayClick' prop with 'false' value if you want to prevent this behavior.
+onClose | Function | | A callback fired when clicking the close button (&times;) or the overlay area.
+onOpen | Function | | A callback fired after opening a modal.
+show | Boolean | true | Specify whether to show the modal.
+showCloseButton | Boolean | true | Specify whether the modal should contain a close button (x).
+showOverlay | Boolean | true | Pass 'showOverlay' prop with 'true' value to add an overlay to the background, and 'false' otherwise.
+size | String | '' | One of: 'xs', 'sm', 'md', 'lg', 'extra-small', 'small', 'medium', 'large', or an empty string. Defaults to empty string that will automatically resize to fit contents.
 
 ## License
 

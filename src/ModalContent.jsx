@@ -24,6 +24,7 @@ ModalContent.propTypes = {
     // Medium:      W688 x H304 px (minimum height)
     // Large:       W928 x H304 px (minimum height)
     size: PropTypes.oneOf([
+        '',
         'xs',
         'sm',
         'md',
@@ -36,7 +37,7 @@ ModalContent.propTypes = {
 };
 
 ModalContent.defaultProps = {
-    size: 'xs'
+    size: ''
 };
 
 export default ModalContent;

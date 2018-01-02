@@ -7,11 +7,10 @@
     border: 1px solid #ccc;
     box-shadow: 0 4px 16px rgba(0, 0, 0, .5);
     position: relative;
-    min-width: $modal-xs-min-width;
+    min-width: $modal-xs-width;
 
     &.xs {
-        min-width: $modal-xs-min-width;
-        max-width: $modal-xs-max-width;
+        width: $modal-xs-width;
         .modal-body {
             min-height: ($modal-xs-min-height - $modal-footer-height)px;
         }
@@ -20,8 +19,7 @@
         }
     }
     &.sm {
-        min-width: $modal-sm-min-width;
-        max-width: $modal-sm-max-width;
+        width: $modal-sm-width;
         .modal-body {
             min-height: ($modal-sm-min-height - $modal-footer-height)px;
         }
@@ -30,8 +28,7 @@
         }
     }
     &.md {
-        min-width: $modal-md-min-width;
-        max-width: $modal-md-max-width;
+        width: $modal-md-width;
         .modal-body {
             min-height: ($modal-md-min-height - $modal-footer-height)px;
         }
@@ -40,7 +37,7 @@
         }
     }
     &.lg {
-        min-width: $modal-lg-min-width;
+        width: $modal-lg-width;
         .modal-body {
             min-height: ($modal-lg-min-height - $modal-footer-height)px;
         }

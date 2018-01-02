@@ -1,6 +1,6 @@
+import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import classNames from 'classnames';
 import ModalOverlay from './ModalOverlay';
 import ModalContent from './ModalContent';
 import styles from './index.styl';
@@ -42,19 +42,21 @@ class Modal extends PureComponent {
     }
     render() {
         const {
-            children,
             // ModalOverlay
             show,
             closeOnOverlayClick,
             onOpen,
             onClose,
-            // ModalContent
-            size,
+
             // Modal
-            className,
             showOverlay,
             showCloseButton,
-            // Others
+
+            // ModalContent
+            size,
+            className,
+            style,
+            children,
             ...props
         } = this.props;
 
@@ -62,12 +64,15 @@ class Modal extends PureComponent {
             return (
                 <ModalContent
                     {...props}
-                    className={classNames(
+                    className={cx(
                         className,
                         { [styles.hasCloseButton]: showCloseButton }
                     )}
                     size={size}
-                    style={{ display: show ? 'block' : 'none' }}
+                    style={{
+                        display: show ? 'block' : 'none',
+                        ...style
+                    }}
                 >
                     {children}
                     {showCloseButton && this.renderCloseButton()}
@@ -84,14 +89,15 @@ class Modal extends PureComponent {
             >
                 <ModalContent
                     {...props}
-                    className={classNames(
+                    className={cx(
                         className,
                         { [styles.hasCloseButton]: showCloseButton }
                     )}
                     size={size}
                     style={{ // border and boxShadow properties are specified in ModalOverlay
                         border: 'none',
-                        boxShadow: 'none'
+                        boxShadow: 'none',
+                        ...style
                     }}
                 >
                     {children}
