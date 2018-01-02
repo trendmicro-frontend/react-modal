@@ -196,6 +196,16 @@ showCloseButton | Boolean | true | Specify whether the modal should contain a cl
 showOverlay | Boolean | true | Pass 'showOverlay' prop with 'true' value to add an overlay to the background, and 'false' otherwise.
 size | String | '' | One of: 'xs', 'sm', 'md', 'lg', 'extra-small', 'small', 'medium', 'large', or an empty string. Defaults to empty string that will automatically resize to fit contents.
 
+### Size
+
+Size | Dimension
+:--- | :--------
+Auto | 400px (minimum width)
+Extra Small | 400px (fixed width) x 240 px (minimum height)
+Small | 544px (fixed width) x 304 px (minimum height)
+Medium | 688px (fixed width) x 304 px (minimum height)
+Large | 928px (fixed width) x 304 px (minimum height)
+
 ## License
 
 MIT
