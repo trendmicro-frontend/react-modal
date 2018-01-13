@@ -500,6 +500,124 @@ exports.ButtonToolbar = _ButtonToolbar3.default;
 
 /***/ }),
 
+/***/ "../node_modules/@trendmicro/react-portal/lib/Portal.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class, _temp2;
+
+var _propTypes = __webpack_require__("../node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _react = __webpack_require__("../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__("../node_modules/react-dom/index.js");
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Portal = (_temp2 = _class = function (_PureComponent) {
+    _inherits(Portal, _PureComponent);
+
+    function Portal() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, Portal);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Portal.__proto__ || Object.getPrototypeOf(Portal)).call.apply(_ref, [this].concat(args))), _this), _this.node = null, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(Portal, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            if (!this.node) {
+                this.node = document.createElement('div');
+                this.node.setAttribute('data-reactportal', '');
+
+                if (this.props.node) {
+                    this.props.node.appendChild(this.node);
+                } else {
+                    document.body.appendChild(this.node);
+                }
+            }
+            this.componentDidUpdate();
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            if (this.node) {
+                _reactDom2.default.unmountComponentAtNode(this.node);
+                if (this.node.parentNode) {
+                    this.node.parentNode.removeChild(this.node);
+                }
+                this.node = null;
+            }
+        }
+    }, {
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate() {
+            var props = _extends({}, this.props);
+            delete props.node;
+
+            _reactDom2.default.render(_react2.default.createElement('div', props), this.node);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return null;
+        }
+    }]);
+
+    return Portal;
+}(_react.PureComponent), _class.propTypes = {
+    node: _propTypes2.default.any
+}, _temp2);
+exports.default = Portal;
+
+/***/ }),
+
+/***/ "../node_modules/@trendmicro/react-portal/lib/index.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _Portal = __webpack_require__("../node_modules/@trendmicro/react-portal/lib/Portal.js");
+
+var _Portal2 = _interopRequireDefault(_Portal);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+module.exports = _Portal2.default;
+
+/***/ }),
+
 /***/ "../node_modules/classnames/index.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -559,7 +677,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /***/ "../node_modules/css-loader/index.js!../node_modules/@trendmicro/react-buttons/dist/react-buttons.css":
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__("../node_modules/css-loader/lib/css-base.js")(undefined);
+exports = module.exports = __webpack_require__("../node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
@@ -574,15 +692,17 @@ exports.push([module.i, "/*! react-buttons v1.2.1 | (c) 2017 Trend Micro Inc. | 
 /***/ "../node_modules/css-loader/index.js?camelCase&modules&importLoaders=1&localIdentName=[local]---[hash:base64:5]!../node_modules/stylus-loader/index.js!../node_modules/stylint-loader/index.js!../src/index.styl":
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__("../node_modules/css-loader/lib/css-base.js")(undefined);
+exports = module.exports = __webpack_require__("../node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
 // module
-exports.push([module.i, ".modal-content---3hUtG {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  line-height: 20px;\n  border: 1px solid #ccc;\n  -webkit-box-shadow: 0 4px 16px rgba(0,0,0,0.5);\n  box-shadow: 0 4px 16px rgba(0,0,0,0.5);\n  position: relative;\n  min-width: 400px;\n}\n.modal-content---3hUtG *,\n.modal-content---3hUtG *:before,\n.modal-content---3hUtG *:after {\n  -webkit-box-sizing: inherit;\n  -moz-box-sizing: inherit;\n  box-sizing: inherit;\n}\n.modal-content---3hUtG.xs---8dzzc {\n  width: 400px;\n}\n.modal-content---3hUtG.xs---8dzzc .modal-body---22INy {\n  min-height: 184px;\n}\n.modal-content---3hUtG.xs---8dzzc .modal-header---1FIQ_ + .modal-body---22INy {\n  min-height: 130px;\n}\n.modal-content---3hUtG.sm---3ceuY {\n  width: 544px;\n}\n.modal-content---3hUtG.sm---3ceuY .modal-body---22INy {\n  min-height: 246px;\n}\n.modal-content---3hUtG.sm---3ceuY .modal-header---1FIQ_ + .modal-body---22INy {\n  min-height: 192px;\n}\n.modal-content---3hUtG.md---3OKcy {\n  width: 688px;\n}\n.modal-content---3hUtG.md---3OKcy .modal-body---22INy {\n  min-height: 246px;\n}\n.modal-content---3hUtG.md---3OKcy .modal-header---1FIQ_ + .modal-body---22INy {\n  min-height: 192px;\n}\n.modal-content---3hUtG.lg---2kMz1 {\n  width: 928px;\n}\n.modal-content---3hUtG.lg---2kMz1 .modal-body---22INy {\n  min-height: 246px;\n}\n.modal-content---3hUtG.lg---2kMz1 .modal-header---1FIQ_ + .modal-body---22INy {\n  min-height: 192px;\n}\n.modal-content---3hUtG .close---fVKdP {\n  position: absolute;\n  top: 16px;\n  right: 24px;\n  padding: 0;\n  margin: 0;\n  line-height: 20px;\n  cursor: pointer;\n  background: transparent;\n  border: 0;\n  -webkit-appearance: none;\n  font-size: 30px;\n  font-weight: normal;\n  color: #999;\n  text-shadow: none;\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n}\n.modal-content---3hUtG .modal-header---1FIQ_ {\n  min-height: 54px;\n  background-color: #fff;\n  border-bottom: 1px solid #ccc;\n  padding: 0;\n}\n.modal-content---3hUtG .modal-header---1FIQ_.padding---2pFRu {\n  padding: 16px 24px;\n}\n.modal-content---3hUtG.hasCloseButton---2jvGR .modal-header---1FIQ_.padding---2pFRu {\n  padding: 16px 56px 16px 24px;\n}\n.modal-content---3hUtG .modal-title---2qyMh {\n  font-weight: 200;\n  color: #222;\n  letter-spacing: -0.02em;\n  font-size: 18px;\n}\n.modal-content---3hUtG .modal-title---2qyMh.ellipsis---3BkJT {\n  overflow: hidden;\n  -o-text-overflow: ellipsis;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.modal-content---3hUtG .modal-body---22INy {\n  position: relative;\n  padding: 0;\n}\n.modal-content---3hUtG .modal-body---22INy.padding---2pFRu {\n  padding: 54px 24px 16px 24px;\n}\n.modal-content---3hUtG .modal-header---1FIQ_ + .modal-body---22INy.padding---2pFRu {\n  padding: 16px 24px;\n}\n.modal-content---3hUtG .modal-footer---3bXnF {\n  min-height: 56px;\n  margin-top: 0;\n  text-align: right;\n  background-color: #eee;\n  padding: 0;\n}\n.modal-content---3hUtG .modal-footer---3bXnF.padding---2pFRu {\n  padding: 12px 24px;\n}\n.modal-content---3hUtG .modal-footer---3bXnF button {\n  min-width: 80px;\n}\n.modal-content---3hUtG .modal-footer---3bXnF button + button {\n  margin-left: 8px;\n}\n", ""]);
+exports.push([module.i, ".modal-overlay---1x_yE {\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: rgba(51,51,51,0.55);\n  text-align: center;\n}\n.modal-overlay---1x_yE:before {\n  content: '';\n  display: inline-block;\n  height: 100%;\n  vertical-align: middle;\n  margin-right: -0.25em; /* Adjusts for spacing */\n}\n.modal-content---3hUtG {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  line-height: 20px;\n  position: relative;\n  display: inline-block;\n  background-color: #fff;\n  border: 1px solid #ccc;\n  -webkit-box-shadow: 0 4px 16px rgba(0,0,0,0.5);\n  box-shadow: 0 4px 16px rgba(0,0,0,0.5);\n  min-width: 400px;\n  vertical-align: middle;\n  text-align: initial;\n}\n.modal-content---3hUtG *,\n.modal-content---3hUtG *:before,\n.modal-content---3hUtG *:after {\n  -webkit-box-sizing: inherit;\n  -moz-box-sizing: inherit;\n  box-sizing: inherit;\n}\n.modal-content---3hUtG.xs---8dzzc {\n  width: 400px;\n}\n.modal-content---3hUtG.xs---8dzzc .modal-body---22INy {\n  min-height: 184px;\n}\n.modal-content---3hUtG.xs---8dzzc .modal-header---1FIQ_ + .modal-body---22INy {\n  min-height: 130px;\n}\n.modal-content---3hUtG.sm---3ceuY {\n  width: 544px;\n}\n.modal-content---3hUtG.sm---3ceuY .modal-body---22INy {\n  min-height: 246px;\n}\n.modal-content---3hUtG.sm---3ceuY .modal-header---1FIQ_ + .modal-body---22INy {\n  min-height: 192px;\n}\n.modal-content---3hUtG.md---3OKcy {\n  width: 688px;\n}\n.modal-content---3hUtG.md---3OKcy .modal-body---22INy {\n  min-height: 246px;\n}\n.modal-content---3hUtG.md---3OKcy .modal-header---1FIQ_ + .modal-body---22INy {\n  min-height: 192px;\n}\n.modal-content---3hUtG.lg---2kMz1 {\n  width: 928px;\n}\n.modal-content---3hUtG.lg---2kMz1 .modal-body---22INy {\n  min-height: 246px;\n}\n.modal-content---3hUtG.lg---2kMz1 .modal-header---1FIQ_ + .modal-body---22INy {\n  min-height: 192px;\n}\n.modal-content---3hUtG.close-button---2mREQ .modal-header---1FIQ_.padding---2pFRu {\n  padding: 16px 56px 16px 24px;\n}\n.modal-content---3hUtG .close---fVKdP {\n  position: absolute;\n  top: 16px;\n  right: 24px;\n  padding: 0;\n  margin: 0;\n  line-height: 20px;\n  cursor: pointer;\n  background: transparent;\n  border: 0;\n  -webkit-appearance: none;\n  font-size: 30px;\n  font-weight: normal;\n  color: #999;\n  text-shadow: none;\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n  outline: none;\n}\n.modal-content---3hUtG .modal-header---1FIQ_ {\n  min-height: 54px;\n  background-color: #fff;\n  border-bottom: 1px solid #ccc;\n  padding: 0;\n}\n.modal-content---3hUtG .modal-header---1FIQ_.padding---2pFRu {\n  padding: 16px 24px;\n}\n.modal-content---3hUtG .modal-title---2qyMh {\n  font-weight: 200;\n  color: #222;\n  letter-spacing: -0.02em;\n  font-size: 18px;\n}\n.modal-content---3hUtG .modal-title---2qyMh.ellipsis---3BkJT {\n  overflow: hidden;\n  -o-text-overflow: ellipsis;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.modal-content---3hUtG .modal-body---22INy {\n  position: relative;\n  padding: 0;\n}\n.modal-content---3hUtG .modal-body---22INy.padding---2pFRu {\n  padding: 54px 24px 16px 24px;\n}\n.modal-content---3hUtG .modal-header---1FIQ_ + .modal-body---22INy.padding---2pFRu {\n  padding: 16px 24px;\n}\n.modal-content---3hUtG .modal-footer---3bXnF {\n  min-height: 56px;\n  margin-top: 0;\n  text-align: right;\n  background-color: #eee;\n  padding: 0;\n}\n.modal-content---3hUtG .modal-footer---3bXnF.padding---2pFRu {\n  padding: 12px 24px;\n}\n.modal-content---3hUtG .modal-footer---3bXnF button {\n  min-width: 80px;\n}\n.modal-content---3hUtG .modal-footer---3bXnF button + button {\n  margin-left: 8px;\n}\n", ""]);
 
 // exports
 exports.locals = {
+	"modal-overlay": "modal-overlay---1x_yE",
+	"modalOverlay": "modal-overlay---1x_yE",
 	"modal-content": "modal-content---3hUtG",
 	"modalContent": "modal-content---3hUtG",
 	"xs": "xs---8dzzc",
@@ -593,9 +713,10 @@ exports.locals = {
 	"sm": "sm---3ceuY",
 	"md": "md---3OKcy",
 	"lg": "lg---2kMz1",
-	"close": "close---fVKdP",
+	"close-button": "close-button---2mREQ",
+	"closeButton": "close-button---2mREQ",
 	"padding": "padding---2pFRu",
-	"hasCloseButton": "hasCloseButton---2jvGR",
+	"close": "close---fVKdP",
 	"modal-title": "modal-title---2qyMh",
 	"modalTitle": "modal-title---2qyMh",
 	"ellipsis": "ellipsis---3BkJT",
@@ -688,51 +809,128 @@ function toComment(sourceMap) {
 
 /***/ }),
 
-/***/ "../node_modules/exenv/index.js":
+/***/ "../node_modules/dom-helpers/events/off.js":
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_RESULT__;/*!
-  Copyright (c) 2015 Jed Watson.
-  Based on code that is Copyright 2013-2015, Facebook, Inc.
-  All rights reserved.
-*/
-/* global define */
+"use strict";
 
-(function () {
-	'use strict';
 
-	var canUseDOM = !!(
-		typeof window !== 'undefined' &&
-		window.document &&
-		window.document.createElement
-	);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-	var ExecutionEnvironment = {
+var _inDOM = __webpack_require__("../node_modules/dom-helpers/util/inDOM.js");
 
-		canUseDOM: canUseDOM,
+var _inDOM2 = _interopRequireDefault(_inDOM);
 
-		canUseWorkers: typeof Worker !== 'undefined',
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-		canUseEventListeners:
-			canUseDOM && !!(window.addEventListener || window.attachEvent),
+var off = function off() {};
+if (_inDOM2.default) {
+  off = function () {
+    if (document.addEventListener) return function (node, eventName, handler, capture) {
+      return node.removeEventListener(eventName, handler, capture || false);
+    };else if (document.attachEvent) return function (node, eventName, handler) {
+      return node.detachEvent('on' + eventName, handler);
+    };
+  }();
+}
 
-		canUseViewport: canUseDOM && !!window.screen
+exports.default = off;
+module.exports = exports['default'];
 
-	};
+/***/ }),
 
-	if (true) {
-		!(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
-			return ExecutionEnvironment;
-		}).call(exports, __webpack_require__, exports, module),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	} else if (typeof module !== 'undefined' && module.exports) {
-		module.exports = ExecutionEnvironment;
-	} else {
-		window.ExecutionEnvironment = ExecutionEnvironment;
-	}
+/***/ "../node_modules/dom-helpers/events/on.js":
+/***/ (function(module, exports, __webpack_require__) {
 
-}());
+"use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _inDOM = __webpack_require__("../node_modules/dom-helpers/util/inDOM.js");
+
+var _inDOM2 = _interopRequireDefault(_inDOM);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var on = function on() {};
+if (_inDOM2.default) {
+  on = function () {
+
+    if (document.addEventListener) return function (node, eventName, handler, capture) {
+      return node.addEventListener(eventName, handler, capture || false);
+    };else if (document.attachEvent) return function (node, eventName, handler) {
+      return node.attachEvent('on' + eventName, function (e) {
+        e = e || window.event;
+        e.target = e.target || e.srcElement;
+        e.currentTarget = node;
+        handler.call(node, e);
+      });
+    };
+  }();
+}
+
+exports.default = on;
+module.exports = exports['default'];
+
+/***/ }),
+
+/***/ "../node_modules/dom-helpers/query/contains.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _inDOM = __webpack_require__("../node_modules/dom-helpers/util/inDOM.js");
+
+var _inDOM2 = _interopRequireDefault(_inDOM);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function () {
+  // HTML DOM and SVG DOM may have different support levels,
+  // so we need to check on context instead of a document root element.
+  return _inDOM2.default ? function (context, node) {
+    if (context.contains) {
+      return context.contains(node);
+    } else if (context.compareDocumentPosition) {
+      return context === node || !!(context.compareDocumentPosition(node) & 16);
+    } else {
+      return fallback(context, node);
+    }
+  } : fallback;
+}();
+
+function fallback(context, node) {
+  if (node) do {
+    if (node === context) return true;
+  } while (node = node.parentNode);
+
+  return false;
+}
+module.exports = exports['default'];
+
+/***/ }),
+
+/***/ "../node_modules/dom-helpers/util/inDOM.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+module.exports = exports['default'];
 
 /***/ }),
 
@@ -18182,1112 +18380,6 @@ if (process.env.NODE_ENV === 'production') {
 
 /***/ }),
 
-/***/ "../node_modules/react-modal/lib/components/Modal.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.bodyOpenClassName = exports.portalClassName = undefined;
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__("../node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = __webpack_require__("../node_modules/react-dom/index.js");
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _propTypes = __webpack_require__("../node_modules/prop-types/index.js");
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _ModalPortal = __webpack_require__("../node_modules/react-modal/lib/components/ModalPortal.js");
-
-var _ModalPortal2 = _interopRequireDefault(_ModalPortal);
-
-var _ariaAppHider = __webpack_require__("../node_modules/react-modal/lib/helpers/ariaAppHider.js");
-
-var ariaAppHider = _interopRequireWildcard(_ariaAppHider);
-
-var _safeHTMLElement = __webpack_require__("../node_modules/react-modal/lib/helpers/safeHTMLElement.js");
-
-var _safeHTMLElement2 = _interopRequireDefault(_safeHTMLElement);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var portalClassName = exports.portalClassName = "ReactModalPortal";
-var bodyOpenClassName = exports.bodyOpenClassName = "ReactModal__Body--open";
-
-var isReact16 = _reactDom2.default.createPortal !== undefined;
-var createPortal = isReact16 ? _reactDom2.default.createPortal : _reactDom2.default.unstable_renderSubtreeIntoContainer;
-
-function getParentElement(parentSelector) {
-  return parentSelector();
-}
-
-var Modal = function (_Component) {
-  _inherits(Modal, _Component);
-
-  function Modal() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
-    _classCallCheck(this, Modal);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Modal.__proto__ || Object.getPrototypeOf(Modal)).call.apply(_ref, [this].concat(args))), _this), _this.removePortal = function () {
-      !isReact16 && _reactDom2.default.unmountComponentAtNode(_this.node);
-      var parent = getParentElement(_this.props.parentSelector);
-      parent.removeChild(_this.node);
-    }, _this.portalRef = function (ref) {
-      _this.portal = ref;
-    }, _this.renderPortal = function (props) {
-      var portal = createPortal(_this, _react2.default.createElement(_ModalPortal2.default, _extends({ defaultStyles: Modal.defaultStyles }, props)), _this.node);
-      _this.portalRef(portal);
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
-
-  _createClass(Modal, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      if (!_safeHTMLElement.canUseDOM) return;
-
-      if (!isReact16) {
-        this.node = document.createElement("div");
-      }
-      this.node.className = this.props.portalClassName;
-
-      var parent = getParentElement(this.props.parentSelector);
-      parent.appendChild(this.node);
-
-      !isReact16 && this.renderPortal(this.props);
-    }
-  }, {
-    key: "componentWillReceiveProps",
-    value: function componentWillReceiveProps(newProps) {
-      if (!_safeHTMLElement.canUseDOM) return;
-      var isOpen = newProps.isOpen;
-      // Stop unnecessary renders if modal is remaining closed
-
-      if (!this.props.isOpen && !isOpen) return;
-
-      var currentParent = getParentElement(this.props.parentSelector);
-      var newParent = getParentElement(newProps.parentSelector);
-
-      if (newParent !== currentParent) {
-        currentParent.removeChild(this.node);
-        newParent.appendChild(this.node);
-      }
-
-      !isReact16 && this.renderPortal(newProps);
-    }
-  }, {
-    key: "componentWillUpdate",
-    value: function componentWillUpdate(newProps) {
-      if (!_safeHTMLElement.canUseDOM) return;
-      if (newProps.portalClassName !== this.props.portalClassName) {
-        this.node.className = newProps.portalClassName;
-      }
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      if (!_safeHTMLElement.canUseDOM || !this.node || !this.portal) return;
-
-      var state = this.portal.state;
-      var now = Date.now();
-      var closesAt = state.isOpen && this.props.closeTimeoutMS && (state.closesAt || now + this.props.closeTimeoutMS);
-
-      if (closesAt) {
-        if (!state.beforeClose) {
-          this.portal.closeWithTimeout();
-        }
-
-        setTimeout(this.removePortal, closesAt - now);
-      } else {
-        this.removePortal();
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      if (!_safeHTMLElement.canUseDOM || !isReact16) {
-        return null;
-      }
-
-      if (!this.node && isReact16) {
-        this.node = document.createElement("div");
-      }
-
-      return createPortal(_react2.default.createElement(_ModalPortal2.default, _extends({
-        ref: this.portalRef,
-        defaultStyles: Modal.defaultStyles
-      }, this.props)), this.node);
-    }
-  }], [{
-    key: "setAppElement",
-    value: function setAppElement(element) {
-      ariaAppHider.setElement(element);
-    }
-
-    /* eslint-disable react/no-unused-prop-types */
-
-    /* eslint-enable react/no-unused-prop-types */
-
-  }]);
-
-  return Modal;
-}(_react.Component);
-
-Modal.propTypes = {
-  isOpen: _propTypes2.default.bool.isRequired,
-  style: _propTypes2.default.shape({
-    content: _propTypes2.default.object,
-    overlay: _propTypes2.default.object
-  }),
-  portalClassName: _propTypes2.default.string,
-  bodyOpenClassName: _propTypes2.default.string,
-  className: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.shape({
-    base: _propTypes2.default.string.isRequired,
-    afterOpen: _propTypes2.default.string.isRequired,
-    beforeClose: _propTypes2.default.string.isRequired
-  })]),
-  overlayClassName: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.shape({
-    base: _propTypes2.default.string.isRequired,
-    afterOpen: _propTypes2.default.string.isRequired,
-    beforeClose: _propTypes2.default.string.isRequired
-  })]),
-  appElement: _propTypes2.default.instanceOf(_safeHTMLElement2.default),
-  onAfterOpen: _propTypes2.default.func,
-  onRequestClose: _propTypes2.default.func,
-  closeTimeoutMS: _propTypes2.default.number,
-  ariaHideApp: _propTypes2.default.bool,
-  shouldFocusAfterRender: _propTypes2.default.bool,
-  shouldCloseOnOverlayClick: _propTypes2.default.bool,
-  shouldReturnFocusAfterClose: _propTypes2.default.bool,
-  parentSelector: _propTypes2.default.func,
-  aria: _propTypes2.default.object,
-  role: _propTypes2.default.string,
-  contentLabel: _propTypes2.default.string,
-  shouldCloseOnEsc: _propTypes2.default.bool
-};
-Modal.defaultProps = {
-  isOpen: false,
-  portalClassName: portalClassName,
-  bodyOpenClassName: bodyOpenClassName,
-  ariaHideApp: true,
-  closeTimeoutMS: 0,
-  shouldFocusAfterRender: true,
-  shouldCloseOnEsc: true,
-  shouldCloseOnOverlayClick: true,
-  shouldReturnFocusAfterClose: true,
-  parentSelector: function parentSelector() {
-    return document.body;
-  }
-};
-Modal.defaultStyles = {
-  overlay: {
-    position: "fixed",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: "rgba(255, 255, 255, 0.75)"
-  },
-  content: {
-    position: "absolute",
-    top: "40px",
-    left: "40px",
-    right: "40px",
-    bottom: "40px",
-    border: "1px solid #ccc",
-    background: "#fff",
-    overflow: "auto",
-    WebkitOverflowScrolling: "touch",
-    borderRadius: "4px",
-    outline: "none",
-    padding: "20px"
-  }
-};
-exports.default = Modal;
-
-/***/ }),
-
-/***/ "../node_modules/react-modal/lib/components/ModalPortal.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__("../node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__("../node_modules/prop-types/index.js");
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _focusManager = __webpack_require__("../node_modules/react-modal/lib/helpers/focusManager.js");
-
-var focusManager = _interopRequireWildcard(_focusManager);
-
-var _scopeTab = __webpack_require__("../node_modules/react-modal/lib/helpers/scopeTab.js");
-
-var _scopeTab2 = _interopRequireDefault(_scopeTab);
-
-var _ariaAppHider = __webpack_require__("../node_modules/react-modal/lib/helpers/ariaAppHider.js");
-
-var ariaAppHider = _interopRequireWildcard(_ariaAppHider);
-
-var _refCount = __webpack_require__("../node_modules/react-modal/lib/helpers/refCount.js");
-
-var refCount = _interopRequireWildcard(_refCount);
-
-var _bodyClassList = __webpack_require__("../node_modules/react-modal/lib/helpers/bodyClassList.js");
-
-var bodyClassList = _interopRequireWildcard(_bodyClassList);
-
-var _safeHTMLElement = __webpack_require__("../node_modules/react-modal/lib/helpers/safeHTMLElement.js");
-
-var _safeHTMLElement2 = _interopRequireDefault(_safeHTMLElement);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-// so that our CSS is statically analyzable
-var CLASS_NAMES = {
-  overlay: "ReactModal__Overlay",
-  content: "ReactModal__Content"
-};
-
-var TAB_KEY = 9;
-var ESC_KEY = 27;
-
-var ModalPortal = function (_Component) {
-  _inherits(ModalPortal, _Component);
-
-  function ModalPortal(props) {
-    _classCallCheck(this, ModalPortal);
-
-    var _this = _possibleConstructorReturn(this, (ModalPortal.__proto__ || Object.getPrototypeOf(ModalPortal)).call(this, props));
-
-    _this.setFocusAfterRender = function (focus) {
-      _this.focusAfterRender = _this.props.shouldFocusAfterRender && focus;
-    };
-
-    _this.setOverlayRef = function (overlay) {
-      _this.overlay = overlay;
-    };
-
-    _this.setContentRef = function (content) {
-      _this.content = content;
-    };
-
-    _this.afterClose = function () {
-      var _this$props = _this.props,
-          appElement = _this$props.appElement,
-          ariaHideApp = _this$props.ariaHideApp;
-
-      // Remove body class
-
-      bodyClassList.remove(_this.props.bodyOpenClassName);
-
-      // Reset aria-hidden attribute if all modals have been removed
-      if (ariaHideApp && refCount.totalCount() < 1) {
-        ariaAppHider.show(appElement);
-      }
-
-      if (_this.props.shouldFocusAfterRender) {
-        if (_this.props.shouldReturnFocusAfterClose) {
-          focusManager.returnFocus();
-          focusManager.teardownScopedFocus();
-        } else {
-          focusManager.popWithoutFocus();
-        }
-      }
-    };
-
-    _this.open = function () {
-      _this.beforeOpen();
-      if (_this.state.afterOpen && _this.state.beforeClose) {
-        clearTimeout(_this.closeTimer);
-        _this.setState({ beforeClose: false });
-      } else {
-        if (_this.props.shouldFocusAfterRender) {
-          focusManager.setupScopedFocus(_this.node);
-          focusManager.markForFocusLater();
-        }
-
-        _this.setState({ isOpen: true }, function () {
-          _this.setState({ afterOpen: true });
-
-          if (_this.props.isOpen && _this.props.onAfterOpen) {
-            _this.props.onAfterOpen();
-          }
-        });
-      }
-    };
-
-    _this.close = function () {
-      if (_this.props.closeTimeoutMS > 0) {
-        _this.closeWithTimeout();
-      } else {
-        _this.closeWithoutTimeout();
-      }
-    };
-
-    _this.focusContent = function () {
-      return _this.content && !_this.contentHasFocus() && _this.content.focus();
-    };
-
-    _this.closeWithTimeout = function () {
-      var closesAt = Date.now() + _this.props.closeTimeoutMS;
-      _this.setState({ beforeClose: true, closesAt: closesAt }, function () {
-        _this.closeTimer = setTimeout(_this.closeWithoutTimeout, _this.state.closesAt - Date.now());
-      });
-    };
-
-    _this.closeWithoutTimeout = function () {
-      _this.setState({
-        beforeClose: false,
-        isOpen: false,
-        afterOpen: false,
-        closesAt: null
-      }, _this.afterClose);
-    };
-
-    _this.handleKeyDown = function (event) {
-      if (event.keyCode === TAB_KEY) {
-        (0, _scopeTab2.default)(_this.content, event);
-      }
-
-      if (_this.props.shouldCloseOnEsc && event.keyCode === ESC_KEY) {
-        event.stopPropagation();
-        _this.requestClose(event);
-      }
-    };
-
-    _this.handleOverlayOnClick = function (event) {
-      if (_this.shouldClose === null) {
-        _this.shouldClose = true;
-      }
-
-      if (_this.shouldClose && _this.props.shouldCloseOnOverlayClick) {
-        if (_this.ownerHandlesClose()) {
-          _this.requestClose(event);
-        } else {
-          _this.focusContent();
-        }
-      }
-      _this.shouldClose = null;
-      _this.moveFromContentToOverlay = null;
-    };
-
-    _this.handleOverlayOnMouseUp = function () {
-      if (_this.moveFromContentToOverlay === null) {
-        _this.shouldClose = false;
-      }
-    };
-
-    _this.handleContentOnMouseUp = function () {
-      _this.shouldClose = false;
-    };
-
-    _this.handleOverlayOnMouseDown = function (event) {
-      if (!_this.props.shouldCloseOnOverlayClick && event.target == _this.overlay) {
-        event.preventDefault();
-      }
-      _this.moveFromContentToOverlay = false;
-    };
-
-    _this.handleContentOnClick = function () {
-      _this.shouldClose = false;
-    };
-
-    _this.handleContentOnMouseDown = function () {
-      _this.shouldClose = false;
-      _this.moveFromContentToOverlay = false;
-    };
-
-    _this.requestClose = function (event) {
-      return _this.ownerHandlesClose() && _this.props.onRequestClose(event);
-    };
-
-    _this.ownerHandlesClose = function () {
-      return _this.props.onRequestClose;
-    };
-
-    _this.shouldBeClosed = function () {
-      return !_this.state.isOpen && !_this.state.beforeClose;
-    };
-
-    _this.contentHasFocus = function () {
-      return document.activeElement === _this.content || _this.content.contains(document.activeElement);
-    };
-
-    _this.buildClassName = function (which, additional) {
-      var classNames = (typeof additional === "undefined" ? "undefined" : _typeof(additional)) === "object" ? additional : {
-        base: CLASS_NAMES[which],
-        afterOpen: CLASS_NAMES[which] + "--after-open",
-        beforeClose: CLASS_NAMES[which] + "--before-close"
-      };
-      var className = classNames.base;
-      if (_this.state.afterOpen) {
-        className = className + " " + classNames.afterOpen;
-      }
-      if (_this.state.beforeClose) {
-        className = className + " " + classNames.beforeClose;
-      }
-      return typeof additional === "string" && additional ? className + " " + additional : className;
-    };
-
-    _this.ariaAttributes = function (items) {
-      return Object.keys(items).reduce(function (acc, name) {
-        acc["aria-" + name] = items[name];
-        return acc;
-      }, {});
-    };
-
-    _this.state = {
-      afterOpen: false,
-      beforeClose: false
-    };
-
-    _this.shouldClose = null;
-    _this.moveFromContentToOverlay = null;
-    return _this;
-  }
-
-  _createClass(ModalPortal, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      // Focus needs to be set when mounting and already open
-      if (this.props.isOpen) {
-        this.setFocusAfterRender(true);
-        this.open();
-      }
-    }
-  }, {
-    key: "componentWillReceiveProps",
-    value: function componentWillReceiveProps(newProps) {
-      if (process.env.NODE_ENV !== "production") {
-        if (newProps.bodyOpenClassName !== this.props.bodyOpenClassName) {
-          // eslint-disable-next-line no-console
-          console.warn('React-Modal: "bodyOpenClassName" prop has been modified. ' + "This may cause unexpected behavior when multiple modals are open.");
-        }
-      }
-      // Focus only needs to be set once when the modal is being opened
-      if (!this.props.isOpen && newProps.isOpen) {
-        this.setFocusAfterRender(true);
-        this.open();
-      } else if (this.props.isOpen && !newProps.isOpen) {
-        this.close();
-      }
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate() {
-      if (this.focusAfterRender) {
-        this.focusContent();
-        this.setFocusAfterRender(false);
-      }
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      this.afterClose();
-      clearTimeout(this.closeTimer);
-    }
-  }, {
-    key: "beforeOpen",
-    value: function beforeOpen() {
-      var _props = this.props,
-          appElement = _props.appElement,
-          ariaHideApp = _props.ariaHideApp,
-          bodyOpenClassName = _props.bodyOpenClassName;
-      // Add body class
-
-      bodyClassList.add(bodyOpenClassName);
-      // Add aria-hidden to appElement
-      if (ariaHideApp) {
-        ariaAppHider.hide(appElement);
-      }
-    }
-
-    // Don't steal focus from inner elements
-
-  }, {
-    key: "render",
-    value: function render() {
-      var _props2 = this.props,
-          className = _props2.className,
-          overlayClassName = _props2.overlayClassName,
-          defaultStyles = _props2.defaultStyles;
-
-      var contentStyles = className ? {} : defaultStyles.content;
-      var overlayStyles = overlayClassName ? {} : defaultStyles.overlay;
-
-      return this.shouldBeClosed() ? null : _react2.default.createElement(
-        "div",
-        {
-          ref: this.setOverlayRef,
-          className: this.buildClassName("overlay", overlayClassName),
-          style: _extends({}, overlayStyles, this.props.style.overlay),
-          onClick: this.handleOverlayOnClick,
-          onMouseDown: this.handleOverlayOnMouseDown,
-          onMouseUp: this.handleOverlayOnMouseUp,
-          "aria-modal": "true"
-        },
-        _react2.default.createElement(
-          "div",
-          _extends({
-            ref: this.setContentRef,
-            style: _extends({}, contentStyles, this.props.style.content),
-            className: this.buildClassName("content", className),
-            tabIndex: "-1",
-            onKeyDown: this.handleKeyDown,
-            onMouseDown: this.handleContentOnMouseDown,
-            onMouseUp: this.handleContentOnMouseUp,
-            onClick: this.handleContentOnClick,
-            role: this.props.role,
-            "aria-label": this.props.contentLabel
-          }, this.ariaAttributes(this.props.aria || {})),
-          this.props.children
-        )
-      );
-    }
-  }]);
-
-  return ModalPortal;
-}(_react.Component);
-
-ModalPortal.defaultProps = {
-  style: {
-    overlay: {},
-    content: {}
-  }
-};
-ModalPortal.propTypes = {
-  isOpen: _propTypes2.default.bool.isRequired,
-  defaultStyles: _propTypes2.default.shape({
-    content: _propTypes2.default.object,
-    overlay: _propTypes2.default.object
-  }),
-  style: _propTypes2.default.shape({
-    content: _propTypes2.default.object,
-    overlay: _propTypes2.default.object
-  }),
-  className: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.object]),
-  overlayClassName: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.object]),
-  bodyOpenClassName: _propTypes2.default.string,
-  ariaHideApp: _propTypes2.default.bool,
-  appElement: _propTypes2.default.instanceOf(_safeHTMLElement2.default),
-  onAfterOpen: _propTypes2.default.func,
-  onRequestClose: _propTypes2.default.func,
-  closeTimeoutMS: _propTypes2.default.number,
-  shouldFocusAfterRender: _propTypes2.default.bool,
-  shouldCloseOnOverlayClick: _propTypes2.default.bool,
-  shouldReturnFocusAfterClose: _propTypes2.default.bool,
-  role: _propTypes2.default.string,
-  contentLabel: _propTypes2.default.string,
-  aria: _propTypes2.default.object,
-  children: _propTypes2.default.node,
-  shouldCloseOnEsc: _propTypes2.default.bool
-};
-exports.default = ModalPortal;
-module.exports = exports["default"];
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("../node_modules/process/browser.js")))
-
-/***/ }),
-
-/***/ "../node_modules/react-modal/lib/helpers/ariaAppHider.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.assertNodeList = assertNodeList;
-exports.setElement = setElement;
-exports.validateElement = validateElement;
-exports.hide = hide;
-exports.show = show;
-exports.documentNotReadyOrSSRTesting = documentNotReadyOrSSRTesting;
-exports.resetForTesting = resetForTesting;
-
-var _warning = __webpack_require__("../node_modules/warning/browser.js");
-
-var _warning2 = _interopRequireDefault(_warning);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var globalElement = null;
-
-function assertNodeList(nodeList, selector) {
-  if (!nodeList || !nodeList.length) {
-    throw new Error("react-modal: No elements were found for selector " + selector + ".");
-  }
-}
-
-function setElement(element) {
-  var useElement = element;
-  if (typeof useElement === "string") {
-    var el = document.querySelectorAll(useElement);
-    assertNodeList(el, useElement);
-    useElement = "length" in el ? el[0] : el;
-  }
-  globalElement = useElement || globalElement;
-  return globalElement;
-}
-
-function validateElement(appElement) {
-  if (!appElement && !globalElement) {
-    (0, _warning2.default)(false, ["react-modal: App element is not defined.", "Please use `Modal.setAppElement(el)` or set `appElement={el}`.", "This is needed so screen readers don't see main content", "when modal is opened. It is not recommended, but you can opt-out", "by setting `ariaHideApp={false}`."].join(" "));
-
-    return false;
-  }
-
-  return true;
-}
-
-function hide(appElement) {
-  if (validateElement(appElement)) {
-    (appElement || globalElement).setAttribute("aria-hidden", "true");
-  }
-}
-
-function show(appElement) {
-  if (validateElement(appElement)) {
-    (appElement || globalElement).removeAttribute("aria-hidden");
-  }
-}
-
-function documentNotReadyOrSSRTesting() {
-  globalElement = null;
-}
-
-function resetForTesting() {
-  globalElement = null;
-}
-
-/***/ }),
-
-/***/ "../node_modules/react-modal/lib/helpers/bodyClassList.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.add = add;
-exports.remove = remove;
-
-var _refCount = __webpack_require__("../node_modules/react-modal/lib/helpers/refCount.js");
-
-var refCount = _interopRequireWildcard(_refCount);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function add(bodyClass) {
-  // Increment class(es) on refCount tracker and add class(es) to body
-  bodyClass.split(" ").map(refCount.add).forEach(function (className) {
-    return document.body.classList.add(className);
-  });
-}
-
-function remove(bodyClass) {
-  var classListMap = refCount.get();
-  // Decrement class(es) from the refCount tracker
-  // and remove unused class(es) from body
-  bodyClass.split(" ").map(refCount.remove).filter(function (className) {
-    return classListMap[className] === 0;
-  }).forEach(function (className) {
-    return document.body.classList.remove(className);
-  });
-}
-
-/***/ }),
-
-/***/ "../node_modules/react-modal/lib/helpers/focusManager.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.handleBlur = handleBlur;
-exports.handleFocus = handleFocus;
-exports.markForFocusLater = markForFocusLater;
-exports.returnFocus = returnFocus;
-exports.popWithoutFocus = popWithoutFocus;
-exports.setupScopedFocus = setupScopedFocus;
-exports.teardownScopedFocus = teardownScopedFocus;
-
-var _tabbable = __webpack_require__("../node_modules/react-modal/lib/helpers/tabbable.js");
-
-var _tabbable2 = _interopRequireDefault(_tabbable);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var focusLaterElements = [];
-var modalElement = null;
-var needToFocus = false;
-
-function handleBlur() {
-  needToFocus = true;
-}
-
-function handleFocus() {
-  if (needToFocus) {
-    needToFocus = false;
-    if (!modalElement) {
-      return;
-    }
-    // need to see how jQuery shims document.on('focusin') so we don't need the
-    // setTimeout, firefox doesn't support focusin, if it did, we could focus
-    // the element outside of a setTimeout. Side-effect of this implementation
-    // is that the document.body gets focus, and then we focus our element right
-    // after, seems fine.
-    setTimeout(function () {
-      if (modalElement.contains(document.activeElement)) {
-        return;
-      }
-      var el = (0, _tabbable2.default)(modalElement)[0] || modalElement;
-      el.focus();
-    }, 0);
-  }
-}
-
-function markForFocusLater() {
-  focusLaterElements.push(document.activeElement);
-}
-
-/* eslint-disable no-console */
-function returnFocus() {
-  var toFocus = null;
-  try {
-    if (focusLaterElements.length !== 0) {
-      toFocus = focusLaterElements.pop();
-      toFocus.focus();
-    }
-    return;
-  } catch (e) {
-    console.warn(["You tried to return focus to", toFocus, "but it is not in the DOM anymore"].join(" "));
-  }
-}
-/* eslint-enable no-console */
-
-function popWithoutFocus() {
-  focusLaterElements.length > 0 && focusLaterElements.pop();
-}
-
-function setupScopedFocus(element) {
-  modalElement = element;
-
-  if (window.addEventListener) {
-    window.addEventListener("blur", handleBlur, false);
-    document.addEventListener("focus", handleFocus, true);
-  } else {
-    window.attachEvent("onBlur", handleBlur);
-    document.attachEvent("onFocus", handleFocus);
-  }
-}
-
-function teardownScopedFocus() {
-  modalElement = null;
-
-  if (window.addEventListener) {
-    window.removeEventListener("blur", handleBlur);
-    document.removeEventListener("focus", handleFocus);
-  } else {
-    window.detachEvent("onBlur", handleBlur);
-    document.detachEvent("onFocus", handleFocus);
-  }
-}
-
-/***/ }),
-
-/***/ "../node_modules/react-modal/lib/helpers/refCount.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.get = get;
-exports.add = add;
-exports.remove = remove;
-exports.totalCount = totalCount;
-var classListMap = {};
-
-function get() {
-  return classListMap;
-}
-
-function add(bodyClass) {
-  // Set variable and default if none
-  if (!classListMap[bodyClass]) {
-    classListMap[bodyClass] = 0;
-  }
-  classListMap[bodyClass] += 1;
-  return bodyClass;
-}
-
-function remove(bodyClass) {
-  if (classListMap[bodyClass]) {
-    classListMap[bodyClass] -= 1;
-  }
-  return bodyClass;
-}
-
-function totalCount() {
-  return Object.keys(classListMap).reduce(function (acc, curr) {
-    return acc + classListMap[curr];
-  }, 0);
-}
-
-/***/ }),
-
-/***/ "../node_modules/react-modal/lib/helpers/safeHTMLElement.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.canUseDOM = undefined;
-
-var _exenv = __webpack_require__("../node_modules/exenv/index.js");
-
-var _exenv2 = _interopRequireDefault(_exenv);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var EE = _exenv2.default;
-
-var SafeHTMLElement = EE.canUseDOM ? window.HTMLElement : {};
-
-var canUseDOM = exports.canUseDOM = EE.canUseDOM;
-
-exports.default = SafeHTMLElement;
-
-/***/ }),
-
-/***/ "../node_modules/react-modal/lib/helpers/scopeTab.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = scopeTab;
-
-var _tabbable = __webpack_require__("../node_modules/react-modal/lib/helpers/tabbable.js");
-
-var _tabbable2 = _interopRequireDefault(_tabbable);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function scopeTab(node, event) {
-  var tabbable = (0, _tabbable2.default)(node);
-
-  if (!tabbable.length) {
-    // Do nothing, since there are no elements that can receive focus.
-    event.preventDefault();
-    return;
-  }
-
-  var shiftKey = event.shiftKey;
-  var head = tabbable[0];
-  var tail = tabbable[tabbable.length - 1];
-
-  // proceed with default browser behavior
-  if (node === document.activeElement) {
-    return;
-  }
-
-  var target;
-  if (tail === document.activeElement && !shiftKey) {
-    target = head;
-  }
-
-  if (head === document.activeElement && shiftKey) {
-    target = tail;
-  }
-
-  if (target) {
-    event.preventDefault();
-    target.focus();
-    return;
-  }
-
-  // Safari radio issue.
-  //
-  // Safari does not move the focus to the radio button,
-  // so we need to force it to really walk through all elements.
-  //
-  // This is very error prune, since we are trying to guess
-  // if it is a safari browser from the first occurence between
-  // chrome or safari.
-  //
-  // The chrome user agent contains the first ocurrence
-  // as the 'chrome/version' and later the 'safari/version'.
-  var checkSafari = /(\bChrome\b|\bSafari\b)\//.exec(navigator.userAgent);
-  var isSafariDesktop = checkSafari != null && checkSafari[1] != "Chrome" && /\biPod\b|\biPad\b/g.exec(navigator.userAgent) == null;
-
-  // If we are not in safari desktop, let the browser control
-  // the focus
-  if (!isSafariDesktop) return;
-
-  var x = tabbable.indexOf(document.activeElement);
-
-  if (x > -1) {
-    x += shiftKey ? -1 : 1;
-  }
-
-  event.preventDefault();
-
-  tabbable[x].focus();
-}
-module.exports = exports["default"];
-
-/***/ }),
-
-/***/ "../node_modules/react-modal/lib/helpers/tabbable.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = findTabbableDescendants;
-/*!
- * Adapted from jQuery UI core
- *
- * http://jqueryui.com
- *
- * Copyright 2014 jQuery Foundation and other contributors
- * Released under the MIT license.
- * http://jquery.org/license
- *
- * http://api.jqueryui.com/category/ui-core/
- */
-
-var tabbableNode = /input|select|textarea|button|object/;
-
-function hidesContents(element) {
-  var zeroSize = element.offsetWidth <= 0 && element.offsetHeight <= 0;
-
-  // If the node is empty, this is good enough
-  if (zeroSize && !element.innerHTML) return true;
-
-  // Otherwise we need to check some styles
-  var style = window.getComputedStyle(element);
-  return zeroSize ? style.getPropertyValue("overflow") !== "visible" : style.getPropertyValue("display") == "none";
-}
-
-function visible(element) {
-  var parentElement = element;
-  while (parentElement) {
-    if (parentElement === document.body) break;
-    if (hidesContents(parentElement)) return false;
-    parentElement = parentElement.parentNode;
-  }
-  return true;
-}
-
-function focusable(element, isTabIndexNotNaN) {
-  var nodeName = element.nodeName.toLowerCase();
-  var res = tabbableNode.test(nodeName) && !element.disabled || (nodeName === "a" ? element.href || isTabIndexNotNaN : isTabIndexNotNaN);
-  return res && visible(element);
-}
-
-function tabbable(element) {
-  var tabIndex = element.getAttribute("tabindex");
-  if (tabIndex === null) tabIndex = undefined;
-  var isTabIndexNaN = isNaN(tabIndex);
-  return (isTabIndexNaN || tabIndex >= 0) && focusable(element, !isTabIndexNaN);
-}
-
-function findTabbableDescendants(element) {
-  return [].slice.call(element.querySelectorAll("*"), 0).filter(tabbable);
-}
-module.exports = exports["default"];
-
-/***/ }),
-
-/***/ "../node_modules/react-modal/lib/index.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _Modal = __webpack_require__("../node_modules/react-modal/lib/components/Modal.js");
-
-var _Modal2 = _interopRequireDefault(_Modal);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _Modal2.default;
-module.exports = exports["default"];
-
-/***/ }),
-
 /***/ "../node_modules/react/cjs/react.development.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21168,75 +20260,6 @@ module.exports = function (css) {
 
 /***/ }),
 
-/***/ "../node_modules/warning/browser.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright 2014-2015, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- */
-
-
-
-/**
- * Similar to invariant but only logs a warning if the condition is not met.
- * This can be used to log issues in development environments in critical
- * paths. Removing the logging code for production environments will keep the
- * same logic and follow the same code paths.
- */
-
-var warning = function() {};
-
-if (process.env.NODE_ENV !== 'production') {
-  warning = function(condition, format, args) {
-    var len = arguments.length;
-    args = new Array(len > 2 ? len - 2 : 0);
-    for (var key = 2; key < len; key++) {
-      args[key - 2] = arguments[key];
-    }
-    if (format === undefined) {
-      throw new Error(
-        '`warning(condition, format, ...args)` requires a warning ' +
-        'message argument'
-      );
-    }
-
-    if (format.length < 10 || (/^[s\W]*$/).test(format)) {
-      throw new Error(
-        'The warning format should be able to uniquely identify this ' +
-        'warning. Please, use a more descriptive format than: ' + format
-      );
-    }
-
-    if (!condition) {
-      var argIndex = 0;
-      var message = 'Warning: ' +
-        format.replace(/%s/g, function() {
-          return args[argIndex++];
-        });
-      if (typeof console !== 'undefined') {
-        console.error(message);
-      }
-      try {
-        // This error was thrown as a convenience so that you can use this stack
-        // to find the callsite that caused this warning to fire.
-        throw new Error(message);
-      } catch(x) {}
-    }
-  };
-}
-
-module.exports = warning;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("../node_modules/process/browser.js")))
-
-/***/ }),
-
 /***/ "../src/Modal.jsx":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21295,9 +20318,9 @@ var Modal = (_temp2 = _class = function (_PureComponent) {
             args[_key] = arguments[_key];
         }
 
-        return _ret = (_temp = (_this = _possibleConstructorReturn(this, _PureComponent.call.apply(_PureComponent, [this].concat(args))), _this), _this.actions = {
-            onClose: function onClose(event) {
-                _this.props.onClose && _this.props.onClose(event);
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, _PureComponent.call.apply(_PureComponent, [this].concat(args))), _this), _this.handleClose = function (event) {
+            if (typeof _this.props.onClose === 'function') {
+                _this.props.onClose(event);
             }
         }, _temp), _possibleConstructorReturn(_this, _ret);
     }
@@ -21308,81 +20331,94 @@ var Modal = (_temp2 = _class = function (_PureComponent) {
             {
                 type: 'button',
                 className: _index2.default.close,
-                onClick: this.actions.onClose
+                onClick: this.handleClose
             },
             '\xD7'
         );
     };
 
-    Modal.prototype.render = function render() {
-        var _cx2;
+    Modal.prototype.renderModalContent = function renderModalContent(_ref) {
+        var _cx;
 
+        var showCloseButton = _ref.showCloseButton,
+            size = _ref.size,
+            className = _ref.className,
+            children = _ref.children,
+            props = _objectWithoutProperties(_ref, ['showCloseButton', 'size', 'className', 'children']);
+
+        return _react2.default.createElement(
+            _ModalContent2.default,
+            _extends({}, props, {
+                className: (0, _classnames2.default)(className, (_cx = {}, _cx[_index2.default.closeButton] = showCloseButton, _cx)),
+                size: size
+            }),
+            children,
+            showCloseButton && this.renderCloseButton()
+        );
+    };
+
+    Modal.prototype.render = function render() {
         var _props = this.props,
-            show = _props.show,
-            closeOnOverlayClick = _props.closeOnOverlayClick,
-            onOpen = _props.onOpen,
+            disableOverlay = _props.disableOverlay,
             onClose = _props.onClose,
-            showOverlay = _props.showOverlay,
+            show = _props.show,
             showCloseButton = _props.showCloseButton,
+            showOverlay = _props.showOverlay,
             size = _props.size,
-            className = _props.className,
-            style = _props.style,
-            children = _props.children,
-            props = _objectWithoutProperties(_props, ['show', 'closeOnOverlayClick', 'onOpen', 'onClose', 'showOverlay', 'showCloseButton', 'size', 'className', 'style', 'children']);
+            props = _objectWithoutProperties(_props, ['disableOverlay', 'onClose', 'show', 'showCloseButton', 'showOverlay', 'size']);
+
+        if (!show) {
+            return null;
+        }
+
+        var modalContent = this.renderModalContent(_extends({
+            showCloseButton: showCloseButton,
+            size: size
+        }, props));
 
         if (!showOverlay) {
-            var _cx;
-
-            return _react2.default.createElement(
-                _ModalContent2.default,
-                _extends({}, props, {
-                    className: (0, _classnames2.default)(className, (_cx = {}, _cx[_index2.default.hasCloseButton] = showCloseButton, _cx)),
-                    size: size,
-                    style: _extends({
-                        display: show ? 'block' : 'none'
-                    }, style)
-                }),
-                children,
-                showCloseButton && this.renderCloseButton()
-            );
+            return modalContent;
         }
 
         return _react2.default.createElement(
             _ModalOverlay2.default,
             {
-                show: show,
-                closeOnOverlayClick: closeOnOverlayClick,
-                onOpen: onOpen,
+                disableOverlay: disableOverlay,
                 onClose: onClose
             },
-            _react2.default.createElement(
-                _ModalContent2.default,
-                _extends({}, props, {
-                    className: (0, _classnames2.default)(className, (_cx2 = {}, _cx2[_index2.default.hasCloseButton] = showCloseButton, _cx2)),
-                    size: size,
-                    style: _extends({ // border and boxShadow properties are specified in ModalOverlay
-                        border: 'none',
-                        boxShadow: 'none'
-                    }, style)
-                }),
-                children,
-                showCloseButton && this.renderCloseButton()
-            )
+            modalContent
         );
     };
 
     return Modal;
-}(_react.PureComponent), _class.propTypes = _extends({}, _ModalOverlay2.default.propTypes, _ModalContent2.default.propTypes, {
-    // Specify whether to show the modal.
+}(_react.PureComponent), _class.propTypes = {
+    // Don't close the modal on clicking the overlay. Defaults to `false`.
+    disableOverlay: _propTypes2.default.bool,
+
+    // A callback fired on clicking the overlay or the close button (x).
+    onClose: _propTypes2.default.func,
+
+    // Whether the modal is visible.
     show: _propTypes2.default.bool,
-    // Pass 'showOverlay' prop with 'true' value to add an overlay to the background, and 'false' otherwise.
+
+    // Whether the close button (x) is visible.
+    showCloseButton: _propTypes2.default.bool,
+
+    // Display an overlay in the background. Defaults to `true`.
     showOverlay: _propTypes2.default.bool,
-    // Specify whether the modal should contain a close button (x).
-    showCloseButton: _propTypes2.default.bool
-}), _class.defaultProps = _extends({}, _ModalOverlay2.default.defaultProps, _ModalContent2.default.defaultProps, {
+
+    // Extra Small: W400 x H240 px (minimum height)
+    // Small:       W544 x H304 px (minimum height)
+    // Medium:      W688 x H304 px (minimum height)
+    // Large:       W928 x H304 px (minimum height)
+    size: _propTypes2.default.oneOf(['', 'xs', 'sm', 'md', 'lg', 'large', 'medium', 'small', 'extra-small'])
+}, _class.defaultProps = {
+    disableOverlay: false,
+    show: true,
+    showCloseButton: true,
     showOverlay: true,
-    showCloseButton: true
-}), _temp2);
+    size: ''
+}, _temp2);
 exports.default = Modal;
 
 /***/ }),
@@ -21493,26 +20529,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-var ModalContent = function ModalContent(props) {
-    var className = props.className,
-        size = props.size,
-        others = _objectWithoutProperties(props, ['className', 'size']);
+var ModalContent = function ModalContent(_ref) {
+    var className = _ref.className,
+        size = _ref.size,
+        props = _objectWithoutProperties(_ref, ['className', 'size']);
 
-    return _react2.default.createElement('div', _extends({}, others, {
+    return _react2.default.createElement('div', _extends({}, props, {
         className: (0, _classnames2.default)(className, _index2.default.modalContent, _index2.default[size])
     }));
 };
 
 ModalContent.propTypes = {
-    // Extra Small: W400 x H240 px (minimum height)
-    // Small:       W544 x H304 px (minimum height)
-    // Medium:      W688 x H304 px (minimum height)
-    // Large:       W928 x H304 px (minimum height)
     size: _propTypes2.default.oneOf(['', 'xs', 'sm', 'md', 'lg', 'large', 'medium', 'small', 'extra-small'])
-};
-
-ModalContent.defaultProps = {
-    size: ''
 };
 
 exports.default = ModalContent;
@@ -21679,7 +20707,9 @@ exports.default = ModalHeader;
 
 exports.__esModule = true;
 
-var _class, _temp;
+var _reactPortal = __webpack_require__("../node_modules/@trendmicro/react-portal/lib/index.js");
+
+var _reactPortal2 = _interopRequireDefault(_reactPortal);
 
 var _propTypes = __webpack_require__("../node_modules/prop-types/index.js");
 
@@ -21689,98 +20719,39 @@ var _react = __webpack_require__("../node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactModal = __webpack_require__("../node_modules/react-modal/lib/index.js");
+var _RootCloseWrapper = __webpack_require__("../src/RootCloseWrapper.jsx");
 
-var _reactModal2 = _interopRequireDefault(_reactModal);
+var _RootCloseWrapper2 = _interopRequireDefault(_RootCloseWrapper);
+
+var _index = __webpack_require__("../src/index.styl");
+
+var _index2 = _interopRequireDefault(_index);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var noop = function noop() {};
-
-// https://github.com/reactjs/react-modal
-// Styles are passed as an object with 2 keys, 'overlay' and 'content' like so
-var customStyles = {
-    overlay: {
-        position: 'fixed',
-        top: 0,
-        bottom: 0,
-        left: 0,
-        right: 0,
-        backgroundColor: 'rgba(51, 51, 51, .55)',
-        zIndex: 1000
-    },
-    content: {
-        boxShadow: '0 4px 16px rgba(0, 0, 0, .5)',
-        border: '1px solid #ccc',
-        borderRadius: 0,
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        padding: 0,
-        msTransform: 'translate(-50%, -50%)', // IE9
-        transform: 'translate(-50%, -50%)'
-    }
-};
-
-var ModalOverlay = (_temp = _class = function (_PureComponent) {
-    _inherits(ModalOverlay, _PureComponent);
-
-    function ModalOverlay() {
-        _classCallCheck(this, ModalOverlay);
-
-        return _possibleConstructorReturn(this, _PureComponent.apply(this, arguments));
-    }
-
-    ModalOverlay.prototype.render = function render() {
-        var _props = this.props,
-            children = _props.children,
-            show = _props.show,
-            closeOnOverlayClick = _props.closeOnOverlayClick,
-            onOpen = _props.onOpen,
-            onClose = _props.onClose;
-
-
-        return _react2.default.createElement(
-            _reactModal2.default,
+var ModalOverlay = function ModalOverlay(_ref) {
+    var disableOverlay = _ref.disableOverlay,
+        onClose = _ref.onClose,
+        children = _ref.children;
+    return _react2.default.createElement(
+        _reactPortal2.default,
+        { className: _index2.default.modalOverlay },
+        _react2.default.createElement(
+            _RootCloseWrapper2.default,
             {
-                isOpen: show,
-                onAfterOpen: onOpen,
-                onRequestClose: onClose,
-                shouldCloseOnOverlayClick: closeOnOverlayClick,
-                style: customStyles,
-                contentLabel: 'Modal',
-                ariaHideApp: false
+                disabled: disableOverlay,
+                onRootClose: onClose
             },
             children
-        );
-    };
+        )
+    );
+};
 
-    return ModalOverlay;
-}(_react.PureComponent), _class.propTypes = {
-    // Specify whether to show the modal.
-    show: _propTypes2.default.bool,
-
-    // By default the modal is closed when clicking the overlay area. You can pass 'closeOnOverlayClick' prop with 'false' value if you want to prevent this behavior.
-    closeOnOverlayClick: _propTypes2.default.bool,
-
-    // A callback fired after opening a modal.
-    onOpen: _propTypes2.default.func,
-
-    // A callback fired when clicking the close button (x) or the overlay area.
+ModalOverlay.propTypes = {
+    disableOverlay: _propTypes2.default.bool,
     onClose: _propTypes2.default.func
-}, _class.defaultProps = {
-    show: true,
-    closeOnOverlayClick: true,
-    onOpen: noop,
-    onClose: noop
-}, _temp);
+};
+
 exports.default = ModalOverlay;
 
 /***/ }),
@@ -21821,6 +20792,161 @@ var ModalTitle = function ModalTitle(props) {
 };
 
 exports.default = ModalTitle;
+
+/***/ }),
+
+/***/ "../src/RootCloseWrapper.jsx":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _class, _temp;
+
+var _contains = __webpack_require__("../node_modules/dom-helpers/query/contains.js");
+
+var _contains2 = _interopRequireDefault(_contains);
+
+var _on = __webpack_require__("../node_modules/dom-helpers/events/on.js");
+
+var _on2 = _interopRequireDefault(_on);
+
+var _off = __webpack_require__("../node_modules/dom-helpers/events/off.js");
+
+var _off2 = _interopRequireDefault(_off);
+
+var _propTypes = __webpack_require__("../node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _react = __webpack_require__("../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__("../node_modules/react-dom/index.js");
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var escapeKeyCode = 27;
+
+var ownerDocument = function ownerDocument(node) {
+    return node && node.ownerDocument || document;
+};
+
+var isLeftClickEvent = function isLeftClickEvent(event) {
+    return event.button === 0;
+};
+
+var isModifiedEvent = function isModifiedEvent(event) {
+    return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
+};
+
+// The `<RootCloseWrapper/>` component registers your callback on the document
+// when rendered. Powers the `<Overlay/>` component. This is used achieve modal
+// style behavior where your callback is triggered when the user tries to
+// interact with the rest of the document or hits the `esc` key.
+var RootCloseWrapper = (_temp = _class = function (_React$Component) {
+    _inherits(RootCloseWrapper, _React$Component);
+
+    function RootCloseWrapper(props, context) {
+        _classCallCheck(this, RootCloseWrapper);
+
+        var _this = _possibleConstructorReturn(this, _React$Component.call(this, props, context));
+
+        _this.handleMouseCapture = function (e) {
+            _this.preventMouseRootClose = isModifiedEvent(e) || !isLeftClickEvent(e) || (0, _contains2.default)(_reactDom2.default.findDOMNode(_this), e.target);
+        };
+
+        _this.handleMouse = function (event) {
+            if (!_this.preventMouseRootClose && _this.props.onRootClose) {
+                _this.props.onRootClose(event);
+            }
+        };
+
+        _this.handleKeyUp = function (event) {
+            if (event.keyCode === escapeKeyCode && _this.props.onRootClose) {
+                _this.props.onRootClose(event);
+            }
+        };
+
+        _this.preventMouseRootClose = false;
+        return _this;
+    }
+
+    RootCloseWrapper.prototype.componentDidMount = function componentDidMount() {
+        if (!this.props.disabled) {
+            this.addEventListeners();
+        }
+    };
+
+    RootCloseWrapper.prototype.componentDidUpdate = function componentDidUpdate(prevProps) {
+        if (!this.props.disabled && prevProps.disabled) {
+            this.addEventListeners();
+        } else if (this.props.disabled && !prevProps.disabled) {
+            this.removeEventListeners();
+        }
+    };
+
+    RootCloseWrapper.prototype.componentWillUnmount = function componentWillUnmount() {
+        if (!this.props.disabled) {
+            this.removeEventListeners();
+        }
+    };
+
+    RootCloseWrapper.prototype.addEventListeners = function addEventListeners() {
+        var event = this.props.event;
+
+        var doc = ownerDocument(_reactDom2.default.findDOMNode(this));
+
+        // Use capture for this listener so it fires before React's listener, to
+        // avoid false positives in the contains() check below if the target DOM
+        // element is removed in the React mouse callback.
+        (0, _on2.default)(doc, event, this.handleMouseCapture, true);
+        (0, _on2.default)(doc, event, this.handleMouse);
+        (0, _on2.default)(doc, 'keyup', this.handleKeyUp);
+    };
+
+    RootCloseWrapper.prototype.removeEventListeners = function removeEventListeners() {
+        var event = this.props.event;
+
+        var doc = ownerDocument(_reactDom2.default.findDOMNode(this));
+
+        (0, _off2.default)(doc, event, this.handleMouseCapture, true);
+        (0, _off2.default)(doc, event, this.handleMouse);
+        (0, _off2.default)(doc, 'keyup', this.handleKeyUp);
+    };
+
+    RootCloseWrapper.prototype.render = function render() {
+        return this.props.children;
+    };
+
+    return RootCloseWrapper;
+}(_react2.default.Component), _class.propTypes = {
+    // Callback fired after click or mousedown. Also triggers when user hits `esc`.
+    onRootClose: _propTypes2.default.func,
+
+    // Children to render.
+    children: _propTypes2.default.element,
+
+    // Disable the the RootCloseWrapper, preventing it from triggering `onRootClose`.
+    disabled: _propTypes2.default.bool,
+
+    // Choose which document mouse event to bind to.
+    event: _propTypes2.default.oneOf(['click', 'mousedown'])
+}, _class.defaultProps = {
+    event: 'click'
+}, _temp);
+exports.default = RootCloseWrapper;
 
 /***/ }),
 
@@ -21958,7 +21084,10 @@ var ModalDialog = (_temp = _class = function (_Component) {
 
         return _react2.default.createElement(
             _src2.default,
-            _extends({}, props, { onClose: onCancel }),
+            _extends({}, props, {
+                disableOverlay: false,
+                onClose: onCancel
+            }),
             title && _react2.default.createElement(
                 _src2.default.Header,
                 null,
@@ -22464,4 +21593,4 @@ _reactDom2.default.render(_react2.default.createElement(App, null), document.get
 /***/ })
 
 /******/ });
-//# sourceMappingURL=bundle.js.map?05268345e2f866d80816
+//# sourceMappingURL=bundle.js.map?f71de338724a5b2c3e42

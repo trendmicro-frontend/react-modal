@@ -1,6 +1,6 @@
 {
   "name": "@trendmicro/react-modal",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Trend Micro Components: React Modal",
   "main": "lib/index.js",
   "files": [
@@ -44,12 +44,14 @@
     "dialogs"
   ],
   "peerDependencies": {
-    "react": "^0.14.0 || >=15.0.0"
+    "react": "^0.14.0 || >=15.0.0",
+    "react-dom": "^0.14.0 || >=15.0.0"
   },
   "dependencies": {
+    "@trendmicro/react-portal": "^0.4.3",
     "classnames": "^2.2.5",
-    "prop-types": "^15.6.0",
-    "react-modal": "^3.1.10"
+    "dom-helpers": "^3.3.1",
+    "prop-types": "^15.6.0"
   },
   "devDependencies": {
     "@trendmicro/react-buttons": "~1.2.1",

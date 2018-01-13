@@ -57,49 +57,36 @@ import Modal from './components/Modal';
 ## Usage
 
 ```js
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import { Button } from './components/Buttons';
 import Modal from './components/Modal';
 
-class ModalDialog extends Component {
-    static propTypes = {
-        state: PropTypes.object,
-        actions: PropTypes.object
-    };
-
-    render() {
-        const { state, actions } = this.props;
-
-        return (
-            <Modal
-                show={state.showModal}
-                onClose={actions.closeModal}
+export default ({ size = 'sm', closeModal, ...props }) => (
+    <Modal {...props} size={size} onClose={closeModal}>
+        <Modal.Header>
+            <Modal.Title>
+                Modal Title
+            </Modal.Title>
+        </Modal.Header>
+        <Modal.Body padding>
+            Modal Body
+        </Modal.Body>
+        <Modal.Footer>
+            <Button
+                btnStyle="primary"
+                onClick={closeModal}
             >
-                <Modal.Header>
-                    <Modal.Title>
-                        Modal Title
-                    </Modal.Title>
-                </Modal.Header>
-                <Modal.Body padding>
-                    Modal Body
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button
-                        btnStyle="primary"
-                        onClick={actions.closeModal}
-                    >
-                        Save
-                    </Button>
-                    <Button
-                        onClick={actions.closeModal}
-                    >
-                        Close
-                    </Button>
-                </Modal.Footer>
-            </Modal>
-        );
-    }
-}
+                Save
+            </Button>
+            <Button
+                btnStyle="default"
+                onClick={closeModal}
+            >
+                Close
+            </Button>
+        </Modal.Footer>
+    </Modal>
+);
 ```
 
 ## Examples
@@ -109,19 +96,18 @@ class ModalDialog extends Component {
 You can create a ModalWrapper component that changes the body style on open and close.
 
 ```js
-import React, { Component } from 'react';
-import Modal from '@trendmicro/react-modal';
-import '@trendmicro/react-modal/dist/react-modal.css';
+import React, { PureComponent } from 'react';
+import Modal from './components/Modal';
 
-class ModalWrapper extends Component {
+let bodyStyle = null;
+
+class ModalWrapper extends PureComponent {
     static propTypes = {
         ...Modal.propTypes
     };
     static defaultProps = {
         ...Modal.defaultProps
     };
-
-    bodyStyle = null;
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.show !== this.props.show) {
@@ -132,37 +118,36 @@ class ModalWrapper extends Component {
             }
         }
     }
+    componentDidMount() {
+        this.changeBodyStyle();
+    }
     componentWillUnmount() {
         this.restoreBodyStyle();
     }
     changeBodyStyle() {
-        if (this.bodyStyle) {
+        if (bodyStyle) {
             return;
         }
         // Prevent body from scrolling when a modal is opened
         const body = document.querySelector('body');
-        this.bodyStyle = {
+        bodyStyle = {
             overflowY: body.style.overflowY
         };
         body.style.overflowY = 'hidden';
     }
     restoreBodyStyle() {
-        if (this.bodyStyle) {
+        if (bodyStyle) {
             const body = document.querySelector('body');
-            body.style.overflowY = this.bodyStyle.overflowY;
-            this.bodyStyle = null;
+            body.style.overflowY = bodyStyle.overflowY;
+            bodyStyle = null;
         }
     }
     render() {
-        const { onOpen, onClose, ...props } = this.props;
+        const { onClose, ...props } = this.props;
 
         return (
             <Modal
                 {...props}
-                onOpen={() => {
-                    this.changeBodyStyle();
-                    onOpen();
-                }}
                 onClose={() => {
                     this.restoreBodyStyle();
                     onClose();
@@ -188,12 +173,11 @@ export default ModalWrapper;
 
 Name | Type | Default | Description
 :--- | :--- | :------ | :----------
-closeOnOverlayClick | Boolean | true | By default the modal is closed when clicking the overlay area. You can pass 'closeOnOverlayClick' prop with 'false' value if you want to prevent this behavior.
-onClose | Function | | A callback fired when clicking the close button (&times;) or the overlay area.
-onOpen | Function | | A callback fired after opening a modal.
-show | Boolean | true | Specify whether to show the modal.
-showCloseButton | Boolean | true | Specify whether the modal should contain a close button (x).
-showOverlay | Boolean | true | Pass 'showOverlay' prop with 'true' value to add an overlay to the background, and 'false' otherwise.
+disableOverlay | Boolean | false | Don't close the modal on clicking the overlay. Defaults to `false`.
+onClose | Function | | A callback fired on clicking the overlay or the close button (x).
+show | Boolean | true | Whether the modal is visible.
+showCloseButton | Boolean | true | Whether the close button (x) is visible.
+showOverlay | Boolean | true | Display an overlay in the background. Defaults to `true`.
 size | String | '' | One of: 'xs', 'sm', 'md', 'lg', 'extra-small', 'small', 'medium', 'large', or an empty string. Defaults to empty string that will automatically resize to fit contents.
 
 ### Size

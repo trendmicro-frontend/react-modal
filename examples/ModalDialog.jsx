@@ -15,7 +15,11 @@ class ModalDialog extends Component {
         const { title, body, onSave, onCancel, ...props } = this.props;
 
         return (
-            <Modal {...props} onClose={onCancel}>
+            <Modal
+                {...props}
+                disableOverlay={false}
+                onClose={onCancel}
+            >
                 {title &&
                 <Modal.Header>
                     <Modal.Title>{title}</Modal.Title>

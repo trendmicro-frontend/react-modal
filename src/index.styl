@@ -1,13 +1,35 @@
 @import "reset-context";
 @import "variables";
 
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(51, 51, 51, .55);
+    text-align: center;
+
+    &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -0.25em; /* Adjusts for spacing */
+    }
+}
+
 .modal-content {
     reset-context();
 
+    position: relative;
+    display: inline-block;
+    background-color: #fff;
     border: 1px solid #ccc;
     box-shadow: 0 4px 16px rgba(0, 0, 0, .5);
-    position: relative;
     min-width: $modal-xs-width;
+    vertical-align: middle;
+    text-align: initial;
 
     &.xs {
         width: $modal-xs-width;
@@ -46,6 +68,14 @@
         }
     }
 
+    &.close-button {
+        .modal-header {
+            &.padding {
+                padding: $padding-tb $padding-r $padding-tb $padding-lr;
+            }
+        }
+    }
+
     .close {
         position: absolute;
         top: $padding-tb;
@@ -62,6 +92,7 @@
         color: #999999;
         text-shadow: none;
         opacity: 1;
+        outline: none;
     }
 
     .modal-header {
@@ -72,14 +103,6 @@
 
         &.padding {
             padding: $padding-tb $padding-lr;
-        }
-    }
-
-    &.hasCloseButton {
-        .modal-header {
-            &.padding {
-                padding: $padding-tb $padding-r $padding-tb $padding-lr;
-            }
         }
     }
 
