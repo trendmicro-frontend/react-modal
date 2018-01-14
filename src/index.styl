@@ -1,6 +1,8 @@
 @import "reset-context";
 @import "variables";
 
+// Centering in the Unknown
+// https://css-tricks.com/centering-in-the-unknown/
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -8,14 +10,26 @@
     left: 0;
     right: 0;
     background-color: rgba(51, 51, 51, .55);
-    text-align: center;
+    z-index: 1000;
 
-    &:before {
-        content: '';
-        display: inline-block;
-        height: 100%;
-        vertical-align: middle;
-        margin-right: -0.25em; /* Adjusts for spacing */
+    // Centering in the Unknown
+    // https://css-tricks.com/centering-in-the-unknown/
+    &.centered {
+        text-align: center;
+
+        &:before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+            margin-right: -0.25em; // Adjusts for spacing
+        }
+
+        .modal-content {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: initial;
+        }
     }
 }
 
@@ -28,8 +42,6 @@
     border: 1px solid #ccc;
     box-shadow: 0 4px 16px rgba(0, 0, 0, .5);
     min-width: $modal-xs-width;
-    vertical-align: middle;
-    text-align: initial;
 
     &.xs {
         width: $modal-xs-width;
