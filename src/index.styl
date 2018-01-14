@@ -1,9 +1,33 @@
 @import "reset-context";
 @import "variables";
 
+// Centering in the Unknown
+// https://css-tricks.com/centering-in-the-unknown/
+.modal-overlay-centered {
+    // This parent can be any width and height
+    text-align: center;
+
+    // The ghost, nudged to maintain perfect centering
+    &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -0.25em; // adjusts for spacing
+    }
+
+    // The eement to be centered, can also be of any width and height
+    > * {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: initial;
+    }
+}
+
 .modal-content {
     reset-context();
 
+    background-color: #fff;
     border: 1px solid #ccc;
     box-shadow: 0 4px 16px rgba(0, 0, 0, .5);
     position: relative;
