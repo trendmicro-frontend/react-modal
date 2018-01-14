@@ -8,8 +8,7 @@
     "lib"
   ],
   "scripts": {
-    "prepublish": "npm run lint && npm test && npm run clean && npm run bowersync && npm run build && npm run build-examples",
-    "bowersync": "./scripts/bowersync",
+    "prepublish": "npm run lint && npm test && npm run clean && npm run build && npm run build-examples",
     "build": "webpack && npm run cleancss",
     "build-examples": "cd examples; webpack",
     "clean": "rm -f {lib,dist}/*",
