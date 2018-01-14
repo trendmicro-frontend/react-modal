@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import Modal from 'react-modal';
+import styles from './index.styl';
 
 const noop = () => {};
 
@@ -17,18 +18,16 @@ const customStyles = {
         zIndex: 1000
     },
     content: {
+        position: 'relative',
+        top: 'auto',
+        left: 'auto',
+        right: 'auto',
+        bottom: 'auto',
         boxShadow: '0 4px 16px rgba(0, 0, 0, .5)',
         border: '1px solid #ccc',
         borderRadius: 0,
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
         padding: 0,
-        overflow: null, // Unset "overflow: auto" property
-        msTransform: 'translate(-50%, -50%)', // IE9
-        transform: 'translate(-50%, -50%)'
+        overflow: null // Unset "overflow: auto" property to prevent unexpected vertical or horizontal scrollbar
     }
 };
 
@@ -64,6 +63,7 @@ class ModalOverlay extends PureComponent {
 
         return (
             <Modal
+                overlayClassName={styles.modalOverlayCentered}
                 isOpen={show}
                 onAfterOpen={onOpen}
                 onRequestClose={onClose}
