@@ -20,12 +20,14 @@ const customStyles = {
         boxShadow: '0 4px 16px rgba(0, 0, 0, .5)',
         border: '1px solid #ccc',
         borderRadius: 0,
+        position: 'absolute',
         top: '50%',
         left: '50%',
         right: 'auto',
         bottom: 'auto',
         marginRight: '-50%',
         padding: 0,
+        overflow: null, // Unset "overflow: auto" property
         msTransform: 'translate(-50%, -50%)', // IE9
         transform: 'translate(-50%, -50%)'
     }
