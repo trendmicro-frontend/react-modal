@@ -559,7 +559,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /***/ "../node_modules/css-loader/index.js!../node_modules/@trendmicro/react-buttons/dist/react-buttons.css":
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__("../node_modules/css-loader/lib/css-base.js")(undefined);
+exports = module.exports = __webpack_require__("../node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
@@ -574,12 +574,12 @@ exports.push([module.i, "/*! react-buttons v1.2.1 | (c) 2017 Trend Micro Inc. | 
 /***/ "../node_modules/css-loader/index.js?camelCase&modules&importLoaders=1&localIdentName=[local]---[hash:base64:5]!../node_modules/stylus-loader/index.js!../node_modules/stylint-loader/index.js!../src/index.styl":
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__("../node_modules/css-loader/lib/css-base.js")(undefined);
+exports = module.exports = __webpack_require__("../node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
 // module
-exports.push([module.i, ".modal-content---3hUtG {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  line-height: 20px;\n  border: 1px solid #ccc;\n  -webkit-box-shadow: 0 4px 16px rgba(0,0,0,0.5);\n  box-shadow: 0 4px 16px rgba(0,0,0,0.5);\n  position: relative;\n  min-width: 400px;\n}\n.modal-content---3hUtG *,\n.modal-content---3hUtG *:before,\n.modal-content---3hUtG *:after {\n  -webkit-box-sizing: inherit;\n  -moz-box-sizing: inherit;\n  box-sizing: inherit;\n}\n.modal-content---3hUtG.xs---8dzzc {\n  width: 400px;\n}\n.modal-content---3hUtG.xs---8dzzc .modal-body---22INy {\n  min-height: 184px;\n}\n.modal-content---3hUtG.xs---8dzzc .modal-header---1FIQ_ + .modal-body---22INy {\n  min-height: 130px;\n}\n.modal-content---3hUtG.sm---3ceuY {\n  width: 544px;\n}\n.modal-content---3hUtG.sm---3ceuY .modal-body---22INy {\n  min-height: 246px;\n}\n.modal-content---3hUtG.sm---3ceuY .modal-header---1FIQ_ + .modal-body---22INy {\n  min-height: 192px;\n}\n.modal-content---3hUtG.md---3OKcy {\n  width: 688px;\n}\n.modal-content---3hUtG.md---3OKcy .modal-body---22INy {\n  min-height: 246px;\n}\n.modal-content---3hUtG.md---3OKcy .modal-header---1FIQ_ + .modal-body---22INy {\n  min-height: 192px;\n}\n.modal-content---3hUtG.lg---2kMz1 {\n  width: 928px;\n}\n.modal-content---3hUtG.lg---2kMz1 .modal-body---22INy {\n  min-height: 246px;\n}\n.modal-content---3hUtG.lg---2kMz1 .modal-header---1FIQ_ + .modal-body---22INy {\n  min-height: 192px;\n}\n.modal-content---3hUtG .close---fVKdP {\n  position: absolute;\n  top: 16px;\n  right: 24px;\n  padding: 0;\n  margin: 0;\n  line-height: 20px;\n  cursor: pointer;\n  background: transparent;\n  border: 0;\n  -webkit-appearance: none;\n  font-size: 30px;\n  font-weight: normal;\n  color: #999;\n  text-shadow: none;\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n}\n.modal-content---3hUtG .modal-header---1FIQ_ {\n  min-height: 54px;\n  background-color: #fff;\n  border-bottom: 1px solid #ccc;\n  padding: 0;\n}\n.modal-content---3hUtG .modal-header---1FIQ_.padding---2pFRu {\n  padding: 16px 24px;\n}\n.modal-content---3hUtG.hasCloseButton---2jvGR .modal-header---1FIQ_.padding---2pFRu {\n  padding: 16px 56px 16px 24px;\n}\n.modal-content---3hUtG .modal-title---2qyMh {\n  font-weight: 200;\n  color: #222;\n  letter-spacing: -0.02em;\n  font-size: 18px;\n}\n.modal-content---3hUtG .modal-title---2qyMh.ellipsis---3BkJT {\n  overflow: hidden;\n  -o-text-overflow: ellipsis;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.modal-content---3hUtG .modal-body---22INy {\n  position: relative;\n  padding: 0;\n}\n.modal-content---3hUtG .modal-body---22INy.padding---2pFRu {\n  padding: 54px 24px 16px 24px;\n}\n.modal-content---3hUtG .modal-header---1FIQ_ + .modal-body---22INy.padding---2pFRu {\n  padding: 16px 24px;\n}\n.modal-content---3hUtG .modal-footer---3bXnF {\n  min-height: 56px;\n  margin-top: 0;\n  text-align: right;\n  background-color: #eee;\n  padding: 0;\n}\n.modal-content---3hUtG .modal-footer---3bXnF.padding---2pFRu {\n  padding: 12px 24px;\n}\n.modal-content---3hUtG .modal-footer---3bXnF button {\n  min-width: 80px;\n}\n.modal-content---3hUtG .modal-footer---3bXnF button + button {\n  margin-left: 8px;\n}\n", ""]);
+exports.push([module.i, ".modal-content---3hUtG {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  line-height: 20px;\n  border: 1px solid #ccc;\n  -webkit-box-shadow: 0 4px 16px rgba(0,0,0,0.5);\n  box-shadow: 0 4px 16px rgba(0,0,0,0.5);\n  position: relative;\n  min-width: 400px;\n}\n.modal-content---3hUtG *,\n.modal-content---3hUtG *:before,\n.modal-content---3hUtG *:after {\n  -webkit-box-sizing: inherit;\n  -moz-box-sizing: inherit;\n  box-sizing: inherit;\n}\n.modal-content---3hUtG.xs---8dzzc {\n  width: 400px;\n}\n.modal-content---3hUtG.xs---8dzzc .modal-body---22INy {\n  min-height: 184px;\n}\n.modal-content---3hUtG.xs---8dzzc .modal-header---1FIQ_ + .modal-body---22INy {\n  min-height: 130px;\n}\n.modal-content---3hUtG.sm---3ceuY {\n  width: 544px;\n}\n.modal-content---3hUtG.sm---3ceuY .modal-body---22INy {\n  min-height: 246px;\n}\n.modal-content---3hUtG.sm---3ceuY .modal-header---1FIQ_ + .modal-body---22INy {\n  min-height: 192px;\n}\n.modal-content---3hUtG.md---3OKcy {\n  width: 688px;\n}\n.modal-content---3hUtG.md---3OKcy .modal-body---22INy {\n  min-height: 246px;\n}\n.modal-content---3hUtG.md---3OKcy .modal-header---1FIQ_ + .modal-body---22INy {\n  min-height: 192px;\n}\n.modal-content---3hUtG.lg---2kMz1 {\n  width: 928px;\n}\n.modal-content---3hUtG.lg---2kMz1 .modal-body---22INy {\n  min-height: 246px;\n}\n.modal-content---3hUtG.lg---2kMz1 .modal-header---1FIQ_ + .modal-body---22INy {\n  min-height: 192px;\n}\n.modal-content---3hUtG .close---fVKdP {\n  position: absolute;\n  top: 16px;\n  right: 24px;\n  padding: 0;\n  margin: 0;\n  line-height: 20px;\n  cursor: pointer;\n  background: transparent;\n  border: 0;\n  -webkit-appearance: none;\n  font-size: 30px;\n  font-weight: normal;\n  color: #999;\n  text-shadow: none;\n  opacity: 1;\n  -ms-filter: none;\n  filter: none;\n  outline: 0;\n}\n.modal-content---3hUtG .modal-header---1FIQ_ {\n  min-height: 54px;\n  background-color: #fff;\n  border-bottom: 1px solid #ccc;\n  padding: 0;\n}\n.modal-content---3hUtG .modal-header---1FIQ_.padding---2pFRu {\n  padding: 16px 24px;\n}\n.modal-content---3hUtG.hasCloseButton---2jvGR .modal-header---1FIQ_.padding---2pFRu {\n  padding: 16px 56px 16px 24px;\n}\n.modal-content---3hUtG .modal-title---2qyMh {\n  font-weight: 200;\n  color: #222;\n  letter-spacing: -0.02em;\n  font-size: 18px;\n}\n.modal-content---3hUtG .modal-title---2qyMh.ellipsis---3BkJT {\n  overflow: hidden;\n  -o-text-overflow: ellipsis;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.modal-content---3hUtG .modal-body---22INy {\n  position: relative;\n  padding: 0;\n}\n.modal-content---3hUtG .modal-body---22INy.padding---2pFRu {\n  padding: 54px 24px 16px 24px;\n}\n.modal-content---3hUtG .modal-header---1FIQ_ + .modal-body---22INy.padding---2pFRu {\n  padding: 16px 24px;\n}\n.modal-content---3hUtG .modal-footer---3bXnF {\n  min-height: 56px;\n  margin-top: 0;\n  text-align: right;\n  background-color: #eee;\n  padding: 0;\n}\n.modal-content---3hUtG .modal-footer---3bXnF.padding---2pFRu {\n  padding: 12px 24px;\n}\n.modal-content---3hUtG .modal-footer---3bXnF button {\n  min-width: 80px;\n}\n.modal-content---3hUtG .modal-footer---3bXnF button + button {\n  margin-left: 8px;\n}\n", ""]);
 
 // exports
 exports.locals = {
@@ -21719,11 +21719,13 @@ var customStyles = {
         boxShadow: '0 4px 16px rgba(0, 0, 0, .5)',
         border: '1px solid #ccc',
         borderRadius: 0,
+        position: 'absolute',
         top: '50%',
         left: '50%',
         right: 'auto',
         bottom: 'auto',
         padding: 0,
+        overflow: null, // Unset "overflow: auto" property
         msTransform: 'translate(-50%, -50%)', // IE9
         transform: 'translate(-50%, -50%)'
     }
@@ -22464,4 +22466,4 @@ _reactDom2.default.render(_react2.default.createElement(App, null), document.get
 /***/ })
 
 /******/ });
-//# sourceMappingURL=bundle.js.map?c96ddf2f5f0dfb09c46a
+//# sourceMappingURL=bundle.js.map?8afea790bbe8e1255e33

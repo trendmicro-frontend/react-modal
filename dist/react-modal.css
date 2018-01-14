@@ -1,4 +1,4 @@
-/*! react-modal v1.0.0 | (c) 2018 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-modal */
+/*! react-modal v1.0.1 | (c) 2018 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-modal */
 .modal---modal-content---3pwnC {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -71,6 +71,7 @@
   opacity: 1;
   -ms-filter: none;
   filter: none;
+  outline: 0;
 }
 .modal---modal-content---3pwnC .modal---modal-header---2YL1L {
   min-height: 54px;
