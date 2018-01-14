@@ -1,6 +1,6 @@
 {
   "name": "@trendmicro/react-modal",
-  "description": "Trend Micro Components: React Modal",
+  "description": "React Modal component",
   "authors": [
     {
       "name": "Cheton Wu",
