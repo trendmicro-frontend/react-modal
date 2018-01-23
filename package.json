@@ -53,10 +53,10 @@
     "prop-types": "^15.6.0"
   },
   "devDependencies": {
-    "@trendmicro/react-buttons": "~1.2.1",
+    "@trendmicro/react-buttons": "~1.3.0",
     "babel-cli": "~6.26.0",
     "babel-core": "~6.26.0",
-    "babel-eslint": "~8.1.2",
+    "babel-eslint": "~8.2.1",
     "babel-loader": "~7.1.2",
     "babel-plugin-transform-decorators-legacy": "~1.3.4",
     "babel-preset-env": "^1.6.1",
@@ -65,10 +65,10 @@
     "clean-css": "~4.1.9",
     "clean-css-cli": "~4.1.10",
     "coveralls": "~3.0.0",
-    "css-loader": "~0.28.7",
-    "enzyme": "~3.2.0",
+    "css-loader": "~0.28.9",
+    "enzyme": "~3.3.0",
     "enzyme-adapter-react-16": "~1.1.1",
-    "eslint": "~4.14.0",
+    "eslint": "~4.16.0",
     "eslint-config-trendmicro": "~1.3.0",
     "eslint-loader": "~1.9.0",
     "eslint-plugin-import": "~2.8.0",
@@ -78,8 +78,8 @@
     "file-loader": "~1.1.6",
     "find-imports": "~0.5.2",
     "html-webpack-plugin": "~2.30.1",
-    "http-server": "~0.10.0",
-    "jsdom": "~11.5.1",
+    "http-server": "~0.11.1",
+    "jsdom": "~11.6.0",
     "nib": "~1.1.2",
     "react": "^0.14.0 || >=15.0.0",
     "react-dom": "^0.14.0 || >=15.0.0",
@@ -91,6 +91,6 @@
     "trendmicro-ui": "~0.5.1",
     "url-loader": "~0.6.2",
     "webpack": "~3.10.0",
-    "webpack-dev-server": "~2.9.7"
+    "webpack-dev-server": "~2.11.1"
   }
 }
