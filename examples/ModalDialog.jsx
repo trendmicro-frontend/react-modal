@@ -7,12 +7,13 @@ class ModalDialog extends Component {
     static propTypes = {
         title: PropTypes.any,
         body: PropTypes.any,
+        onDelete: PropTypes.func,
         onSave: PropTypes.func,
         onCancel: PropTypes.func
     };
 
     render() {
-        const { title, body, onSave, onCancel, ...props } = this.props;
+        const { title, body, onDelete, onSave, onCancel, ...props } = this.props;
 
         return (
             <Modal
@@ -29,6 +30,7 @@ class ModalDialog extends Component {
                     {body}
                 </Modal.Body>
                 <Modal.Footer>
+                    <Button btnStyle="danger" className="pull-left" onClick={onDelete}>Delete</Button>
                     <Button btnStyle="primary" onClick={onSave}>Save</Button>
                     <Button onClick={onCancel}>Cancel</Button>
                 </Modal.Footer>

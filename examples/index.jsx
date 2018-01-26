@@ -1,9 +1,11 @@
 import '@trendmicro/react-buttons/dist/react-buttons.css';
 import { Button } from '@trendmicro/react-buttons';
+import chainedFunction from 'chained-function';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Modal from '../src';
 import ModalDialog from './ModalDialog';
+import portal from './portal';
 
 const formBody = (
     <div>
@@ -80,6 +82,34 @@ class App extends Component {
                 {this.state.modal.name &&
                 <ModalDialog
                     {...this.state.modal.params}
+                    onDelete={() => {
+                        portal(({ onClose }) => (
+                            <Modal onClose={onClose} title="2nd">
+                                <Modal.Header>
+                                    Delete
+                                </Modal.Header>
+                                <Modal.Body>
+                                    Are you sure you want to delete this item?
+                                </Modal.Body>
+                                <Modal.Footer>
+                                    <Button
+                                        btnStyle="danger"
+                                        onClick={chainedFunction(
+                                            onClose,
+                                            this.closeModal
+                                        )}
+                                    >
+                                        Yes
+                                    </Button>
+                                    <Button
+                                        onClick={onClose}
+                                    >
+                                        No
+                                    </Button>
+                                </Modal.Footer>
+                            </Modal>
+                        ));
+                    }}
                     onSave={this.closeModal}
                     onCancel={this.closeModal}
                 />

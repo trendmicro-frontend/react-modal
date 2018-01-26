@@ -1,24 +1,59 @@
-import cx from 'classnames';
 import Portal from '@trendmicro/react-portal';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
-import React from 'react';
-import RootCloseWrapper from './RootCloseWrapper';
+import React, { PureComponent } from 'react';
+import ReactDOM from 'react-dom';
 import styles from './index.styl';
 
-const ModalOverlay = ({ disableOverlay, onClose, children }) => (
-    <Portal className={cx(styles.modalOverlay, styles.centered)}>
-        <RootCloseWrapper
-            disabled={disableOverlay}
-            onRootClose={onClose}
-        >
-            {children}
-        </RootCloseWrapper>
-    </Portal>
-);
-
-ModalOverlay.propTypes = {
-    disableOverlay: PropTypes.bool,
-    onClose: PropTypes.func
+const isModifiedEvent = (event) => {
+    return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 };
+
+const isLeftClickEvent = (event) => {
+    return event.button === 0;
+};
+
+class ModalOverlay extends PureComponent {
+    static propTypes = {
+        disableOverlay: PropTypes.bool,
+        onClose: PropTypes.func
+    };
+
+    portalNode = null;
+
+    handleClick = (event) => {
+        const { disableOverlay, onClose } = this.props;
+
+        if (disableOverlay) {
+            return;
+        }
+
+        const isOverlayTarget = (event.target.parentNode === this.portalNode);
+        const canClose = !isModifiedEvent(event) && isLeftClickEvent(event) && isOverlayTarget;
+
+        if (canClose && (typeof onClose === 'function')) {
+            onClose(event);
+        }
+    };
+
+    render() {
+        return (
+            <Portal
+                ref={node => {
+                    if (!node) {
+                        this.portalNode = null;
+                        return;
+                    }
+
+                    this.portalNode = ReactDOM.findDOMNode(node.node);
+                }}
+                className={cx(styles.modalOverlay, styles.centered)}
+                onClick={this.handleClick}
+            >
+                {this.props.children}
+            </Portal>
+        );
+    }
+}
 
 export default ModalOverlay;
