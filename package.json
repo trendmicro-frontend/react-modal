@@ -1,6 +1,6 @@
 {
   "name": "@trendmicro/react-modal",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "React Modal component",
   "main": "lib/index.js",
   "files": [
@@ -49,7 +49,6 @@
   "dependencies": {
     "@trendmicro/react-portal": "^0.4.3",
     "classnames": "^2.2.5",
-    "dom-helpers": "^3.3.1",
     "prop-types": "^15.6.0"
   },
   "devDependencies": {
@@ -62,6 +61,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "~6.24.1",
     "babel-preset-stage-0": "~6.24.1",
+    "chained-function": "~0.5.0",
     "clean-css": "~4.1.9",
     "clean-css-cli": "~4.1.10",
     "coveralls": "~3.0.0",
