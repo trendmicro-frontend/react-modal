@@ -614,6 +614,57 @@ module.exports = _Portal2.default;
 
 /***/ }),
 
+/***/ "../node_modules/chained-function/lib/chained-function.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = function () {
+    for (var _len = arguments.length, funcs = Array(_len), _key = 0; _key < _len; _key++) {
+        funcs[_key] = arguments[_key];
+    }
+
+    return funcs.filter(function (func) {
+        return typeof func === 'function';
+    }).reduce(function (accumulator, func) {
+        if (accumulator === null) {
+            return func;
+        }
+
+        return function chainedFunction() {
+            for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+                args[_key2] = arguments[_key2];
+            }
+
+            accumulator.apply(this, args);
+            func.apply(this, args);
+        };
+    }, null);
+};
+
+/***/ }),
+
+/***/ "../node_modules/chained-function/lib/index.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _chainedFunction = __webpack_require__("../node_modules/chained-function/lib/chained-function.js");
+
+var _chainedFunction2 = _interopRequireDefault(_chainedFunction);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+module.exports = _chainedFunction2.default;
+
+/***/ }),
+
 /***/ "../node_modules/classnames/index.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -803,131 +854,6 @@ function toComment(sourceMap) {
 	return '/*# ' + data + ' */';
 }
 
-
-/***/ }),
-
-/***/ "../node_modules/dom-helpers/events/off.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _inDOM = __webpack_require__("../node_modules/dom-helpers/util/inDOM.js");
-
-var _inDOM2 = _interopRequireDefault(_inDOM);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var off = function off() {};
-if (_inDOM2.default) {
-  off = function () {
-    if (document.addEventListener) return function (node, eventName, handler, capture) {
-      return node.removeEventListener(eventName, handler, capture || false);
-    };else if (document.attachEvent) return function (node, eventName, handler) {
-      return node.detachEvent('on' + eventName, handler);
-    };
-  }();
-}
-
-exports.default = off;
-module.exports = exports['default'];
-
-/***/ }),
-
-/***/ "../node_modules/dom-helpers/events/on.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _inDOM = __webpack_require__("../node_modules/dom-helpers/util/inDOM.js");
-
-var _inDOM2 = _interopRequireDefault(_inDOM);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var on = function on() {};
-if (_inDOM2.default) {
-  on = function () {
-
-    if (document.addEventListener) return function (node, eventName, handler, capture) {
-      return node.addEventListener(eventName, handler, capture || false);
-    };else if (document.attachEvent) return function (node, eventName, handler) {
-      return node.attachEvent('on' + eventName, function (e) {
-        e = e || window.event;
-        e.target = e.target || e.srcElement;
-        e.currentTarget = node;
-        handler.call(node, e);
-      });
-    };
-  }();
-}
-
-exports.default = on;
-module.exports = exports['default'];
-
-/***/ }),
-
-/***/ "../node_modules/dom-helpers/query/contains.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _inDOM = __webpack_require__("../node_modules/dom-helpers/util/inDOM.js");
-
-var _inDOM2 = _interopRequireDefault(_inDOM);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = function () {
-  // HTML DOM and SVG DOM may have different support levels,
-  // so we need to check on context instead of a document root element.
-  return _inDOM2.default ? function (context, node) {
-    if (context.contains) {
-      return context.contains(node);
-    } else if (context.compareDocumentPosition) {
-      return context === node || !!(context.compareDocumentPosition(node) & 16);
-    } else {
-      return fallback(context, node);
-    }
-  } : fallback;
-}();
-
-function fallback(context, node) {
-  if (node) do {
-    if (node === context) return true;
-  } while (node = node.parentNode);
-
-  return false;
-}
-module.exports = exports['default'];
-
-/***/ }),
-
-/***/ "../node_modules/dom-helpers/util/inDOM.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
-module.exports = exports['default'];
 
 /***/ }),
 
@@ -20704,13 +20630,15 @@ exports.default = ModalHeader;
 
 exports.__esModule = true;
 
-var _classnames = __webpack_require__("../node_modules/classnames/index.js");
-
-var _classnames2 = _interopRequireDefault(_classnames);
+var _class, _temp2;
 
 var _reactPortal = __webpack_require__("../node_modules/@trendmicro/react-portal/lib/index.js");
 
 var _reactPortal2 = _interopRequireDefault(_reactPortal);
+
+var _classnames = __webpack_require__("../node_modules/classnames/index.js");
+
+var _classnames2 = _interopRequireDefault(_classnames);
 
 var _propTypes = __webpack_require__("../node_modules/prop-types/index.js");
 
@@ -20720,9 +20648,9 @@ var _react = __webpack_require__("../node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _RootCloseWrapper = __webpack_require__("../src/RootCloseWrapper.jsx");
+var _reactDom = __webpack_require__("../node_modules/react-dom/index.js");
 
-var _RootCloseWrapper2 = _interopRequireDefault(_RootCloseWrapper);
+var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _index = __webpack_require__("../src/index.styl");
 
@@ -20730,29 +20658,77 @@ var _index2 = _interopRequireDefault(_index);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var ModalOverlay = function ModalOverlay(_ref) {
-    var disableOverlay = _ref.disableOverlay,
-        onClose = _ref.onClose,
-        children = _ref.children;
-    return _react2.default.createElement(
-        _reactPortal2.default,
-        { className: (0, _classnames2.default)(_index2.default.modalOverlay, _index2.default.centered) },
-        _react2.default.createElement(
-            _RootCloseWrapper2.default,
-            {
-                disabled: disableOverlay,
-                onRootClose: onClose
-            },
-            children
-        )
-    );
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var isModifiedEvent = function isModifiedEvent(event) {
+    return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 };
 
-ModalOverlay.propTypes = {
+var isLeftClickEvent = function isLeftClickEvent(event) {
+    return event.button === 0;
+};
+
+var ModalOverlay = (_temp2 = _class = function (_PureComponent) {
+    _inherits(ModalOverlay, _PureComponent);
+
+    function ModalOverlay() {
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, ModalOverlay);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, _PureComponent.call.apply(_PureComponent, [this].concat(args))), _this), _this.portalNode = null, _this.handleClick = function (event) {
+            var _this$props = _this.props,
+                disableOverlay = _this$props.disableOverlay,
+                onClose = _this$props.onClose;
+
+
+            if (disableOverlay) {
+                return;
+            }
+
+            var isOverlayTarget = event.target.parentNode === _this.portalNode;
+            var canClose = !isModifiedEvent(event) && isLeftClickEvent(event) && isOverlayTarget;
+
+            if (canClose && typeof onClose === 'function') {
+                onClose(event);
+            }
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    ModalOverlay.prototype.render = function render() {
+        var _this2 = this;
+
+        return _react2.default.createElement(
+            _reactPortal2.default,
+            {
+                ref: function ref(node) {
+                    if (!node) {
+                        _this2.portalNode = null;
+                        return;
+                    }
+
+                    _this2.portalNode = _reactDom2.default.findDOMNode(node.node);
+                },
+                className: (0, _classnames2.default)(_index2.default.modalOverlay, _index2.default.centered),
+                onClick: this.handleClick
+            },
+            this.props.children
+        );
+    };
+
+    return ModalOverlay;
+}(_react.PureComponent), _class.propTypes = {
     disableOverlay: _propTypes2.default.bool,
     onClose: _propTypes2.default.func
-};
-
+}, _temp2);
 exports.default = ModalOverlay;
 
 /***/ }),
@@ -20793,161 +20769,6 @@ var ModalTitle = function ModalTitle(props) {
 };
 
 exports.default = ModalTitle;
-
-/***/ }),
-
-/***/ "../src/RootCloseWrapper.jsx":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _class, _temp;
-
-var _contains = __webpack_require__("../node_modules/dom-helpers/query/contains.js");
-
-var _contains2 = _interopRequireDefault(_contains);
-
-var _on = __webpack_require__("../node_modules/dom-helpers/events/on.js");
-
-var _on2 = _interopRequireDefault(_on);
-
-var _off = __webpack_require__("../node_modules/dom-helpers/events/off.js");
-
-var _off2 = _interopRequireDefault(_off);
-
-var _propTypes = __webpack_require__("../node_modules/prop-types/index.js");
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _react = __webpack_require__("../node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = __webpack_require__("../node_modules/react-dom/index.js");
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var escapeKeyCode = 27;
-
-var ownerDocument = function ownerDocument(node) {
-    return node && node.ownerDocument || document;
-};
-
-var isLeftClickEvent = function isLeftClickEvent(event) {
-    return event.button === 0;
-};
-
-var isModifiedEvent = function isModifiedEvent(event) {
-    return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
-};
-
-// The `<RootCloseWrapper/>` component registers your callback on the document
-// when rendered. Powers the `<Overlay/>` component. This is used achieve modal
-// style behavior where your callback is triggered when the user tries to
-// interact with the rest of the document or hits the `esc` key.
-var RootCloseWrapper = (_temp = _class = function (_React$Component) {
-    _inherits(RootCloseWrapper, _React$Component);
-
-    function RootCloseWrapper(props, context) {
-        _classCallCheck(this, RootCloseWrapper);
-
-        var _this = _possibleConstructorReturn(this, _React$Component.call(this, props, context));
-
-        _this.handleMouseCapture = function (e) {
-            _this.preventMouseRootClose = isModifiedEvent(e) || !isLeftClickEvent(e) || (0, _contains2.default)(_reactDom2.default.findDOMNode(_this), e.target);
-        };
-
-        _this.handleMouse = function (event) {
-            if (!_this.preventMouseRootClose && _this.props.onRootClose) {
-                _this.props.onRootClose(event);
-            }
-        };
-
-        _this.handleKeyUp = function (event) {
-            if (event.keyCode === escapeKeyCode && _this.props.onRootClose) {
-                _this.props.onRootClose(event);
-            }
-        };
-
-        _this.preventMouseRootClose = false;
-        return _this;
-    }
-
-    RootCloseWrapper.prototype.componentDidMount = function componentDidMount() {
-        if (!this.props.disabled) {
-            this.addEventListeners();
-        }
-    };
-
-    RootCloseWrapper.prototype.componentDidUpdate = function componentDidUpdate(prevProps) {
-        if (!this.props.disabled && prevProps.disabled) {
-            this.addEventListeners();
-        } else if (this.props.disabled && !prevProps.disabled) {
-            this.removeEventListeners();
-        }
-    };
-
-    RootCloseWrapper.prototype.componentWillUnmount = function componentWillUnmount() {
-        if (!this.props.disabled) {
-            this.removeEventListeners();
-        }
-    };
-
-    RootCloseWrapper.prototype.addEventListeners = function addEventListeners() {
-        var event = this.props.event;
-
-        var doc = ownerDocument(_reactDom2.default.findDOMNode(this));
-
-        // Use capture for this listener so it fires before React's listener, to
-        // avoid false positives in the contains() check below if the target DOM
-        // element is removed in the React mouse callback.
-        (0, _on2.default)(doc, event, this.handleMouseCapture, true);
-        (0, _on2.default)(doc, event, this.handleMouse);
-        (0, _on2.default)(doc, 'keyup', this.handleKeyUp);
-    };
-
-    RootCloseWrapper.prototype.removeEventListeners = function removeEventListeners() {
-        var event = this.props.event;
-
-        var doc = ownerDocument(_reactDom2.default.findDOMNode(this));
-
-        (0, _off2.default)(doc, event, this.handleMouseCapture, true);
-        (0, _off2.default)(doc, event, this.handleMouse);
-        (0, _off2.default)(doc, 'keyup', this.handleKeyUp);
-    };
-
-    RootCloseWrapper.prototype.render = function render() {
-        return this.props.children;
-    };
-
-    return RootCloseWrapper;
-}(_react2.default.Component), _class.propTypes = {
-    // Callback fired after click or mousedown. Also triggers when user hits `esc`.
-    onRootClose: _propTypes2.default.func,
-
-    // Children to render.
-    children: _propTypes2.default.element,
-
-    // Disable the the RootCloseWrapper, preventing it from triggering `onRootClose`.
-    disabled: _propTypes2.default.bool,
-
-    // Choose which document mouse event to bind to.
-    event: _propTypes2.default.oneOf(['click', 'mousedown'])
-}, _class.defaultProps = {
-    event: 'click'
-}, _temp);
-exports.default = RootCloseWrapper;
 
 /***/ }),
 
@@ -21079,9 +20900,10 @@ var ModalDialog = (_temp = _class = function (_Component) {
         var _props = this.props,
             title = _props.title,
             body = _props.body,
+            onDelete = _props.onDelete,
             onSave = _props.onSave,
             onCancel = _props.onCancel,
-            props = _objectWithoutProperties(_props, ['title', 'body', 'onSave', 'onCancel']);
+            props = _objectWithoutProperties(_props, ['title', 'body', 'onDelete', 'onSave', 'onCancel']);
 
         return _react2.default.createElement(
             _src2.default,
@@ -21108,6 +20930,11 @@ var ModalDialog = (_temp = _class = function (_Component) {
                 null,
                 _react2.default.createElement(
                     _reactButtons.Button,
+                    { btnStyle: 'danger', className: 'pull-left', onClick: onDelete },
+                    'Delete'
+                ),
+                _react2.default.createElement(
+                    _reactButtons.Button,
                     { btnStyle: 'primary', onClick: onSave },
                     'Save'
                 ),
@@ -21124,6 +20951,7 @@ var ModalDialog = (_temp = _class = function (_Component) {
 }(_react.Component), _class.propTypes = {
     title: _propTypes2.default.any,
     body: _propTypes2.default.any,
+    onDelete: _propTypes2.default.func,
     onSave: _propTypes2.default.func,
     onCancel: _propTypes2.default.func
 }, _temp);
@@ -21143,6 +20971,10 @@ __webpack_require__("../node_modules/@trendmicro/react-buttons/dist/react-button
 
 var _reactButtons = __webpack_require__("../node_modules/@trendmicro/react-buttons/lib/index.js");
 
+var _chainedFunction = __webpack_require__("../node_modules/chained-function/lib/index.js");
+
+var _chainedFunction2 = _interopRequireDefault(_chainedFunction);
+
 var _react = __webpack_require__("../node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
@@ -21158,6 +20990,10 @@ var _src2 = _interopRequireDefault(_src);
 var _ModalDialog = __webpack_require__("./ModalDialog.jsx");
 
 var _ModalDialog2 = _interopRequireDefault(_ModalDialog);
+
+var _portal = __webpack_require__("./portal.jsx");
+
+var _portal2 = _interopRequireDefault(_portal);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21274,6 +21110,44 @@ var App = function (_Component) {
             'div',
             { className: 'container-fluid text-left' },
             this.state.modal.name && _react2.default.createElement(_ModalDialog2.default, _extends({}, this.state.modal.params, {
+                onDelete: function onDelete() {
+                    (0, _portal2.default)(function (_ref) {
+                        var onClose = _ref.onClose;
+                        return _react2.default.createElement(
+                            _src2.default,
+                            { onClose: onClose, title: '2nd' },
+                            _react2.default.createElement(
+                                _src2.default.Header,
+                                null,
+                                'Delete'
+                            ),
+                            _react2.default.createElement(
+                                _src2.default.Body,
+                                null,
+                                'Are you sure you want to delete this item?'
+                            ),
+                            _react2.default.createElement(
+                                _src2.default.Footer,
+                                null,
+                                _react2.default.createElement(
+                                    _reactButtons.Button,
+                                    {
+                                        btnStyle: 'danger',
+                                        onClick: (0, _chainedFunction2.default)(onClose, _this2.closeModal)
+                                    },
+                                    'Yes'
+                                ),
+                                _react2.default.createElement(
+                                    _reactButtons.Button,
+                                    {
+                                        onClick: onClose
+                                    },
+                                    'No'
+                                )
+                            )
+                        );
+                    });
+                },
                 onSave: this.closeModal,
                 onCancel: this.closeModal
             })),
@@ -21591,7 +21465,56 @@ var App = function (_Component) {
 
 _reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('container'));
 
+/***/ }),
+
+/***/ "./portal.jsx":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _react = __webpack_require__("../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__("../node_modules/react-dom/index.js");
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (Component) {
+    var node = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+    return new Promise(function (resolve, reject) {
+        var defaultNode = null;
+
+        if (!node) {
+            defaultNode = document.createElement('div');
+            defaultNode.setAttribute('data-portal', '');
+            document && document.body && document.body.appendChild(defaultNode);
+        }
+
+        _reactDom2.default.render(_react2.default.createElement(Component, {
+            onClose: function onClose() {
+                setTimeout(function () {
+                    if (node) {
+                        _reactDom2.default.unmountComponentAtNode(node);
+                    } else if (defaultNode) {
+                        _reactDom2.default.unmountComponentAtNode(defaultNode);
+                        document && document.body && document.body.removeChild(defaultNode);
+                        defaultNode = null;
+                    }
+
+                    resolve();
+                }, 0);
+            }
+        }), node || defaultNode);
+    });
+};
+
 /***/ })
 
 /******/ });
-//# sourceMappingURL=bundle.js.map?2af404215c7c529b22b6
+//# sourceMappingURL=bundle.js.map?ec7484910577dd99f0b6
