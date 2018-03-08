@@ -20282,13 +20282,15 @@ var Modal = (_temp2 = _class = function (_PureComponent) {
 
     Modal.prototype.render = function render() {
         var _props = this.props,
-            disableOverlay = _props.disableOverlay,
             onClose = _props.onClose,
             show = _props.show,
             showCloseButton = _props.showCloseButton,
             showOverlay = _props.showOverlay,
+            disableOverlay = _props.disableOverlay,
+            overlayClassName = _props.overlayClassName,
+            overlayStyle = _props.overlayStyle,
             size = _props.size,
-            props = _objectWithoutProperties(_props, ['disableOverlay', 'onClose', 'show', 'showCloseButton', 'showOverlay', 'size']);
+            props = _objectWithoutProperties(_props, ['onClose', 'show', 'showCloseButton', 'showOverlay', 'disableOverlay', 'overlayClassName', 'overlayStyle', 'size']);
 
         if (!show) {
             return null;
@@ -20306,6 +20308,8 @@ var Modal = (_temp2 = _class = function (_PureComponent) {
         return _react2.default.createElement(
             _ModalOverlay2.default,
             {
+                className: overlayClassName,
+                style: overlayStyle,
                 disableOverlay: disableOverlay,
                 onClose: onClose
             },
@@ -20315,9 +20319,6 @@ var Modal = (_temp2 = _class = function (_PureComponent) {
 
     return Modal;
 }(_react.PureComponent), _class.propTypes = {
-    // Don't close the modal on clicking the overlay. Defaults to `false`.
-    disableOverlay: _propTypes2.default.bool,
-
     // A callback fired on clicking the overlay or the close button (x).
     onClose: _propTypes2.default.func,
 
@@ -20329,6 +20330,15 @@ var Modal = (_temp2 = _class = function (_PureComponent) {
 
     // Display an overlay in the background. Defaults to `true`.
     showOverlay: _propTypes2.default.bool,
+
+    // Don't close the modal on clicking the overlay. Defaults to `false`.
+    disableOverlay: _propTypes2.default.bool,
+
+    // className to assign to modal overlay.
+    overlayClassName: _propTypes2.default.string,
+
+    // style to assign to modal overlay.
+    overlayStyle: _propTypes2.default.object,
 
     // Extra Small: W400 x H240 px (minimum height)
     // Small:       W544 x H304 px (minimum height)
@@ -20630,6 +20640,8 @@ exports.default = ModalHeader;
 
 exports.__esModule = true;
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _class, _temp2;
 
 var _reactPortal = __webpack_require__("../node_modules/@trendmicro/react-portal/lib/index.js");
@@ -20657,6 +20669,8 @@ var _index = __webpack_require__("../src/index.styl");
 var _index2 = _interopRequireDefault(_index);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -20706,9 +20720,13 @@ var ModalOverlay = (_temp2 = _class = function (_PureComponent) {
     ModalOverlay.prototype.render = function render() {
         var _this2 = this;
 
+        var _props = this.props,
+            className = _props.className,
+            props = _objectWithoutProperties(_props, ['className']);
+
         return _react2.default.createElement(
             _reactPortal2.default,
-            {
+            _extends({
                 ref: function ref(node) {
                     if (!node) {
                         _this2.portalNode = null;
@@ -20716,10 +20734,11 @@ var ModalOverlay = (_temp2 = _class = function (_PureComponent) {
                     }
 
                     _this2.portalNode = _reactDom2.default.findDOMNode(node.node);
-                },
-                className: (0, _classnames2.default)(_index2.default.modalOverlay, _index2.default.centered),
+                }
+            }, props, {
+                className: (0, _classnames2.default)(className, _index2.default.modalOverlay, _index2.default.centered),
                 onClick: this.handleClick
-            },
+            }),
             this.props.children
         );
     };
@@ -21517,4 +21536,4 @@ exports.default = function (Component) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=bundle.js.map?ec7484910577dd99f0b6
+//# sourceMappingURL=bundle.js.map?50e5bec724f4afd6cfc1

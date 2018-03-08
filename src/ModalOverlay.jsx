@@ -37,6 +37,8 @@ class ModalOverlay extends PureComponent {
     };
 
     render() {
+        const { className, ...props } = this.props;
+
         return (
             <Portal
                 ref={node => {
@@ -47,7 +49,8 @@ class ModalOverlay extends PureComponent {
 
                     this.portalNode = ReactDOM.findDOMNode(node.node);
                 }}
-                className={cx(styles.modalOverlay, styles.centered)}
+                {...props}
+                className={cx(className, styles.modalOverlay, styles.centered)}
                 onClick={this.handleClick}
             >
                 {this.props.children}

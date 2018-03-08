@@ -173,11 +173,13 @@ export default ModalWrapper;
 
 Name | Type | Default | Description
 :--- | :--- | :------ | :----------
-disableOverlay | Boolean | false | Don't close the modal on clicking the overlay. Defaults to `false`.
 onClose | Function | | A callback fired on clicking the overlay or the close button (x).
 show | Boolean | true | Whether the modal is visible.
 showCloseButton | Boolean | true | Whether the close button (x) is visible.
 showOverlay | Boolean | true | Display an overlay in the background. Defaults to `true`.
+disableOverlay | Boolean | false | Don't close the modal on clicking the overlay. Defaults to `false`.
+overlayClassName | String | | className to assign to modal overlay.
+overlayStyle | Object | | style to assign to modal overlay.
 size | String | '' | One of: 'xs', 'sm', 'md', 'lg', 'extra-small', 'small', 'medium', 'large', or an empty string. Defaults to empty string that will automatically resize to fit contents.
 
 ### Size

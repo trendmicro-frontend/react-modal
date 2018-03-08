@@ -7,9 +7,6 @@ import styles from './index.styl';
 
 class Modal extends PureComponent {
     static propTypes = {
-        // Don't close the modal on clicking the overlay. Defaults to `false`.
-        disableOverlay: PropTypes.bool,
-
         // A callback fired on clicking the overlay or the close button (x).
         onClose: PropTypes.func,
 
@@ -21,6 +18,15 @@ class Modal extends PureComponent {
 
         // Display an overlay in the background. Defaults to `true`.
         showOverlay: PropTypes.bool,
+
+        // Don't close the modal on clicking the overlay. Defaults to `false`.
+        disableOverlay: PropTypes.bool,
+
+        // className to assign to modal overlay.
+        overlayClassName: PropTypes.string,
+
+        // style to assign to modal overlay.
+        overlayStyle: PropTypes.object,
 
         // Extra Small: W400 x H240 px (minimum height)
         // Small:       W544 x H304 px (minimum height)
@@ -79,11 +85,13 @@ class Modal extends PureComponent {
     }
     render() {
         const {
-            disableOverlay,
             onClose,
             show,
             showCloseButton,
             showOverlay,
+            disableOverlay,
+            overlayClassName,
+            overlayStyle,
             size,
             ...props
         } = this.props;
@@ -104,6 +112,8 @@ class Modal extends PureComponent {
 
         return (
             <ModalOverlay
+                className={overlayClassName}
+                style={overlayStyle}
                 disableOverlay={disableOverlay}
                 onClose={onClose}
             >
