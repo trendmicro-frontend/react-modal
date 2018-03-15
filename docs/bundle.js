@@ -68,30 +68,49 @@
 /***/ "../node_modules/@trendmicro/react-buttons/dist/react-buttons.css":
 /***/ (function(module, exports, __webpack_require__) {
 
-// style-loader: Adds some css to the DOM by adding a <style> tag
 
-// load the styles
 var content = __webpack_require__("../node_modules/css-loader/index.js!../node_modules/@trendmicro/react-buttons/dist/react-buttons.css");
+
 if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
+
 var transform;
+var insertInto;
+
+
 
 var options = {"hmr":true}
+
 options.transform = transform
-// add the styles to the DOM
+options.insertInto = undefined;
+
 var update = __webpack_require__("../node_modules/style-loader/lib/addStyles.js")(content, options);
+
 if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
+
 if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../css-loader/index.js!./react-buttons.css", function() {
-			var newContent = require("!!../../../css-loader/index.js!./react-buttons.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
+	module.hot.accept("!!../../../css-loader/index.js!./react-buttons.css", function() {
+		var newContent = require("!!../../../css-loader/index.js!./react-buttons.css");
+
+		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+
+		var locals = (function(a, b) {
+			var key, idx = 0;
+
+			for(key in a) {
+				if(!b || a[key] !== b[key]) return false;
+				idx++;
+			}
+
+			for(key in b) idx--;
+
+			return idx === 0;
+		}(content.locals, newContent.locals));
+
+		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+		update(newContent);
+	});
+
 	module.hot.dispose(function() { update(); });
 }
 
@@ -19742,14 +19761,26 @@ var isOldIE = memoize(function () {
 	return window && document && document.all && !window.atob;
 });
 
+var getTarget = function (target) {
+  return document.querySelector(target);
+};
+
 var getElement = (function (fn) {
 	var memo = {};
 
-	return function(selector) {
-		if (typeof memo[selector] === "undefined") {
-			var styleTarget = fn.call(this, selector);
+	return function(target) {
+                // If passing function in options, then use it for resolve "head" element.
+                // Useful for Shadow Root style i.e
+                // {
+                //   insertInto: function () { return document.querySelector("#foo").shadowRoot }
+                // }
+                if (typeof target === 'function') {
+                        return target();
+                }
+                if (typeof memo[target] === "undefined") {
+			var styleTarget = getTarget.call(this, target);
 			// Special case to return head of iframe instead of iframe itself
-			if (styleTarget instanceof window.HTMLIFrameElement) {
+			if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
 				try {
 					// This will throw an exception if access to iframe is blocked
 					// due to cross-origin restrictions
@@ -19758,13 +19789,11 @@ var getElement = (function (fn) {
 					styleTarget = null;
 				}
 			}
-			memo[selector] = styleTarget;
+			memo[target] = styleTarget;
 		}
-		return memo[selector]
+		return memo[target]
 	};
-})(function (target) {
-	return document.querySelector(target)
-});
+})();
 
 var singleton = null;
 var	singletonCounter = 0;
@@ -19786,7 +19815,7 @@ module.exports = function(list, options) {
 	if (!options.singleton && typeof options.singleton !== "boolean") options.singleton = isOldIE();
 
 	// By default, add <style> tags to the <head> element
-	if (!options.insertInto) options.insertInto = "head";
+        if (!options.insertInto) options.insertInto = "head";
 
 	// By default, add <style> tags to the bottom of the target
 	if (!options.insertAt) options.insertAt = "bottom";
@@ -20154,7 +20183,7 @@ module.exports = function (css) {
 			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
 
 		// already a full url? no change
-		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl)) {
+		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/|\s*$)/i.test(unquotedOrigUrl)) {
 		  return fullMatch;
 		}
 
@@ -20721,8 +20750,9 @@ var ModalOverlay = (_temp2 = _class = function (_PureComponent) {
         var _this2 = this;
 
         var _props = this.props,
+            disableOverlay = _props.disableOverlay,
             className = _props.className,
-            props = _objectWithoutProperties(_props, ['className']);
+            props = _objectWithoutProperties(_props, ['disableOverlay', 'className']);
 
         return _react2.default.createElement(
             _reactPortal2.default,
@@ -20841,30 +20871,49 @@ module.exports = _Modal2.default;
 /***/ "../src/index.styl":
 /***/ (function(module, exports, __webpack_require__) {
 
-// style-loader: Adds some css to the DOM by adding a <style> tag
 
-// load the styles
 var content = __webpack_require__("../node_modules/css-loader/index.js?camelCase&modules&importLoaders=1&localIdentName=[local]---[hash:base64:5]!../node_modules/stylus-loader/index.js!../node_modules/stylint-loader/index.js!../src/index.styl");
+
 if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
+
 var transform;
+var insertInto;
+
+
 
 var options = {"hmr":true}
+
 options.transform = transform
-// add the styles to the DOM
+options.insertInto = undefined;
+
 var update = __webpack_require__("../node_modules/style-loader/lib/addStyles.js")(content, options);
+
 if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
+
 if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js?camelCase&modules&importLoaders=1&localIdentName=[local]---[hash:base64:5]!../node_modules/stylus-loader/index.js!../node_modules/stylint-loader/index.js!./index.styl", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js?camelCase&modules&importLoaders=1&localIdentName=[local]---[hash:base64:5]!../node_modules/stylus-loader/index.js!../node_modules/stylint-loader/index.js!./index.styl");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
+	module.hot.accept("!!../node_modules/css-loader/index.js?camelCase&modules&importLoaders=1&localIdentName=[local]---[hash:base64:5]!../node_modules/stylus-loader/index.js!../node_modules/stylint-loader/index.js!./index.styl", function() {
+		var newContent = require("!!../node_modules/css-loader/index.js?camelCase&modules&importLoaders=1&localIdentName=[local]---[hash:base64:5]!../node_modules/stylus-loader/index.js!../node_modules/stylint-loader/index.js!./index.styl");
+
+		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+
+		var locals = (function(a, b) {
+			var key, idx = 0;
+
+			for(key in a) {
+				if(!b || a[key] !== b[key]) return false;
+				idx++;
+			}
+
+			for(key in b) idx--;
+
+			return idx === 0;
+		}(content.locals, newContent.locals));
+
+		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+		update(newContent);
+	});
+
 	module.hot.dispose(function() { update(); });
 }
 
@@ -21536,4 +21585,4 @@ exports.default = function (Component) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=bundle.js.map?50e5bec724f4afd6cfc1
+//# sourceMappingURL=bundle.js.map?6a3b71b90cc56bdeeff3

@@ -37,7 +37,11 @@ class ModalOverlay extends PureComponent {
     };
 
     render() {
-        const { className, ...props } = this.props;
+        const {
+            disableOverlay, // eslint-disable-line
+            className,
+            ...props
+        } = this.props;
 
         return (
             <Portal
