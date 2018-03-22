@@ -184,13 +184,13 @@ size | String | '' | One of: 'xs', 'sm', 'md', 'lg', 'extra-small', 'small', 'me
 
 ### Size
 
-Size | Dimension
-:--- | :--------
-Auto | 400px (minimum width)
-Extra Small | 400px (fixed width) x 240 px (minimum height)
-Small | 544px (fixed width) x 304 px (minimum height)
-Medium | 688px (fixed width) x 304 px (minimum height)
-Large | 928px (fixed width) x 304 px (minimum height)
+Size | Value | Dimension
+:--- | :---- | :--------
+Auto | '' | 400px (minimum width)
+Extra Small | 'xs', 'extra-small' | 400px (fixed width) x 240 px (minimum height)
+Small | 'sm', 'small' | 544px (fixed width) x 304 px (minimum height)
+Medium | 'md', 'medium' | 688px (fixed width) x 304 px (minimum height)
+Large | 'lg', 'large' | 928px (fixed width) x 304 px (minimum height)
 
 ## License
 
