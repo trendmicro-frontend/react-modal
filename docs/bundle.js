@@ -20491,13 +20491,26 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
+var mapSizeToStyle = function mapSizeToStyle(size) {
+    return {
+        'xs': _index2.default.xs,
+        'sm': _index2.default.sm,
+        'md': _index2.default.md,
+        'lg': _index2.default.lg,
+        'extra-small': _index2.default.xs,
+        'small': _index2.default.sm,
+        'medium': _index2.default.md,
+        'large': _index2.default.lg
+    }[size];
+};
+
 var ModalContent = function ModalContent(_ref) {
     var className = _ref.className,
         size = _ref.size,
         props = _objectWithoutProperties(_ref, ['className', 'size']);
 
     return _react2.default.createElement('div', _extends({}, props, {
-        className: (0, _classnames2.default)(className, _index2.default.modalContent, _index2.default[size])
+        className: (0, _classnames2.default)(className, _index2.default.modalContent, mapSizeToStyle(size))
     }));
 };
 
@@ -21585,4 +21598,4 @@ exports.default = function (Component) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=bundle.js.map?6a3b71b90cc56bdeeff3
+//# sourceMappingURL=bundle.js.map?236fcad81b67ac2c0fcc
