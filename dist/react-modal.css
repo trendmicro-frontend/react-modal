@@ -1,4 +1,4 @@
-/*! react-modal v2.0.5 | (c) 2018 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-modal */
+/*! react-modal v2.1.0 | (c) 2018 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-modal */
 .modal---modal-overlay---3D5Nr {
   position: fixed;
   top: 0;
@@ -21,7 +21,7 @@
 .modal---modal-overlay---3D5Nr.modal---centered---1Tdo5 .modal---modal-content---3pwnC {
   display: inline-block;
   vertical-align: middle;
-  text-align: initial;
+  text-align: left;
 }
 .modal---modal-content---3pwnC {
   -webkit-box-sizing: border-box;
