@@ -64,9 +64,7 @@ class Modal extends PureComponent {
                 type="button"
                 className={styles.close}
                 onClick={this.handleClose}
-            >
-                &times;
-            </button>
+            />
         );
     }
     renderModalContent({ showCloseButton, size, className, children, ...props }) {

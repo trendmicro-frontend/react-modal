@@ -96,15 +96,18 @@
         margin: 0;
         line-height: 20px;
         cursor: pointer;
-        background: transparent;
+        background: transparent url('./close.svg');
         border: 0;
         -webkit-appearance: none;
-        font-size: 30px;
-        font-weight: normal;
-        color: #999999;
         text-shadow: none;
         opacity: 1;
         outline: none;
+        width: 16px;
+        height: 16px;
+        opacity: .5;
+        &:hover, &:focus {
+            opacity: 1;
+        }
     }
 
     .modal-header {
