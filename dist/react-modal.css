@@ -1,4 +1,4 @@
-/*! react-modal v2.1.0 | (c) 2018 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-modal */
+/*! react-modal v2.1.1 | (c) 2018 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-modal */
 .modal---modal-overlay---3D5Nr {
   position: fixed;
   top: 0;
@@ -90,17 +90,25 @@
   margin: 0;
   line-height: 20px;
   cursor: pointer;
-  background: transparent;
+  background: transparent url(data:image/svg+xml;base64,PCEtLSBHZW5lcmF0ZWQgYnkgVHJlbmQgTWljcm8gU3R5bGUgUG9ydGFsIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiPg0KICA8dGl0bGU+Y2xvc2U8L3RpdGxlPg0KICA8cGF0aCBmaWxsPSJyZ2IoMzQsMzQsMzQpIiBkPSJNMTUgMmwtMS0xLTYgNi02LTYtMC45OSAwLjk5IDUuOTkgNi4wMTAtNiA2IDEgMSA2LTYgNiA2IDEtMS02LTYgNi02eiI+PC9wYXRoPg0KPC9zdmc+);
   border: 0;
   -webkit-appearance: none;
-  font-size: 30px;
-  font-weight: normal;
-  color: #999;
   text-shadow: none;
   opacity: 1;
   -ms-filter: none;
   filter: none;
   outline: none;
+  width: 16px;
+  height: 16px;
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+}
+.modal---modal-content---3pwnC .modal---close---28rLZ:hover,
+.modal---modal-content---3pwnC .modal---close---28rLZ:focus {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
 }
 .modal---modal-content---3pwnC .modal---modal-header---2YL1L {
   min-height: 54px;
