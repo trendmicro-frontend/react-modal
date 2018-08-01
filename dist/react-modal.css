@@ -1,4 +1,4 @@
-/*! react-modal v2.1.2 | (c) 2018 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-modal */
+/*! react-modal v2.2.0 | (c) 2018 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-modal */
 .modal---modal-overlay---3D5Nr {
   position: fixed;
   top: 0;
@@ -7,6 +7,8 @@
   right: 0;
   background-color: rgba(51,51,51,0.55);
   z-index: 1050;
+  white-space: nowrap;
+  overflow-x: auto;
 }
 .modal---modal-overlay---3D5Nr.modal---centered---1Tdo5 {
   text-align: center;
