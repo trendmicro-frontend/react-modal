@@ -1,4 +1,4 @@
-/*! react-modal v2.2.1 | (c) 2018 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-modal */
+/*! react-modal v2.2.2 | (c) 2018 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-modal */
 .modal---modal-overlay---3D5Nr {
   position: fixed;
   top: 0;
@@ -37,7 +37,7 @@
   -webkit-box-shadow: 0 4px 16px rgba(0,0,0,0.5);
   box-shadow: 0 4px 16px rgba(0,0,0,0.5);
   min-width: 400px;
-  white-space: initial;
+  white-space: normal;
 }
 .modal---modal-content---3pwnC *,
 .modal---modal-content---3pwnC *:before,
