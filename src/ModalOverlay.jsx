@@ -14,16 +14,16 @@ const isLeftClickEvent = (event) => {
 
 class ModalOverlay extends PureComponent {
     static propTypes = {
-        disableOverlay: PropTypes.bool,
+        disableOverlayClick: PropTypes.bool,
         onClose: PropTypes.func
     };
 
     node = null;
 
     handleClick = (event) => {
-        const { disableOverlay, onClose } = this.props;
+        const { disableOverlayClick, onClose } = this.props;
 
-        if (disableOverlay) {
+        if (disableOverlayClick) {
             return;
         }
 
@@ -37,7 +37,7 @@ class ModalOverlay extends PureComponent {
 
     render() {
         const {
-            disableOverlay, // eslint-disable-line
+            disableOverlayClick, // eslint-disable-line
             onClose, // eslint-disable-line
             className,
             ...props
