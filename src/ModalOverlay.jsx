@@ -1,4 +1,3 @@
-import Portal from '@trendmicro/react-portal';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
@@ -19,7 +18,7 @@ class ModalOverlay extends PureComponent {
         onClose: PropTypes.func
     };
 
-    portalNode = null;
+    node = null;
 
     handleClick = (event) => {
         const { disableOverlay, onClose } = this.props;
@@ -28,7 +27,7 @@ class ModalOverlay extends PureComponent {
             return;
         }
 
-        const isOverlayTarget = (event.target.parentNode === this.portalNode);
+        const isOverlayTarget = (event.target === this.node);
         const canClose = !isModifiedEvent(event) && isLeftClickEvent(event) && isOverlayTarget;
 
         if (canClose && (typeof onClose === 'function')) {
@@ -45,21 +44,21 @@ class ModalOverlay extends PureComponent {
         } = this.props;
 
         return (
-            <Portal
-                ref={node => {
-                    if (!node) {
-                        this.portalNode = null;
+            <div
+                ref={c => {
+                    if (!c) {
+                        this.node = null;
                         return;
                     }
-
-                    this.portalNode = ReactDOM.findDOMNode(node.node);
+                    this.node = ReactDOM.findDOMNode(c);
                 }}
                 {...props}
+                role="presentation"
                 className={cx(className, styles.modalOverlay, styles.centered)}
                 onClick={this.handleClick}
             >
                 {this.props.children}
-            </Portal>
+            </div>
         );
     }
 }
