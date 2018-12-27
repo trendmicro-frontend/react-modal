@@ -1,3 +1,4 @@
+import Portal from '@trendmicro/react-portal';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
@@ -44,6 +45,7 @@ class Modal extends PureComponent {
             'extra-small'
         ])
     };
+
     static defaultProps = {
         disableOverlay: false,
         show: true,
@@ -67,6 +69,7 @@ class Modal extends PureComponent {
             />
         );
     }
+
     renderModalContent({ showCloseButton, size, className, children, ...props }) {
         return (
             <ModalContent
@@ -81,6 +84,7 @@ class Modal extends PureComponent {
             </ModalContent>
         );
     }
+
     render() {
         const {
             onClose,
@@ -109,14 +113,16 @@ class Modal extends PureComponent {
         }
 
         return (
-            <ModalOverlay
-                className={overlayClassName}
-                style={overlayStyle}
-                disableOverlay={disableOverlay}
-                onClose={onClose}
-            >
-                {modalContent}
-            </ModalOverlay>
+            <Portal>
+                <ModalOverlay
+                    className={overlayClassName}
+                    style={overlayStyle}
+                    disableOverlay={disableOverlay}
+                    onClose={onClose}
+                >
+                    {modalContent}
+                </ModalOverlay>
+            </Portal>
         );
     }
 }
