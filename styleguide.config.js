@@ -1,36 +1,18 @@
 const path = require('path');
-const findImports = require('find-imports');
 const stylusLoader = require('stylus-loader');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const nib = require('nib');
 const webpack = require('webpack');
 const pkg = require('./package.json');
-const babelConfig = require('./babel.config');
 
-const publicname = pkg.name.replace(/^@\w+\//, ''); // Strip out "@trendmicro/" from package name
-const banner = [
-    publicname + ' v' + pkg.version,
-    '(c) ' + new Date().getFullYear() + ' Trend Micro Inc.',
-    pkg.license,
-    pkg.homepage
-].join(' | ');
-const localClassPrefix = publicname.replace(/^react-/, ''); // Strip out "react-" from publicname
-
-module.exports = {
-    mode: 'development',
+const webpackConfig = {
+    mode: 'production',
     devtool: 'source-map',
-    entry: {
-        [publicname]: path.resolve(__dirname, 'src/index.js')
+    devServer: {
+        disableHostCheck: true,
+        contentBase: path.resolve(__dirname, 'docs'),
     },
-    output: {
-        path: path.join(__dirname, 'lib'),
-        filename: 'index.js',
-        libraryTarget: 'commonjs2'
-    },
-    externals: []
-        .concat(findImports(['src/**/*.{js,jsx}'], { flatten: true }))
-        .concat(Object.keys(pkg.peerDependencies))
-        .concat(Object.keys(pkg.dependencies)),
+    entry: path.resolve(__dirname, 'src/index.js'),
     module: {
         rules: [
             {
@@ -42,8 +24,7 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 loader: 'babel-loader',
-                exclude: /node_modules/,
-                options: babelConfig
+                exclude: /node_modules/
             },
             {
                 test: /\.styl$/,
@@ -53,7 +34,7 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             modules: true,
-                            localIdentName: `${localClassPrefix}---[local]---[hash:base64:5]`,
+                            localIdentName: '[local]---[hash:base64:5]',
                             camelCase: true,
                             importLoaders: 1
                         }
@@ -102,11 +83,43 @@ module.exports = {
             }
         }),
         new MiniCssExtractPlugin({
-            filename: '../dist/[name].css',
-        }),
-        new webpack.BannerPlugin(banner)
+            filename: '[name].css'
+        })
     ],
     resolve: {
         extensions: ['.js', '.json', '.jsx']
+    }
+};
+
+module.exports = {
+    title: 'React Modal',
+    serverPort: 8080,
+    styleguideDir: 'docs/',
+    webpackConfig: webpackConfig,
+    components: ['src/Modal.jsx'],
+    ribbon: {
+        url: pkg.homepage,
+        text: 'Fork me on GitHub'
+    },
+    require: [
+        '@babel/polyfill',
+        path.resolve(__dirname, 'styleguide/setup.js')
+    ],
+    template: {
+        head: {
+            links: [
+                {
+                    rel: 'stylesheet',
+                    href: 'https://cdn.rawgit.com/trendmicro-frontend/trendmicro-ui/master/dist/css/trendmicro-ui.css'
+                },
+                {
+                    rel: 'stylesheet',
+                    href: 'https://use.fontawesome.com/releases/v5.6.3/css/all.css'
+                }
+            ]
+        }
+    },
+    theme: {
+        maxWidth: 1280
     }
 };
