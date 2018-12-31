@@ -113,7 +113,6 @@ class Modal extends PureComponent {
 
         if (disableOverlay !== undefined) {
             deprecate({
-                componentName: 'Modal',
                 deprecatedPropName: 'disableOverlay',
                 remappedPropName: 'disableOverlayClick',
             });
