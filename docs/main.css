@@ -1,0 +1,162 @@
+.modal-overlay---3D5Nr {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(51,51,51,0.55);
+  z-index: 1050;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+.modal-overlay---3D5Nr.centered---1Tdo5 {
+  text-align: center;
+}
+.modal-overlay---3D5Nr.centered---1Tdo5:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em;
+}
+.modal-overlay---3D5Nr.centered---1Tdo5 .modal-content---3pwnC {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
+}
+.modal-content---3pwnC {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  line-height: 20px;
+  position: relative;
+  display: inline-block;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  -webkit-box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  min-width: 400px;
+  white-space: normal;
+}
+.modal-content---3pwnC *,
+.modal-content---3pwnC *:before,
+.modal-content---3pwnC *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+.modal-content---3pwnC.xs---1z3ff {
+  width: 400px;
+}
+.modal-content---3pwnC.xs---1z3ff .modal-body---2HFnG {
+  min-height: 184px;
+}
+.modal-content---3pwnC.xs---1z3ff .modal-header---2YL1L + .modal-body---2HFnG {
+  min-height: 130px;
+}
+.modal-content---3pwnC.sm---20_2_ {
+  width: 544px;
+}
+.modal-content---3pwnC.sm---20_2_ .modal-body---2HFnG {
+  min-height: 246px;
+}
+.modal-content---3pwnC.sm---20_2_ .modal-header---2YL1L + .modal-body---2HFnG {
+  min-height: 192px;
+}
+.modal-content---3pwnC.md---2-zYL {
+  width: 688px;
+}
+.modal-content---3pwnC.md---2-zYL .modal-body---2HFnG {
+  min-height: 246px;
+}
+.modal-content---3pwnC.md---2-zYL .modal-header---2YL1L + .modal-body---2HFnG {
+  min-height: 192px;
+}
+.modal-content---3pwnC.lg---Hdvxb {
+  width: 928px;
+}
+.modal-content---3pwnC.lg---Hdvxb .modal-body---2HFnG {
+  min-height: 246px;
+}
+.modal-content---3pwnC.lg---Hdvxb .modal-header---2YL1L + .modal-body---2HFnG {
+  min-height: 192px;
+}
+.modal-content---3pwnC.close-button---2UJ1Z .modal-header---2YL1L.padding---2ENnv {
+  padding: 16px 56px 16px 24px;
+}
+.modal-content---3pwnC .close---28rLZ {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  padding: 0;
+  margin: 0;
+  line-height: 20px;
+  cursor: pointer;
+  background: transparent url(data:image/svg+xml;base64,PCEtLSBHZW5lcmF0ZWQgYnkgVHJlbmQgTWljcm8gU3R5bGUgUG9ydGFsIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiPg0KICA8dGl0bGU+Y2xvc2U8L3RpdGxlPg0KICA8cGF0aCBmaWxsPSJyZ2IoMzQsMzQsMzQpIiBkPSJNMTUgMmwtMS0xLTYgNi02LTYtMC45OSAwLjk5IDUuOTkgNi4wMTAtNiA2IDEgMSA2LTYgNiA2IDEtMS02LTYgNi02eiI+PC9wYXRoPg0KPC9zdmc+);
+  border: 0;
+  -webkit-appearance: none;
+  text-shadow: none;
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  outline: none;
+  width: 16px;
+  height: 16px;
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+}
+.modal-content---3pwnC .close---28rLZ:hover,
+.modal-content---3pwnC .close---28rLZ:focus {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.modal-content---3pwnC .modal-header---2YL1L {
+  min-height: 54px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  padding: 0;
+}
+.modal-content---3pwnC .modal-header---2YL1L.padding---2ENnv {
+  padding: 16px 24px;
+}
+.modal-content---3pwnC .modal-title---2JFyt {
+  font-weight: 200;
+  color: #222;
+  letter-spacing: -0.02em;
+  font-size: 18px;
+}
+.modal-content---3pwnC .modal-title---2JFyt.ellipsis---1BpLN {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.modal-content---3pwnC .modal-body---2HFnG {
+  position: relative;
+  padding: 0;
+}
+.modal-content---3pwnC .modal-body---2HFnG.padding---2ENnv {
+  padding: 54px 24px 16px 24px;
+}
+.modal-content---3pwnC .modal-header---2YL1L + .modal-body---2HFnG.padding---2ENnv {
+  padding: 16px 24px;
+}
+.modal-content---3pwnC .modal-footer---20LPi {
+  min-height: 56px;
+  margin-top: 0;
+  text-align: right;
+  background-color: #eee;
+  padding: 0;
+}
+.modal-content---3pwnC .modal-footer---20LPi.padding---2ENnv {
+  padding: 12px 24px;
+}
+.modal-content---3pwnC .modal-footer---20LPi button {
+  min-width: 80px;
+}
+.modal-content---3pwnC .modal-footer---20LPi button + button {
+  margin-left: 8px;
+}
+

@@ -46,8 +46,7 @@
     "portal"
   ],
   "peerDependencies": {
-    "react": "^0.14.0 || >=15.0.0",
-    "react-dom": "^0.14.0 || >=15.0.0"
+    "react": ">=16.3.0"
   },
   "dependencies": {
     "@trendmicro/react-portal": "^1.0.1",

@@ -1,7 +1,6 @@
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import ReactDOM from 'react-dom';
 import styles from './index.styl';
 
 const isModifiedEvent = (event) => {
@@ -18,7 +17,7 @@ class ModalOverlay extends PureComponent {
         onClose: PropTypes.func
     };
 
-    node = null;
+    ref = React.createRef();
 
     handleClick = (event) => {
         const { disableOverlayClick, onClose } = this.props;
@@ -27,7 +26,8 @@ class ModalOverlay extends PureComponent {
             return;
         }
 
-        const isOverlayTarget = (event.target === this.node);
+        const node = this.ref.current;
+        const isOverlayTarget = (event.target === node);
         const canClose = !isModifiedEvent(event) && isLeftClickEvent(event) && isOverlayTarget;
 
         if (canClose && (typeof onClose === 'function')) {
@@ -45,13 +45,7 @@ class ModalOverlay extends PureComponent {
 
         return (
             <div
-                ref={c => {
-                    if (!c) {
-                        this.node = null;
-                        return;
-                    }
-                    this.node = ReactDOM.findDOMNode(c);
-                }}
+                ref={this.ref}
                 {...props}
                 role="presentation"
                 className={cx(className, styles.modalOverlay, styles.centered)}
