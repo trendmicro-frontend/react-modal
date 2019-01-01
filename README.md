@@ -105,6 +105,7 @@ class ModalWrapper extends PureComponent {
     static propTypes = {
         ...Modal.propTypes
     };
+
     static defaultProps = {
         ...Modal.defaultProps
     };
@@ -118,12 +119,15 @@ class ModalWrapper extends PureComponent {
             }
         }
     }
+
     componentDidMount() {
         this.changeBodyStyle();
     }
+
     componentWillUnmount() {
         this.restoreBodyStyle();
     }
+
     changeBodyStyle() {
         if (bodyStyle) {
             return;
@@ -135,6 +139,7 @@ class ModalWrapper extends PureComponent {
         };
         body.style.overflowY = 'hidden';
     }
+
     restoreBodyStyle() {
         if (bodyStyle) {
             const body = document.querySelector('body');
@@ -142,6 +147,7 @@ class ModalWrapper extends PureComponent {
             bodyStyle = null;
         }
     }
+
     render() {
         const { onClose, ...props } = this.props;
 
