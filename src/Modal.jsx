@@ -6,6 +6,18 @@ import ModalOverlay from './ModalOverlay';
 import ModalContent from './ModalContent';
 import styles from './index.styl';
 
+const deprecate = ({ deprecatedPropName, remappedPropName }) => {
+    if (remappedPropName) {
+        console.warn(`Warning: the "${deprecatedPropName}" prop is deprecated. Use "${remappedPropName}" instead.`);
+        return;
+    }
+
+    console.warn(`Warning: the "${deprecatedPropName}" prop is deprecated.`);
+};
+
+/**
+ * @example ../styleguide/Modal.md
+ */
 class Modal extends PureComponent {
     static propTypes = {
         // A callback fired on clicking the overlay or the close button (x).
@@ -21,7 +33,7 @@ class Modal extends PureComponent {
         showOverlay: PropTypes.bool,
 
         // Don't close the modal on clicking the overlay. Defaults to `false`.
-        disableOverlay: PropTypes.bool,
+        disableOverlayClick: PropTypes.bool,
 
         // className to assign to modal overlay.
         overlayClassName: PropTypes.string,
@@ -47,7 +59,7 @@ class Modal extends PureComponent {
     };
 
     static defaultProps = {
-        disableOverlay: false,
+        disableOverlayClick: false,
         show: true,
         showCloseButton: true,
         showOverlay: true,
@@ -86,17 +98,29 @@ class Modal extends PureComponent {
     }
 
     render() {
-        const {
+        let {
             onClose,
             show,
             showCloseButton,
             showOverlay,
-            disableOverlay,
+            disableOverlay, // deprecated prop
+            disableOverlayClick,
             overlayClassName,
             overlayStyle,
             size,
             ...props
         } = this.props;
+
+        if (disableOverlay !== undefined) {
+            deprecate({
+                deprecatedPropName: 'disableOverlay',
+                remappedPropName: 'disableOverlayClick',
+            });
+
+            if (disableOverlay && disableOverlayClick === false) {
+                disableOverlayClick = true;
+            }
+        }
 
         if (!show) {
             return null;
@@ -117,7 +141,7 @@ class Modal extends PureComponent {
                 <ModalOverlay
                     className={overlayClassName}
                     style={overlayStyle}
-                    disableOverlay={disableOverlay}
+                    disableOverlayClick={disableOverlayClick}
                     onClose={onClose}
                 >
                     {modalContent}

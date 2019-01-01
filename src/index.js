@@ -13,4 +13,4 @@ Modal.Title = Title;
 Modal.Body = Body;
 Modal.Footer = Footer;
 
-module.exports = Modal;
+export default Modal;

@@ -105,6 +105,7 @@ class ModalWrapper extends PureComponent {
     static propTypes = {
         ...Modal.propTypes
     };
+
     static defaultProps = {
         ...Modal.defaultProps
     };
@@ -118,12 +119,15 @@ class ModalWrapper extends PureComponent {
             }
         }
     }
+
     componentDidMount() {
         this.changeBodyStyle();
     }
+
     componentWillUnmount() {
         this.restoreBodyStyle();
     }
+
     changeBodyStyle() {
         if (bodyStyle) {
             return;
@@ -135,6 +139,7 @@ class ModalWrapper extends PureComponent {
         };
         body.style.overflowY = 'hidden';
     }
+
     restoreBodyStyle() {
         if (bodyStyle) {
             const body = document.querySelector('body');
@@ -142,6 +147,7 @@ class ModalWrapper extends PureComponent {
             bodyStyle = null;
         }
     }
+
     render() {
         const { onClose, ...props } = this.props;
 
@@ -177,7 +183,7 @@ onClose | Function | | A callback fired on clicking the overlay or the close but
 show | Boolean | true | Whether the modal is visible.
 showCloseButton | Boolean | true | Whether the close button (x) is visible.
 showOverlay | Boolean | true | Display an overlay in the background. Defaults to `true`.
-disableOverlay | Boolean | false | Don't close the modal on clicking the overlay. Defaults to `false`.
+disableOverlayClick | Boolean | false | Don't close the modal on clicking the overlay. Defaults to `false`.
 overlayClassName | String | | className to assign to modal overlay.
 overlayStyle | Object | | style to assign to modal overlay.
 size | String | '' | One of: 'xs', 'sm', 'md', 'lg', 'extra-small', 'small', 'medium', 'large', or an empty string. Defaults to empty string that will automatically resize to fit contents.
