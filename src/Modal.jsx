@@ -35,6 +35,8 @@ class Modal extends PureComponent {
         // Don't close the modal on clicking the overlay. Defaults to `false`.
         disableOverlayClick: PropTypes.bool,
 
+        disableOverlay: PropTypes.bool,
+
         // className to assign to modal overlay.
         overlayClassName: PropTypes.string,
 
