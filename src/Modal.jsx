@@ -15,9 +15,6 @@ const deprecate = ({ deprecatedPropName, remappedPropName }) => {
     console.warn(`Warning: the "${deprecatedPropName}" prop is deprecated.`);
 };
 
-/**
- * @example ../styleguide/Modal.md
- */
 class Modal extends PureComponent {
     static propTypes = {
         // A callback fired on clicking the overlay or the close button (x).
@@ -33,6 +30,7 @@ class Modal extends PureComponent {
         showOverlay: PropTypes.bool,
 
         // Don't close the modal on clicking the overlay. Defaults to `false`.
+        disableOverlay: PropTypes.bool, // deprecated
         disableOverlayClick: PropTypes.bool,
 
         // className to assign to modal overlay.
@@ -103,7 +101,7 @@ class Modal extends PureComponent {
             show,
             showCloseButton,
             showOverlay,
-            disableOverlay, // deprecated prop
+            disableOverlay, // deprecated
             disableOverlayClick,
             overlayClassName,
             overlayStyle,
