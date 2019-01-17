@@ -1,0 +1,8 @@
+body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+[class*="modal-content-"] {
+    font-size: 13px;
+    line-height: 20px;
+}

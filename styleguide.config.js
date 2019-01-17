@@ -92,26 +92,40 @@ const webpackConfig = {
 };
 
 module.exports = {
-    title: 'React Modal',
-    serverPort: 8080,
-    styleguideDir: 'docs/',
-    webpackConfig: webpackConfig,
-    components: ['src/Modal.jsx'],
+    title: `React Modal v${pkg.version}`,
+    sections: [
+        {
+            name: 'Modals',
+            content: path.resolve(__dirname, 'styleguide/README.md')
+        },
+        {
+            name: 'Components',
+            components: [
+                'Modal',
+                'ModalHeader',
+                'ModalTitle',
+                'ModalBody',
+                'ModalFooter'
+            ].map(c => path.resolve(__dirname, `src/${c}.jsx`))
+        }
+    ],
+    require: [
+        '@babel/polyfill',
+        path.resolve(__dirname, 'styleguide/setup.js'),
+        path.resolve(__dirname, 'styleguide/styles.css')
+    ],
     ribbon: {
         url: pkg.homepage,
         text: 'Fork me on GitHub'
     },
-    require: [
-        '@babel/polyfill',
-        path.resolve(__dirname, 'styleguide/setup.js')
-    ],
+    serverPort: 8080,
+    exampleMode: 'expand',
+    usageMode: 'expand',
+    showSidebar: true,
+    styleguideDir: 'docs/',
     template: {
         head: {
             links: [
-                {
-                    rel: 'stylesheet',
-                    href: 'https://cdn.rawgit.com/trendmicro-frontend/trendmicro-ui/master/dist/css/trendmicro-ui.css'
-                },
                 {
                     rel: 'stylesheet',
                     href: 'https://use.fontawesome.com/releases/v5.6.3/css/all.css'
@@ -119,7 +133,5 @@ module.exports = {
             ]
         }
     },
-    theme: {
-        maxWidth: 1280
-    }
+    webpackConfig: webpackConfig
 };

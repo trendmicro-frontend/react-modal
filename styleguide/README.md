@@ -1,5 +1,3 @@
-### Modal components
-
 ```jsx
 <Modal showOverlay={false}>
     <Modal.Header>
@@ -8,24 +6,20 @@
         </Modal.Title>
     </Modal.Header>
     <Modal.Body>
-        <div>
-            <div className="form-group">
-                <label>Email address</label>
-                <input
-                    type="email"
-                    className="form-control"
-                    placeholder="Email"
-                />
-            </div>
-            <div className="form-group">
-                <label>Password</label>
-                <input
-                    type="password"
-                    className="form-control"
-                    placeholder="Password"
-                />
-            </div>
-        </div>
+        <FormGroup>
+            <Label>Email address</Label>
+            <Input
+                type="email"
+                placeholder="Email"
+            />
+        </FormGroup>
+        <FormGroup>
+            <Label>Password</Label>
+            <Input
+                type="password"
+                placeholder="Password"
+            />
+        </FormGroup>
     </Modal.Body>
     <Modal.Footer>
         <Button>Cancel</Button>
@@ -57,11 +51,9 @@
 ```jsx
 const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
 
-const openModal = (props) => (event) => {
-    const { size } = { ...props };
-
+const launchModal = ({ size, ...props }) => (event) => {
     portal(({ onClose }) => (
-        <Modal size={size} onClose={onClose}>
+        <Modal {...props} size={size} onClose={onClose}>
             <Modal.Body>
                 {loremIpsum}
             </Modal.Body>
@@ -77,41 +69,72 @@ const openModal = (props) => (event) => {
 <Fragment>
     <Button
         btnStyle="primary"
-        onClick={openModal()}
+        onClick={launchModal({
+            style: { margin: '10px 20px' }
+        })}
     >
-        Auto
+        Launch modal
     </Button>
     <Button
         btnStyle="primary"
-        onClick={openModal({ size: 'xs' })}
+        onClick={launchModal({ size: 'xs' })}
     >
-        Extra Small
+        Extra small modal
     </Button>
     <Button
         btnStyle="primary"
-        onClick={openModal({ size: 'sm' })}
+        onClick={launchModal({ size: 'sm' })}
     >
-        Small
+        Small modal
     </Button>
     <Button
         btnStyle="primary"
-        onClick={openModal({ size: 'md' })}
+        onClick={launchModal({ size: 'md' })}
     >
-        Medium
+        Medium modal
     </Button>
     <Button
         btnStyle="primary"
-        onClick={openModal({ size: 'lg' })}
+        onClick={launchModal({ size: 'lg' })}
     >
-        Large
+        Large modal
     </Button>
 </Fragment>
+```
+
+### Disable overlay click
+
+```jsx
+const launchModal = () => {
+    portal(({ onClose }) => (
+        <Modal
+            disableOverlayClick
+            onClose={onClose}
+        >
+            <Modal.Body>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </Modal.Body>
+            <Modal.Footer>
+                <Button onClick={onClose}>
+                    Close
+                </Button>
+            </Modal.Footer>
+        </Modal>
+    ));
+};
+
+<Button
+    btnStyle="primary"
+    onClick={launchModal}
+>
+    Launch modal
+</Button>
 ```
 
 ### Nested modals
 
 ```jsx
-const openNestedModals = (props) => (event) => {
+const launchModal = (event) => {
     portal(({ onClose }) => (
         <Modal onClose={onClose}>
             <Modal.Header>
@@ -168,8 +191,8 @@ const openNestedModals = (props) => (event) => {
 
 <Button
     btnStyle="primary"
-    onClick={openNestedModals()}
+    onClick={launchModal}
 >
-    Launch Modal
+    Launch modal
 </Button>
 ```
