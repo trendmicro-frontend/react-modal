@@ -96,7 +96,11 @@ module.exports = {
     sections: [
         {
             name: 'Modals',
-            content: path.resolve(__dirname, 'styleguide/README.md')
+            content: path.resolve(__dirname, 'styleguide/examples/Modal.md')
+        },
+        {
+            name: 'Context Modals',
+            content: path.resolve(__dirname, 'styleguide/examples/ContextModal.md')
         },
         {
             name: 'Components',
@@ -119,7 +123,7 @@ module.exports = {
         text: 'Fork me on GitHub'
     },
     serverPort: 8080,
-    exampleMode: 'expand',
+    exampleMode: 'collapse',
     usageMode: 'expand',
     showSidebar: true,
     styleguideDir: 'docs/',

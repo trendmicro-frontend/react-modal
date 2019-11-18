@@ -9,7 +9,7 @@ import FadeOut from './components/FadeOut';
 import FormGroup from './components/FormGroup';
 import Input from './components/Input';
 import Label from './components/Label';
-import Modal from '../src';
+import Modal, { ModalProvider, ModalConsumer, ModalRoot, useModal } from '../src';
 import portal from './portal';
 
 global.Fragment = Fragment;
@@ -20,4 +20,8 @@ global.FormGroup = FormGroup;
 global.Input = Input;
 global.Label = Label;
 global.Modal = Modal;
+global.ModalProvider = ModalProvider;
+global.ModalConsumer = ModalConsumer;
+global.ModalRoot = ModalRoot;
+global.useModal = useModal;
 global.portal = portal;
