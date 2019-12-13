@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import ModalOverlay from './ModalOverlay';
 import ModalContent from './ModalContent';
+import { ModalSettingsContext } from './ModalContext';
 import styles from './index.styl';
 
 const deprecate = ({ deprecatedPropName, remappedPropName }) => {
@@ -15,7 +16,7 @@ const deprecate = ({ deprecatedPropName, remappedPropName }) => {
     console.warn(`Warning: the "${deprecatedPropName}" prop is deprecated.`);
 };
 
-class Modal extends PureComponent {
+class Child extends PureComponent {
     static propTypes = {
         // A callback fired on clicking the overlay or the close button (x).
         onClose: PropTypes.func,
@@ -148,5 +149,26 @@ class Modal extends PureComponent {
         );
     }
 }
+
+const Modal = (props) => (
+    <ModalSettingsContext.Consumer>
+        {(settings) => {
+            const {
+                showCloseButton = true,
+                showOverlay = true,
+                disableOverlayClick = false,
+            } = { ...settings };
+
+            return (
+                <Child
+                    showCloseButton={showCloseButton}
+                    showOverlay={showOverlay}
+                    disableOverlayClick={disableOverlayClick}
+                    {...props}
+                />
+            );
+        }}
+    </ModalSettingsContext.Consumer>
+);
 
 export default Modal;
