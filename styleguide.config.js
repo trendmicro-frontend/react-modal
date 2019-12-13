@@ -95,12 +95,16 @@ module.exports = {
     title: `React Modal v${pkg.version}`,
     sections: [
         {
-            name: 'Modals',
-            content: path.resolve(__dirname, 'styleguide/examples/Modal.md')
+            name: 'Getting Started',
+            content: path.resolve(__dirname, 'styleguide/examples/GettingStarted.md'),
         },
         {
-            name: 'Context Modals',
-            content: path.resolve(__dirname, 'styleguide/examples/ContextModal.md')
+            name: 'Context API',
+            content: path.resolve(__dirname, 'styleguide/examples/ContextAPI.md'),
+        },
+        {
+            name: 'Hook API',
+            content: path.resolve(__dirname, 'styleguide/examples/HookAPI.md'),
         },
         {
             name: 'Components',
@@ -109,21 +113,24 @@ module.exports = {
                 'ModalHeader',
                 'ModalTitle',
                 'ModalBody',
-                'ModalFooter'
-            ].map(c => path.resolve(__dirname, `src/${c}.jsx`))
-        }
+                'ModalFooter',
+                'ModalContext',
+                'ModalRoot',
+                'ModalOverlay',
+            ].map(c => path.resolve(__dirname, `src/${c}.jsx`)),
+        },
     ],
     require: [
         '@babel/polyfill',
         path.resolve(__dirname, 'styleguide/setup.js'),
-        path.resolve(__dirname, 'styleguide/styles.css')
+        path.resolve(__dirname, 'styleguide/styles.css'),
     ],
     ribbon: {
         url: pkg.homepage,
-        text: 'Fork me on GitHub'
+        text: 'Fork me on GitHub',
     },
     serverPort: 8080,
-    exampleMode: 'collapse',
+    exampleMode: 'expand',
     usageMode: 'expand',
     showSidebar: true,
     styleguideDir: 'docs/',
@@ -132,10 +139,10 @@ module.exports = {
             links: [
                 {
                     rel: 'stylesheet',
-                    href: 'https://use.fontawesome.com/releases/v5.6.3/css/all.css'
+                    href: 'https://use.fontawesome.com/releases/v5.6.3/css/all.css',
                 }
             ]
         }
     },
-    webpackConfig: webpackConfig
+    webpackConfig: webpackConfig,
 };
